@@ -112,3 +112,4 @@ This document summerize the whole project, including the requirements specificat
 - [Raspberry Pi UPS: A Very Simple Solution](http://homediyelectronics.com/projects/raspberrypi/ups/)
 - [Belkin Universal UPS protocol description](http://www.mscs.dal.ca/~selinger/ups/belkin-universal-ups.html)
 - [Network UPS Tools](https://en.wikipedia.org/wiki/Network_UPS_Tools)
+- [V-USB - A software-only implementation of a low-speed USB device for Atmel’s AVR®](https://www.obdev.at/products/vusb/index.html)
