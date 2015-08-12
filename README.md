@@ -54,7 +54,7 @@ This document summerize the whole project, including the requirements specificat
 
 - Defining the scope for v1.0 product
 
-## Reguirements
+## Requirements
 
 ### Mandatory
 
@@ -84,12 +84,14 @@ This document summerize the whole project, including the requirements specificat
 - In case the shut-down process has been started either intentionally or via power outage, the swithch on/off can be activated only after the ongoing shut-down process successfully finished.
 
 - Display/monitor status:
+
     - LED,
     - software,
     - configurable.
 
 - USB communication channel with serial protocol:
-    -communicates with the host computer,
+
+    - communicates with the host computer,
     - configurability,
     - alert/watch-dog function,
     - log transfer,
