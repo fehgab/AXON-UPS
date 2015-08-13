@@ -7,13 +7,13 @@ AXON-UPS is a sigle-board-computer, which acts as a functional unit.
 Its main purpose to provide intelligent UPS functionality to linux based single board computers, such as Raspberry Pi, Banana Pi, Orange Pi, Cubieboard, etc.
 
 This device is a tiny member of the big family of intelligent UPSs that is a wide range of devices from simple desktop variants to the professional server UPSs.
-It is developed as a diploma work, but the developer is willing to create a product, that is able to delivers real values to real customers. So the functionalities of the several releases of the product will be collected from potential users of it.
+It is developed as a thesis work, but the developer is willing to create a product, that is able to delivers real values to real customers. So the functionalities of the several releases of the product will be collected from potential users of it.
     
 This document summerize the whole project, including the requirements specification, the development roadmap and some references to existing alternatives of the product and solutions might worth to study during the design phase.
 
 ## Roadmap
 
-1. Definition of the diploma topic
+1. Definition of the thesis topic
 
     - Deadline: 01.09.2015
 
@@ -40,7 +40,7 @@ This document summerize the whole project, including the requirements specificat
 
     - Manufacturing and assembling the PCBs (prototype)
     - Testing
-    - Complete documentation, finished diplomawork
+    - Completed documentation, finished thesis work
     - Deliver the working v1.0 product
     - Deadline: június 30
 
