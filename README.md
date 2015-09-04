@@ -106,7 +106,7 @@ This document summerize the whole project, including the requirements specificat
 - Supervise and log the outages, brown-outs, 
 - Interrupt jumper/connector  to rPi GPIO, etc.
 - ROS compatible
-- Using solar cells
+- Using solar cells 
 
 ## References
 
