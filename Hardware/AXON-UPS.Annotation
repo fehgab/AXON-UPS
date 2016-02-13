@@ -1,0 +1,13 @@
+[DesignatorManager]
+
+[SheetNumberManager]
+SheetNumberOrder=Display Order
+SheetNumberMethod=Increasing
+DocumentName0=FetController.SchDoc
+UniqueIDPath0=\KSORPXOR
+SheetNumber0=1
+DocumentName1=UPS_controller.SchDoc
+UniqueIDPath1=
+SheetNumber1=2
+
+
