@@ -139,23 +139,6 @@ GenerateClassCluster=0
 DocumentUniqueId=CRRYASTB
 
 [Document7]
-DocumentPath=Powers.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=3
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=HXVISEHS
-
-[Document8]
 DocumentPath=Processor.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -172,7 +155,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NBYMYTXW
 
-[Document9]
+[Document8]
 DocumentPath=ftdi_ok.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -189,24 +172,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ESLSKHLD
 
-[Document10]
-DocumentPath=Volt_meter.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=6
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=TXJMTKBD
-
-[Document11]
+[Document9]
 DocumentPath=MERES.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -223,7 +189,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TMQJAHAP
 
-[Document12]
+[Document10]
 DocumentPath=MERES.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -239,6 +205,23 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
+
+[Document11]
+DocumentPath=Measurements.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=6
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=BXHMTSPB
 
 [Configuration1]
 Name=Default Configuration
