@@ -1,0 +1,10 @@
+Output: BOM_place
+Type  : BOM
+From  : Variant [[No Variations]] of Project [AXON-UPS.PrjPcb]
+   Generated File[BOM_place-AXON-UPS.xls]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 9:50:50 On 2016.03.01.

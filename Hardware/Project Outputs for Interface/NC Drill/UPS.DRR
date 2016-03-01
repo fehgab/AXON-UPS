@@ -1,0 +1,27 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: UPS.PcbDoc   2016.03.01.  9:50:41
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : UPS.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        28mil (0.7112mm)         Round          93               35.26 Inch (895.71 mm)
+T2        30mil (0.762mm)          Round          1                0.00 Inch (0.00 mm)
+T3        35.4mil (0.89916mm)      Round          14               10.00 Inch (254.02 mm)
+T4        39.4mil (1.00076mm)      Round          21               13.33 Inch (338.52 mm)
+T5        43.3mil (1.09982mm)      Round          10               2.14 Inch (54.25 mm)
+T6        48mil (1.2192mm)         Round          2                0.40 Inch (10.16 mm)
+T7        51.2mil (1.30048mm)      Round          60               30.09 Inch (764.28 mm)
+T8        55.1mil (1.39954mm)      Round          12               1.53 Inch (38.95 mm)
+T9        59.1mil (1.50114mm)      Round          16               19.11 Inch (485.43 mm)
+T10       66.9mil (1.69926mm)      Round          9                4.31 Inch (109.47 mm)
+T11       78.7mil (1.99898mm)      Round          10               12.73 Inch (323.44 mm)
+T12       80mil (2.032mm)          Round          2                0.40 Inch (10.16 mm)
+T13       90.6mil (2.30124mm)      Round          6                10.87 Inch (276.02 mm)
+T14       255.9mil (6.49986mm)     Round          1                0.00 Inch (0.00 mm)
+---------------------------------------------------------------------------
+Totals                                            257              140.17 Inch (3560.40 mm)
+
+Total Processing Time (hh:mm:ss) : 00:00:01
