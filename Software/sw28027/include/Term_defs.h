@@ -7,6 +7,9 @@
  *  \version 1.0
  *  \date    2013-1-25
  */
+
+#include "bbx.h"
+
 /*-----------------------------------------------------------------------------*/
 
 #define MAX_CHAR_LEN      11        /*!< Maximal length of the variable name */

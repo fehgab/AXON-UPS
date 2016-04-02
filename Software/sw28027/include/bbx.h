@@ -2,8 +2,6 @@
 #define _BBX_H_
 
 #include "gen_types.h"
-#include "currentdt.h"
-#include "err_hyst.h"
 
 #define BBX_MEM_FRAM		 0
 #define BBX_MEM_SRAM		 1

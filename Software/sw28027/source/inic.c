@@ -1,6 +1,3 @@
-#include "DSP2802x_Device.h"
-#include "DSP2802x_usDelay.h"
-#include "DSP2802x_EPwm_defines.h"
 #include "inic.h"
 
 #pragma CODE_SECTION(InitFlash, "ramfuncs");
@@ -153,25 +150,23 @@ void DeviceInit(void)
 	AdcRegs.INTSEL1N2.bit.INT1CONT  = 0;		// Disable ADCINT1 Continuous mode
   AdcRegs.INTSEL1N2.bit.INT1SEL 	= 1;  	// setup EOC1 to trigger ADCINT1 to fire
   AdcRegs.ADCSOC0CTL.bit.CHSEL 	= 0;			// set SOC0 channel select to ADCINA0
-  AdcRegs.ADCSOC1CTL.bit.CHSEL 	= 8;			// set SOC1 channel select to ADCINB1
-  AdcRegs.ADCSOC2CTL.bit.CHSEL 	= 11;			// set SOC2 channel select to ADCINB3
-  AdcRegs.ADCSOC3CTL.bit.CHSEL 	= 10;			// set SOC3 channel select to ADCINB2
-  AdcRegs.ADCSOC4CTL.bit.CHSEL 	= 15;			// set SOC3 channel select to ADCINB7
+  AdcRegs.ADCSOC1CTL.bit.CHSEL 	= 1;			// set SOC1 channel select to ADCINA1
+  AdcRegs.ADCSOC2CTL.bit.CHSEL 	= 2;			// set SOC2 channel select to ADCINA2
+  AdcRegs.ADCSOC3CTL.bit.CHSEL 	= 3;			// set SOC3 channel select to ADCINA3
 
+// Set trigger  ePWM1, ADCSOCA
   AdcRegs.ADCSOC0CTL.bit.TRIGSEL 	= 5;    // set SOC0 start trigger on EPWM1A, due to round-robin SOC0 converts first then SOC1
   AdcRegs.ADCSOC1CTL.bit.TRIGSEL 	= 5;    // set SOC1 start trigger on EPWM1A, due to round-robin SOC0 converts first then SOC1
   AdcRegs.ADCSOC2CTL.bit.TRIGSEL 	= 5;    // set SOC2 start trigger on EPWM1A, due to round-robin SOC0 converts first then SOC1
   AdcRegs.ADCSOC3CTL.bit.TRIGSEL 	= 5;    // set SOC2 start trigger on EPWM1A, due to round-robin SOC0 converts first then SOC1
-  AdcRegs.ADCSOC4CTL.bit.TRIGSEL 	= 5;    // set SOC2 start trigger on EPWM1A, due to round-robin SOC0 converts first then SOC1
 
 	AdcRegs.ADCSOC0CTL.bit.ACQPS 	= 6;	// set SOC0 S/H Window to 7 ADC Clock Cycles, (6 ACQPS plus 1)
 	AdcRegs.ADCSOC1CTL.bit.ACQPS 	= 6;	// set SOC1 S/H Window to 7 ADC Clock Cycles, (6 ACQPS plus 1)
 	AdcRegs.ADCSOC2CTL.bit.ACQPS 	= 6;	// set SOC2 S/H Window to 7 ADC Clock Cycles, (6 ACQPS plus 1)
 	AdcRegs.ADCSOC3CTL.bit.ACQPS 	= 6;	// set SOC3 S/H Window to 7 ADC Clock Cycles, (6 ACQPS plus 1)
-	AdcRegs.ADCSOC4CTL.bit.ACQPS 	= 6;	// set SOC3 S/H Window to 7 ADC Clock Cycles, (6 ACQPS plus 1)
 
   //pwm control
-  EPwm1Regs.TBPRD 				= 3000;	// Set period for ePWM1
+  EPwm1Regs.TBPRD 				= 1500;	// Set period for ePWM1 40kHz
   EPwm1Regs.TBCTL.bit.CTRMODE 	= TB_COUNT_UPDOWN;		// count updown
   EPwm1Regs.TBCTL.bit.PHSEN = TB_DISABLE; 						// Master module
   EPwm1Regs.TBCTL.bit.PRDLD = TB_SHADOW;
@@ -202,8 +197,6 @@ void DeviceInit(void)
   EPwm1Regs.ETSEL.bit.SOCASEL	= 2;		// Select SOC from TBCTR=TBPRD
   EPwm1Regs.ETPS.bit.SOCAPRD 	= 1;		// Generate pulse on 1st event
 
-  EPwm1Regs.CMPA.half.CMPA 	= 0;	// Set compare A value
-
 //--------------------------------------------------------------------------------------
 // GPIO (GENERAL PURPOSE I/O) CONFIG
 //--------------------------------------------------------------------------------------
@@ -230,6 +223,27 @@ void DeviceInit(void)
 //	GpioDataRegs.GPACLEAR.bit.GPIO29 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO29 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------
+//  GPIO-12 - PIN FUNCTION = --Spare--
+//	GpioCtrlRegs.GPAMUX2.bit.GPIO12 = 3;	// 0=GPIO, 1=SCIRXA, 2=SDAA, 3=TZ2
+//	GpioCtrlRegs.GPADIR.bit.GPIO12 = 0;		// 1=OUTput,  0=INput
+//	GpioDataRegs.GPACLEAR.bit.GPIO12 = 1;	// uncomment if --> Set Low initially
+//	GpioDataRegs.GPASET.bit.GPIO12 = 1;		// uncomment if --> Set High initially
+
+//--------------------------------------------------------------------------------------
+//  GPIO-16 - PIN FUNCTION = --Spare--
+//	GpioCtrlRegs.GPAMUX2.bit.GPIO16 = 3;	// 0=GPIO, 1=SCIRXA, 2=SDAA, 3=TZ2
+//	GpioCtrlRegs.GPADIR.bit.GPIO16 = 0;		// 1=OUTput,  0=INput
+//	GpioDataRegs.GPACLEAR.bit.GPIO16 = 1;	// uncomment if --> Set Low initially
+//	GpioDataRegs.GPASET.bit.GPIO16 = 1;		// uncomment if --> Set High initially
+
+//--------------------------------------------------------------------------------------
+//  GPIO-17 - PIN FUNCTION = --Spare--
+//	GpioCtrlRegs.GPAMUX2.bit.GPIO17 = 3;	// 0=GPIO, 1=SCIRXA, 2=SDAA, 3=TZ2
+//	GpioCtrlRegs.GPADIR.bit.GPIO17 = 0;		// 1=OUTput,  0=INput
+//	GpioDataRegs.GPACLEAR.bit.GPIO17 = 1;	// uncomment if --> Set Low initially
+//	GpioDataRegs.GPASET.bit.GPIO17 = 1;		// uncomment if --> Set High initially
 
   SetSCITMSmon(&SciaRegs);	//Setup HiTerm communications port
 

@@ -8,6 +8,8 @@
 Uint16 sw_timer_1ms;
 Uint16 adc_int_cnt;
 
+Uint16 pwm_duty;
+
 void ISR_ILLEGAL(void);
 
 __interrupt void cpu_timer0_isr(void)
@@ -20,6 +22,12 @@ __interrupt void cpu_timer0_isr(void)
 
 __interrupt void  adc_isr(void)
 {
+	//Set 0-1500 0->100% duty cycle, 1500 -> 0% duty cycle
+	if (pwm_duty <= 1500 && pwm_duty > 0)
+	{
+		EPwm1Regs.CMPA.half.CMPA 	= pwm_duty;	// Set compare A value
+	}
+
 	adc_int_cnt++;
 
 	bbx_trigger();
@@ -41,6 +49,8 @@ interrupt void ISR_ILLEGAL(void)   // Illegal operation TRAP
 
 void main(void) {
 	EALLOW;
+
+	pwm_duty = 1500;
 
 	DeviceInit();	// Device Life support & GPIO mux settings
 
