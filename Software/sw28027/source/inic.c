@@ -224,9 +224,36 @@ void DeviceInit(void)
 //	GpioDataRegs.GPASET.bit.GPIO29 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
 
+//PWMA1
+//--------------------------------------------------------------------------------------
+//  GPIO-0 - PIN FUNCTION = --Spare--
+	GpioCtrlRegs.GPAMUX1.bit.GPIO0 = 0;	// 0=GPIO, 1=SCITXDA, 2=SCLA, 3=TZ3
+	GpioCtrlRegs.GPADIR.bit.GPIO0 = 1;		// 1=OUTput,  0=INput
+//	GpioDataRegs.GPACLEAR.bit.GPIO0 = 1;	// uncomment if --> Set Low initially
+//	GpioDataRegs.GPASET.bit.GPIO0 = 1;		// uncomment if --> Set High initially
+//--------------------------------------------------------------------------------------
+
+//PWMB1
+//--------------------------------------------------------------------------------------
+//  GPIO-1 - PIN FUNCTION = --Spare--
+	GpioCtrlRegs.GPAMUX1.bit.GPIO1 = 0;	// 0=GPIO, 1=SCITXDA, 2=SCLA, 3=TZ3
+	GpioCtrlRegs.GPADIR.bit.GPIO1 = 1;		// 1=OUTput,  0=INput
+//	GpioDataRegs.GPACLEAR.bit.GPIO1 = 1;	// uncomment if --> Set Low initially
+//	GpioDataRegs.GPASET.bit.GPIO1 = 1;		// uncomment if --> Set High initially
+//--------------------------------------------------------------------------------------
+
+//Switcher
+//--------------------------------------------------------------------------------------
+//  GPIO-2 - PIN FUNCTION = --Spare--
+	GpioCtrlRegs.GPAMUX1.bit.GPIO2 = 0;	// 0=GPIO, 1=SCITXDA, 2=SCLA, 3=TZ3
+	GpioCtrlRegs.GPADIR.bit.GPIO2 = 1;		// 1=OUTput,  0=INput
+	GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;	// uncomment if --> Set Low initially
+//	GpioDataRegs.GPASET.bit.GPIO2 = 1;		// uncomment if --> Set High initially
+//--------------------------------------------------------------------------------------
+
 //--------------------------------------------------------------------------------------
 //  GPIO-12 - PIN FUNCTION = --Spare--
-//	GpioCtrlRegs.GPAMUX2.bit.GPIO12 = 3;	// 0=GPIO, 1=SCIRXA, 2=SDAA, 3=TZ2
+//	GpioCtrlRegs.GPAMUX1.bit.GPIO12 = 3;	// 0=GPIO, 1=SCIRXA, 2=SDAA, 3=TZ2
 //	GpioCtrlRegs.GPADIR.bit.GPIO12 = 0;		// 1=OUTput,  0=INput
 //	GpioDataRegs.GPACLEAR.bit.GPIO12 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO12 = 1;		// uncomment if --> Set High initially

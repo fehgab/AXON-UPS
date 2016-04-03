@@ -1,7 +1,7 @@
 ******************************************************************************
         TMS320C2000 COFF Linker PC v5.0.0                      
 ******************************************************************************
->> Linked Sat Apr 02 13:15:19 2016
+>> Linked Sun Apr 03 20:26:16 2016
 
 OUTPUT FILE NAME:   <debug\sw28027.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 003f0002
@@ -15,7 +15,7 @@ PAGE 0:
   RAMM1                 00000400   00000400  00000021  000003df  RWIX
   OTP                   003d7800   00000400  00000000  00000400  RWIX
   BEGIN                 003f0000   00000002  00000002  00000000  RWIX
-  FLASH                 003f0002   00005ffd  00001ce3  0000431a  RWIX
+  FLASH                 003f0002   00005ffd  00001cf5  00004308  RWIX
   CSM_RSVD              003f7f80   00000076  00000000  00000076  RWIX
   CSM_PWL_P0            003f7ff8   00000008  00000000  00000008  RWIX
   IQTABLES              003fe000   00000b50  00000000  00000b50  RWIX
@@ -77,7 +77,7 @@ codestart
 
 IQmath     0    003f0002    00000000     UNINITIALIZED
 
-.text      0    003f0002    00001613     
+.text      0    003f0002    00001625     
                   003f0002    00000044     rts2800_ml.lib : boot.obj (.text)
                   003f0046    00000019                    : exit.obj (.text)
                   003f005f    00000009                    : _lock.obj (.text)
@@ -90,35 +90,35 @@ IQmath     0    003f0002    00000000     UNINITIALIZED
                   003f0238    00000269     bbx.obj (.text)
                   003f04a1    0000031a     err_hyst.obj (.text)
                   003f07bb    000008b8     HiMon.obj (.text)
-                  003f1073    000001ec     inic.obj (.text)
-                  003f125f    000002c7     i2c.obj (.text)
-                  003f1526    00000056     main.obj (.text)
-                  003f157c    0000005d     Set_save.obj (.text)
-                  003f15d9    00000017     rts2800_ml.lib : fs_cmp.obj (.text)
-                  003f15f0    0000001a                    : l_tofs.obj (.text)
-                  003f160a    0000000b                    : u_div.obj (.text)
+                  003f1073    000001fe     inic.obj (.text)
+                  003f1271    000002c7     i2c.obj (.text)
+                  003f1538    00000056     main.obj (.text)
+                  003f158e    0000005d     Set_save.obj (.text)
+                  003f15eb    00000017     rts2800_ml.lib : fs_cmp.obj (.text)
+                  003f1602    0000001a                    : l_tofs.obj (.text)
+                  003f161c    0000000b                    : u_div.obj (.text)
 
-.econst    0    003f1616    0000044a     
-                  003f1616    0000017c     HiMon.obj (.econst:_vars_misc)
-                  003f1792    00000100     DSP2802x_PieVect.obj (.econst)
-                  003f1892    00000018     HiMon.obj (.econst)
-                  003f18aa    0000010e     HiMon.obj (.econst:_error_descriptor)
-                  003f19b8    0000005a     HiMon.obj (.econst:_mainsm_descriptor)
-                  003f1a12    00000042     HiMon.obj (.econst:_units)
-                  003f1a54    0000000c     HiMon.obj (.econst:_tabtitle)
+.econst    0    003f1628    0000044a     
+                  003f1628    0000017c     HiMon.obj (.econst:_vars_misc)
+                  003f17a4    00000100     DSP2802x_PieVect.obj (.econst)
+                  003f18a4    00000018     HiMon.obj (.econst)
+                  003f18bc    0000010e     HiMon.obj (.econst:_error_descriptor)
+                  003f19ca    0000005a     HiMon.obj (.econst:_mainsm_descriptor)
+                  003f1a24    00000042     HiMon.obj (.econst:_units)
+                  003f1a66    0000000c     HiMon.obj (.econst:_tabtitle)
 
-.cinit     0    003f1a60    00000265     
-                  003f1a60    0000000a     rts2800_ml.lib : exit.obj (.cinit)
-                  003f1a6a    0000000a                    : _lock.obj (.cinit)
-                  003f1a74    0000000d     bbx.obj (.cinit)
-                  003f1a81    0000000d     err_hyst.obj (.cinit)
-                  003f1a8e    0000022c     HiMon.obj (.cinit)
-                  003f1cba    0000000a     Set_save.obj (.cinit)
-                  003f1cc4    00000001     --HOLE-- [fill = 0]
+.cinit     0    003f1a72    00000265     
+                  003f1a72    0000000a     rts2800_ml.lib : exit.obj (.cinit)
+                  003f1a7c    0000000a                    : _lock.obj (.cinit)
+                  003f1a86    0000000d     bbx.obj (.cinit)
+                  003f1a93    0000000d     err_hyst.obj (.cinit)
+                  003f1aa0    0000022c     HiMon.obj (.cinit)
+                  003f1ccc    0000000a     Set_save.obj (.cinit)
+                  003f1cd6    00000001     --HOLE-- [fill = 0]
 
-ramfuncs   0    003f1cc5    00000021     RUN ADDR = 00000400
-                  003f1cc5    00000004     DSP2802x_usDelay.obj (ramfuncs)
-                  003f1cc9    0000001d     inic.obj (ramfuncs)
+ramfuncs   0    003f1cd7    00000021     RUN ADDR = 00000400
+                  003f1cd7    00000004     DSP2802x_usDelay.obj (ramfuncs)
+                  003f1cdb    0000001d     inic.obj (ramfuncs)
 
 csm_rsvd   0    003f7f80    00000000     UNINITIALIZED
 
@@ -292,10 +292,10 @@ address    name
 00000000   .data
 003f0002   .text
 003f0046   C$$EXIT
-003f15d9   FS$$CMP
-003f15f0   L$$TOFS
-003f160a   U$$DIV
-003f160f   U$$MOD
+003f15eb   FS$$CMP
+003f1602   L$$TOFS
+003f161c   U$$DIV
+003f1621   U$$MOD
 003f01fa   _ADCINT1_ISR
 003f01f5   _ADCINT2_ISR
 003f01f0   _ADCINT3_ISR
@@ -309,11 +309,11 @@ address    name
 00000b00   _AdcResult
 003f0238   _CalcTrigValueGreater
 00008d76   _Clock100ms
-003f14e9   _ClockStep
+003f14fb   _ClockStep
 00006400   _Comp1Regs
 00006420   _Comp2Regs
 003f00d4   _ConfigCpuTimer
-003f18a2   _Consy
+003f18b4   _Consy
 00008d50   _CpuTimer0
 00000c00   _CpuTimer0Regs
 00008d40   _CpuTimer1
@@ -354,13 +354,13 @@ address    name
 00006fe0   _GpioIntRegs
 003f0191   _I2CINT1A_ISR
 003f018c   _I2CINT2A_ISR
-003f1384   _I2c
-003f134a   _I2cWrite
+003f1396   _I2c
+003f135c   _I2cWrite
 00007900   _I2caRegs
 003f0187   _ILLEGAL_ISR
 003f0182   _INT13_ISR
 003f017d   _INT14_ISR
-003f1577   _ISR_ILLEGAL
+003f1589   _ISR_ILLEGAL
 003f0099   _InitCpuTimers
 003f0534   _InitErrHyst_dbg
 00000404   _InitFlash
@@ -382,20 +382,20 @@ address    name
 003d7fff   _PartIdRegs
 00000ce0   _PieCtrlRegs
 00000d00   _PieVectTable
-003f1792   _PieVectTableInit
+003f17a4   _PieVectTableInit
 003f0902   _PushCheckSum
 003f016e   _RTOSINT_ISR
-003f1ce6   _RamfuncsLoadEnd
-003f1cc5   _RamfuncsLoadStart
+003f1cf8   _RamfuncsLoadEnd
+003f1cd7   _RamfuncsLoadStart
 00000400   _RamfuncsRunStart
-003f14a6   _RdClock
+003f14b8   _RdClock
 003f04da   _ReadOutErrorHistoryIdx
 003f0169   _SCIRXINTA_ISR
 003f0164   _SCITXINTA_ISR
-003f125f   _SCL_hi
-003f1269   _SCL_lo
-003f1264   _SDA_hi
-003f127e   _SDA_lo
+003f1271   _SCL_hi
+003f127b   _SCL_lo
+003f1276   _SDA_hi
+003f1290   _SDA_lo
 003f015f   _SPIRXINTA_ISR
 003f015a   _SPITXINTA_ISR
 003f04a1   _SaveErrorHistoryData
@@ -403,7 +403,7 @@ address    name
 003f0953   _Serial_cmd_mng
 003f0ca3   _Serial_mng
 003f107b   _SetSCITMSmon
-003f158d   _SetUpByTerminal
+003f159f   _SetUpByTerminal
 00007040   _SpiaRegs
 00007010   _SysCtrlRegs
 00000985   _SysPwrCtrlRegs
@@ -425,8 +425,8 @@ address    name
 003f0119   _USER9_ISR
 003f0114   _WAKEINT_ISR
 003f1073   _WDogDisable
-003f1474   _WrClock
-003f136f   _WriteDAC
+003f1486   _WrClock
+003f1381   _WriteDAC
 003f010f   _XINT1_ISR
 003f010a   _XINT2_ISR
 003f0105   _XINT3_ISR
@@ -438,11 +438,11 @@ ffffffff   ___TI_prof_var_start
 ffffffff   ___binit__
 00000000   ___bss__
 ffffffff   ___c_args__
-003f1a60   ___cinit__
+003f1a72   ___cinit__
 00000000   ___data__
 00000000   ___edata__
 00000000   ___end__
-003f1615   ___etext__
+003f1627   ___etext__
 ffffffff   ___pinit__
 003f0002   ___text__
 003f0068   __args_main
@@ -455,9 +455,9 @@ ffffffff   ___pinit__
 00000050   __stack
 00008d64   __unlock
 003f0046   _abort
-003f133a   _ack
+003f134c   _ack
 00008d80   _adc_int_cnt
-003f154e   _adc_isr
+003f1560   _adc_isr
 00008080   _bbox
 00008040   _bbx
 003f03c2   _bbx_background
@@ -466,10 +466,10 @@ ffffffff   ___pinit__
 00008004   _bbx_mem_length
 00008002   _bbx_mem_type
 003f028b   _bbx_trigger
-003f1332   _bcd2bin
-003f1323   _bin2bcd
-003f1303   _byte_rd
-003f12ca   _byte_wr
+003f1344   _bcd2bin
+003f1335   _bin2bcd
+003f1315   _byte_rd
+003f12dc   _byte_wr
 00008d60   _c_date
 003f0002   _c_int00
 00008d5c   _c_time
@@ -478,10 +478,10 @@ ffffffff   ___pinit__
 0000888b   _ccdat16
 000088a6   _ccdat32
 0000888e   _clen
-003f157c   _convert_partBCD8_to_u8
-003f1542   _cpu_timer0_isr
+003f158e   _convert_partBCD8_to_u8
+003f1554   _cpu_timer0_isr
 00008003   _delme_var
-003f189c   _dev_mode
+003f18ae   _dev_mode
 00008d6e   _eeprom_i2c_hiba_cnt
 00008d6d   _eeprom_iras_ellen_hiba
 00008d6f   _eeprom_iras_ellen_hiba_cim
@@ -491,34 +491,34 @@ ffffffff   ___pinit__
 00008cc0   _eh_push
 00008cc1   _eh_push_SM
 00008cc4   _eh_push_data
-003f189b   _en_fl_bbx
+003f18ad   _en_fl_bbx
 00008d00   _err_hyst
-003f18aa   _error_descriptor
+003f18bc   _error_descriptor
 003f0048   _exit
-003f1898   _f_samp
+003f18aa   _f_samp
 00008d6c   _i2cHibajelzesekLehetnek
-003f12b3   _i2c_force_stop
-003f18a4   _len_ehist
+003f12c5   _i2c_force_stop
+003f18b6   _len_ehist
 00008882   _len_error_descriptor
 00008885   _len_mainsm_descriptor
 00008d58   _load_defv
-003f1526   _main
-003f19b8   _mainsm_descriptor
-003f1894   _max_load_defv
-003f189e   _max_s_date
-003f18a8   _max_s_time
-003f1896   _max_save_var
-003f1892   _max_set_datetm
-003f1895   _min_load_defv
-003f18a0   _min_s_date
-003f18a6   _min_s_time
-003f1897   _min_save_var
-003f1893   _min_set_datetm
-003f1899   _mon_ver
+003f1538   _main
+003f19ca   _mainsm_descriptor
+003f18a6   _max_load_defv
+003f18b0   _max_s_date
+003f18ba   _max_s_time
+003f18a8   _max_save_var
+003f18a4   _max_set_datetm
+003f18a7   _min_load_defv
+003f18b2   _min_s_date
+003f18b8   _min_s_time
+003f18a9   _min_save_var
+003f18a5   _min_set_datetm
+003f18ab   _mon_ver
 00008888   _msg_len
 0000888d   _msg_pos
-003f12a1   _nack
-003f189a   _nr_tabs
+003f12b3   _nack
+003f18ac   _nr_tabs
 00008d77   _ora_hiba_cnt
 0000889a   _pRaw
 00008898   _pTab
@@ -532,15 +532,15 @@ ffffffff   ___pinit__
 000088a0   _serial_nr
 00008d59   _set_datetm
 00008881   _spi_sm
-003f1287   _start
-003f126e   _stop
+003f1299   _start
+003f1280   _stop
 00008d81   _sw_timer_1ms
 000088ae   _swt_fifo
 00008886   _swt_fifo_rd
 00008883   _swt_fifo_wr
 000088aa   _tabptr
 00008880   _tabsize
-003f1a54   _tabtitle
+003f1a66   _tabtitle
 0000888a   _tmp16
 0000889e   _tmp32
 00008d79   _tmp_ora
@@ -559,14 +559,14 @@ ffffffff   ___pinit__
 00008894   _uart_tmt_apos
 00008893   _uart_tmt_len
 00008896   _uart_tmt_pos
-003f1a12   _units
-003f1616   _vars_misc
+003f1a24   _units
+003f1628   _vars_misc
 ffffffff   binit
-003f1a60   cinit
+003f1a72   cinit
 003f0000   code_start
 00000000   edata
 00000000   end
-003f1615   etext
+003f1627   etext
 ffffffff   pinit
 
 
@@ -787,64 +787,64 @@ address    name
 003f10ce   _PLLset
 003f1100   _MemCopy
 003f110f   _DeviceInit
-003f125f   _SCL_hi
-003f1264   _SDA_hi
-003f1269   _SCL_lo
-003f126e   _stop
-003f127e   _SDA_lo
-003f1287   _start
-003f12a1   _nack
-003f12b3   _i2c_force_stop
-003f12ca   _byte_wr
-003f1303   _byte_rd
-003f1323   _bin2bcd
-003f1332   _bcd2bin
-003f133a   _ack
-003f134a   _I2cWrite
-003f136f   _WriteDAC
-003f1384   _I2c
-003f1474   _WrClock
-003f14a6   _RdClock
-003f14e9   _ClockStep
-003f1526   _main
-003f1542   _cpu_timer0_isr
-003f154e   _adc_isr
-003f1577   _ISR_ILLEGAL
-003f157c   _convert_partBCD8_to_u8
-003f158d   _SetUpByTerminal
-003f15d9   FS$$CMP
-003f15f0   L$$TOFS
-003f160a   U$$DIV
-003f160f   U$$MOD
-003f1615   ___etext__
-003f1615   etext
-003f1616   _vars_misc
-003f1792   _PieVectTableInit
-003f1892   _max_set_datetm
-003f1893   _min_set_datetm
-003f1894   _max_load_defv
-003f1895   _min_load_defv
-003f1896   _max_save_var
-003f1897   _min_save_var
-003f1898   _f_samp
-003f1899   _mon_ver
-003f189a   _nr_tabs
-003f189b   _en_fl_bbx
-003f189c   _dev_mode
-003f189e   _max_s_date
-003f18a0   _min_s_date
-003f18a2   _Consy
-003f18a4   _len_ehist
-003f18a6   _min_s_time
-003f18a8   _max_s_time
-003f18aa   _error_descriptor
-003f19b8   _mainsm_descriptor
-003f1a12   _units
-003f1a54   _tabtitle
-003f1a60   ___cinit__
-003f1a60   cinit
-003f1cc5   _RamfuncsLoadStart
-003f1ce6   _RamfuncsLoadEnd
+003f1271   _SCL_hi
+003f1276   _SDA_hi
+003f127b   _SCL_lo
+003f1280   _stop
+003f1290   _SDA_lo
+003f1299   _start
+003f12b3   _nack
+003f12c5   _i2c_force_stop
+003f12dc   _byte_wr
+003f1315   _byte_rd
+003f1335   _bin2bcd
+003f1344   _bcd2bin
+003f134c   _ack
+003f135c   _I2cWrite
+003f1381   _WriteDAC
+003f1396   _I2c
+003f1486   _WrClock
+003f14b8   _RdClock
+003f14fb   _ClockStep
+003f1538   _main
+003f1554   _cpu_timer0_isr
+003f1560   _adc_isr
+003f1589   _ISR_ILLEGAL
+003f158e   _convert_partBCD8_to_u8
+003f159f   _SetUpByTerminal
+003f15eb   FS$$CMP
+003f1602   L$$TOFS
+003f161c   U$$DIV
+003f1621   U$$MOD
+003f1627   ___etext__
+003f1627   etext
+003f1628   _vars_misc
+003f17a4   _PieVectTableInit
+003f18a4   _max_set_datetm
+003f18a5   _min_set_datetm
+003f18a6   _max_load_defv
+003f18a7   _min_load_defv
+003f18a8   _max_save_var
+003f18a9   _min_save_var
+003f18aa   _f_samp
+003f18ab   _mon_ver
+003f18ac   _nr_tabs
+003f18ad   _en_fl_bbx
+003f18ae   _dev_mode
+003f18b0   _max_s_date
+003f18b2   _min_s_date
+003f18b4   _Consy
+003f18b6   _len_ehist
+003f18b8   _min_s_time
+003f18ba   _max_s_time
+003f18bc   _error_descriptor
+003f19ca   _mainsm_descriptor
+003f1a24   _units
+003f1a66   _tabtitle
+003f1a72   ___cinit__
+003f1a72   cinit
+003f1cd7   _RamfuncsLoadStart
+003f1cf8   _RamfuncsLoadEnd
 003f7ff8   _CsmPwl
 ffffffff   ___TI_pprof_out_hndl
 ffffffff   ___TI_prof_var_size
