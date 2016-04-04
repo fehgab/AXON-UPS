@@ -1,0 +1,3317 @@
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE    1
+
+       1              ;***************************************************************
+       2              ;* TMS320C2000 C/C++ Codegen                       PC v5.0.0B2 *
+       3              ;* Date/Time created: Sun Apr 03 20:26:15 2016                 *
+       4              ;***************************************************************
+       5                      .compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=large --quiet --silicon_version
+       6        0002  FP      .set    XAR2
+       7                      .file   "inic.c"
+       8                      .global _sci_ptr_terminal
+       9 00000000       _sci_ptr_terminal:      .usect  ".ebss",2,1,1
+      10                      .sym    _sci_ptr_terminal,_sci_ptr_terminal, 24, 2, 22, _SCI_REGS
+      11              ;       C:\CCStudio_v3.3\C2000\cgtools\bin\opt2000.exe C:\\Users\\FEHR~1\\AppData\\Local\\Temp\\326723 C:\\Us
+      12              ;       C:\CCStudio_v3.3\C2000\cgtools\bin\ac2000.exe -@C:\Users\FEHR~1\AppData\Local\Temp\3267214 
+      13 00000000               .sect   ".text"
+      14                      .global _WDogDisable
+      15                      .sym    _WDogDisable,_WDogDisable, 32, 2, 0
+      16                      .func   339
+      17              
+      18              ;***************************************************************
+      19              ;* FNAME: _WDogDisable                  FR SIZE:   0           *
+      20              ;*                                                             *
+      21              ;* FUNCTION ENVIRONMENT                                        *
+      22              ;*                                                             *
+      23              ;* FUNCTION PROPERTIES                                         *
+      24              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+      25              ;***************************************************************
+      26              
+      27              
+      28              ;***************************************************************
+      29              ;*                                                             *
+      30              ;* Using -g (debug) with optimization (-o2) may disable key op *
+      31              ;*                                                             *
+      32              ;***************************************************************
+      33 00000000       _WDogDisable:
+      34                      .line   2
+      35                      .line   3
+      36 00000000 7622   EALLOW
+      37                      .line   4
+      38 00000001 761F!         MOVW      DP,#_SysCtrlRegs+25
+         00000002 0000 
+      39 00000003 56BF!         MOVB      @_SysCtrlRegs+25,#104,UNC ; |342| 
+         00000004 6819 
+      40                      .line   5
+      41 00000005 761A   EDIS
+      42                      .line   6
+      43 00000006 FF69          SPM       #0
+      44 00000007 0006          LRETR
+      45                      ; return occurs
+      46                      .endfunc        344,000000000h,0
+      47 00000008               .sect   ".text"
+      48                      .global _SetSCITMSmon
+      49                      .sym    _SetSCITMSmon,_SetSCITMSmon, 32, 2, 0
+      50                      .func   282
+      51              
+      52              ;***************************************************************
+      53              ;* FNAME: _SetSCITMSmon                 FR SIZE:   0           *
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE    2
+
+      54              ;*                                                             *
+      55              ;* FUNCTION ENVIRONMENT                                        *
+      56              ;*                                                             *
+      57              ;* FUNCTION PROPERTIES                                         *
+      58              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+      59              ;***************************************************************
+      60              
+      61              
+      62              ;***************************************************************
+      63              ;*                                                             *
+      64              ;* Using -g (debug) with optimization (-o2) may disable key op *
+      65              ;*                                                             *
+      66              ;***************************************************************
+      67 00000008       _SetSCITMSmon:
+      68                      .line   2
+      69              ;* AR4   assigned to _ptr
+      70                      .sym    _ptr,12, 24, 17, 22, _SCI_REGS
+      71              ;* AR4   assigned to _ptr
+      72                      .sym    _ptr,12, 24, 4, 22, _SCI_REGS
+      73                      .line   3
+      74 00000008 761F-         MOVW      DP,#_sci_ptr_terminal
+         00000009 0000 
+      75 0000000a A800-         MOVL      @_sci_ptr_terminal,XAR4 ; |284| 
+      76                      .line   5
+      77 0000000b 56BF          MOVB      *+XAR4[0],#7,UNC      ; |286| 
+         0000000c 07C4 
+      78                      .line   7
+      79 0000000d 18E4          AND       *+XAR4[4],#0xfffd     ; |288| 
+         0000000e FFFD 
+      80                      .line   8
+      81 0000000f 18E4          AND       *+XAR4[4],#0xfffe     ; |289| 
+         00000010 FFFE 
+      82                      .line   10
+      83 00000011 83A4          MOVL      XAR5,XAR4             ; |291| 
+      84 00000012 DD0F          ADDB      XAR5,#15              ; |291| 
+      85 00000013 18C5          AND       *+XAR5[0],#0xfff7     ; |291| 
+         00000014 FFF7 
+      86                      .line   11
+      87 00000015 83A4          MOVL      XAR5,XAR4             ; |292| 
+      88 00000016 DD0F          ADDB      XAR5,#15              ; |292| 
+      89 00000017 18C5          AND       *+XAR5[0],#0xffef     ; |292| 
+         00000018 FFEF 
+      90                      .line   13
+      91 00000019 18CC          AND       *+XAR4[1],#0xffbf     ; |294| 
+         0000001a FFBF 
+      92                      .line   14
+      93 0000001b 18CC          AND       *+XAR4[1],#0xffdf     ; |295| 
+         0000001c FFDF 
+      94                      .line   16
+      95 0000001d 18CC          AND       *+XAR4[1],#0xfff7     ; |297| 
+         0000001e FFF7 
+      96                      .line   17
+      97 0000001f 18CC          AND       *+XAR4[1],#0xfffb     ; |298| 
+         00000020 FFFB 
+      98                      .line   18
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE    3
+
+      99 00000021 1ACC          OR        *+XAR4[1],#0x0002     ; |299| 
+         00000022 0002 
+     100                      .line   19
+     101 00000023 1ACC          OR        *+XAR4[1],#0x0001     ; |300| 
+         00000024 0001 
+     102                      .line   21
+     103 00000025 56BF          MOVB      *+XAR4[3],#64,UNC     ; |302| 
+         00000026 40DC 
+     104                      .line   22
+     105 00000027 2BD4          MOV       *+XAR4[2],#0          ; |303| 
+     106                      .line   24
+     107 00000028 18CC          AND       *+XAR4[1],#0xffbf     ; |305| 
+         00000029 FFBF 
+     108                      .line   25
+     109 0000002a 1ACC          OR        *+XAR4[1],#0x0020     ; |306| 
+         0000002b 0020 
+     110                      .line   27
+     111 0000002c 18CC          AND       *+XAR4[1],#0xfff7     ; |308| 
+         0000002d FFF7 
+     112                      .line   28
+     113 0000002e 18CC          AND       *+XAR4[1],#0xfffb     ; |309| 
+         0000002f FFFB 
+     114                      .line   29
+     115 00000030 1ACC          OR        *+XAR4[1],#0x0002     ; |310| 
+         00000031 0002 
+     116                      .line   30
+     117 00000032 1ACC          OR        *+XAR4[1],#0x0001     ; |311| 
+         00000033 0001 
+     118                      .line   32
+     119 00000034 83A4          MOVL      XAR5,XAR4             ; |313| 
+     120 00000035 DD0A          ADDB      XAR5,#10              ; |313| 
+     121 00000036 1AC5          OR        *+XAR5[0],#0x4000     ; |313| 
+         00000037 4000 
+     122                      .line   33
+     123 00000038 D00A          MOVB      XAR0,#10              ; |314| 
+     124 00000039 2894          MOV       *+XAR4[AR0],#57344    ; |314| 
+         0000003a E000 
+     125                      .line   34
+     126 0000003b 56BF          MOVB      *+XAR4[1],#35,UNC     ; |315| 
+         0000003c 23CC 
+     127                      .line   35
+     128 0000003d 83A4          MOVL      XAR5,XAR4             ; |316| 
+     129 0000003e DD0A          ADDB      XAR5,#10              ; |316| 
+     130 0000003f 1AC5          OR        *+XAR5[0],#0x2000     ; |316| 
+         00000040 2000 
+     131                      .line   38
+     132 00000041 83A4          MOVL      XAR5,XAR4             ; |319| 
+     133 00000042 DD0B          ADDB      XAR5,#11              ; |319| 
+     134 00000043 1AC5          OR        *+XAR5[0],#0x4000     ; |319| 
+         00000044 4000 
+     135                      .line   39
+     136 00000045 83A4          MOVL      XAR5,XAR4             ; |320| 
+     137 00000046 DD0B          ADDB      XAR5,#11              ; |320| 
+     138 00000047 18C5          AND       *+XAR5[0],#0xdfff     ; |320| 
+         00000048 DFFF 
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE    4
+
+     139                      .line   40
+     140 00000049 83A4          MOVL      XAR5,XAR4             ; |321| 
+     141 0000004a DD0B          ADDB      XAR5,#11              ; |321| 
+     142 0000004b 1AC5          OR        *+XAR5[0],#0x0040     ; |321| 
+         0000004c 0040 
+     143                      .line   42
+     144 0000004d 83A4          MOVL      XAR5,XAR4             ; |323| 
+     145 0000004e DD0B          ADDB      XAR5,#11              ; |323| 
+     146 0000004f 1AC5          OR        *+XAR5[0],#0x2000     ; |323| 
+         00000050 2000 
+     147                      .line   43
+     148 00000051 83A4          MOVL      XAR5,XAR4             ; |324| 
+     149 00000052 DD0B          ADDB      XAR5,#11              ; |324| 
+     150 00000053 1AC5          OR        *+XAR5[0],#0x0020     ; |324| 
+         00000054 0020 
+     151                      .line   44
+     152 00000055 D00B          MOVB      XAR0,#11              ; |325| 
+     153 00000056 CC94          AND       AL,*+XAR4[AR0],#0xffe0 ; |325| 
+         00000057 FFE0 
+     154 00000058 5001          ORB       AL,#0x01              ; |325| 
+     155 00000059 9694          MOV       *+XAR4[AR0],AL        ; |325| 
+     156                      .line   46
+     157 0000005a 0006          LRETR
+     158                      ; return occurs
+     159                      .endfunc        327,000000000h,0
+     160 0000005b               .sect   ".text"
+     161                      .global _PLLset
+     162                      .sym    _PLLset,_PLLset, 32, 2, 0
+     163                      .func   348
+     164              
+     165              ;***************************************************************
+     166              ;* FNAME: _PLLset                       FR SIZE:   0           *
+     167              ;*                                                             *
+     168              ;* FUNCTION ENVIRONMENT                                        *
+     169              ;*                                                             *
+     170              ;* FUNCTION PROPERTIES                                         *
+     171              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     172              ;***************************************************************
+     173              
+     174              
+     175              ;***************************************************************
+     176              ;*                                                             *
+     177              ;* Using -g (debug) with optimization (-o2) may disable key op *
+     178              ;*                                                             *
+     179              ;***************************************************************
+     180 0000005b       _PLLset:
+     181                      .line   2
+     182              ;* AL    assigned to _val
+     183                      .sym    _val,0, 14, 17, 16
+     184              ;* AR4   assigned to $O$C1
+     185              ;* AL    assigned to _val
+     186                      .sym    _val,0, 14, 4, 16
+     187                      .line   6
+     188 0000005b 761F!         MOVW      DP,#_SysCtrlRegs+1
+         0000005c 0000 
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE    5
+
+     189 0000005d 4301!         TBIT      @_SysCtrlRegs+1,#3    ; |353| 
+     190 0000005e EF06          BF        $C$L1,NTC             ; |353| 
+     191                      ; branchcc occurs ; |353| 
+     192                      .line   8
+     193 0000005f 7622   EALLOW
+     194                      .line   11
+     195 00000060 1A01!         OR        @_SysCtrlRegs+1,#0x0010 ; |358| 
+         00000061 0010 
+     196                      .line   12
+     197 00000062 761A   EDIS
+     198                      .line   15
+     199 00000063 7625          ESTOP0
+     200 00000064       $C$L1:    
+     201                      .line   21
+     202 00000064 CD01!         AND       AH,@_SysCtrlRegs+1,#0x0180 ; |368| 
+         00000065 0180 
+     203 00000066 EC05          BF        $C$L2,EQ              ; |368| 
+     204                      ; branchcc occurs ; |368| 
+     205                      .line   23
+     206 00000067 7622   EALLOW
+     207                      .line   24
+     208 00000068 1801!         AND       @_SysCtrlRegs+1,#0xfe7f ; |371| 
+         00000069 FE7F 
+     209                      .line   25
+     210 0000006a 761A   EDIS
+     211 0000006b       $C$L2:    
+     212                      .line   29
+     213 0000006b D011          MOVB      XAR0,#17              ; |376| 
+     214 0000006c 8F00!         MOVL      XAR4,#_SysCtrlRegs    ; |376| 
+         0000006d 0000 
+     215 0000006e 9394          MOV       AH,*+XAR4[AR0]        ; |376| 
+     216 0000006f 910F          ANDB      AH,#0x0f              ; |376| 
+     217 00000070 55A9          CMP       AH,AL                 ; |376| 
+     218 00000071 EC13          BF        $C$L4,EQ              ; |376| 
+     219                      ; branchcc occurs ; |376| 
+     220                      .line   32
+     221 00000072 7622   EALLOW
+     222                      .line   34
+     223 00000073 1ACC          OR        *+XAR4[1],#0x0040     ; |381| 
+         00000074 0040 
+     224                      .line   35
+     225 00000075 CD11!         AND       AH,@_SysCtrlRegs+17,#0xfff0 ; |382| 
+         00000076 FFF0 
+     226 00000077 900F          ANDB      AL,#15                ; |382| 
+     227 00000078 CAA8          OR        AL,AH                 ; |382| 
+     228 00000079 9611!         MOV       @_SysCtrlRegs+17,AL   ; |382| 
+     229                      .line   36
+     230 0000007a 761A   EDIS
+     231                      .line   55
+     232 0000007b FF69          SPM       #0
+     233 0000007c 7640'         LCR       #_WDogDisable         ; |402| 
+         0000007d 0000 
+     234                      ; call occurs [#_WDogDisable] ; |402| 
+     235 0000007e       $C$L3:    
+     236                      .line   57
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE    6
+
+     237 0000007e 4001!         TBIT      @_SysCtrlRegs+1,#0    ; |404| 
+     238 0000007f EFFF          BF        $C$L3,NTC             ; |404| 
+     239                      ; branchcc occurs ; |404| 
+     240                      .line   59
+     241 00000080 7622   EALLOW
+     242                      .line   60
+     243 00000081 1801!         AND       @_SysCtrlRegs+1,#0xffbf ; |407| 
+         00000082 FFBF 
+     244                      .line   61
+     245 00000083 761A   EDIS
+     246 00000084       $C$L4:    
+     247                      .line   65
+     248 00000084 7622   EALLOW
+     249                      .line   66
+     250 00000085 CC01!         AND       AL,@_SysCtrlRegs+1,#0xff7f ; |413| 
+         00000086 FF7F 
+     251 00000087 1AA9          OR        AL,#0x0100            ; |413| 
+         00000088 0100 
+     252 00000089 9601!         MOV       @_SysCtrlRegs+1,AL    ; |413| 
+     253                      .line   67
+     254 0000008a 761A   EDIS
+     255                      .line   68
+     256 0000008b FF69          SPM       #0
+     257 0000008c 0006          LRETR
+     258                      ; return occurs
+     259                      .endfunc        415,000000000h,0
+     260 0000008d               .sect   ".text"
+     261                      .global _MemCopy
+     262                      .sym    _MemCopy,_MemCopy, 32, 2, 0
+     263                      .func   468
+     264              
+     265              ;***************************************************************
+     266              ;* FNAME: _MemCopy                      FR SIZE:   0           *
+     267              ;*                                                             *
+     268              ;* FUNCTION ENVIRONMENT                                        *
+     269              ;*                                                             *
+     270              ;* FUNCTION PROPERTIES                                         *
+     271              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     272              ;***************************************************************
+     273              
+     274              
+     275              ;***************************************************************
+     276              ;*                                                             *
+     277              ;* Using -g (debug) with optimization (-o2) may disable key op *
+     278              ;*                                                             *
+     279              ;***************************************************************
+     280 0000008d       _MemCopy:
+     281                      .line   2
+     282              ;* AR4   assigned to _SourceAddr
+     283                      .sym    _SourceAddr,12, 30, 17, 22
+     284              ;* AR5   assigned to _SourceEndAddr
+     285                      .sym    _SourceEndAddr,14, 30, 17, 22
+     286                      .sym    _DestAddr,-4, 30, 9, 22
+     287              ;* AR6   assigned to _DestAddr
+     288                      .sym    _DestAddr,16, 30, 4, 22
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE    7
+
+     289              ;* AL    assigned to _SourceEndAddr
+     290                      .sym    _SourceEndAddr,0, 30, 4, 22
+     291              ;* AR4   assigned to _SourceAddr
+     292                      .sym    _SourceAddr,12, 30, 4, 22
+     293              ;* AR5   assigned to $O$L1
+     294 0000008d C444          MOVL      XAR6,*-SP[4]          ; |469| 
+     295 0000008e A0A9          MOVL      ACC,XAR5              ; |469| 
+     296                      .line   3
+     297 0000008f 0FA4          CMPL      ACC,XAR4              ; |470| 
+     298 00000090 690B          B         $C$L6,LOS             ; |470| 
+     299                      ; branchcc occurs ; |470| 
+     300 00000091 03A4          SUBL      ACC,XAR4
+     301 00000092 1901          SUBB      ACC,#1
+     302 00000093 83A9          MOVL      XAR5,ACC
+     303 00000094       $C$L5:    
+     304                      .line   5
+     305 00000094 9284          MOV       AL,*XAR4++            ; |472| 
+     306 00000095 9686          MOV       *XAR6++,AL            ; |472| 
+     307                      .line   3
+     308 00000096 DD81          SUBB      XAR5,#1               ; |470| 
+     309 00000097 0200          MOVB      ACC,#0
+     310 00000098 1901          SUBB      ACC,#1
+     311 00000099 0FA5          CMPL      ACC,XAR5              ; |470| 
+     312 0000009a EDFA          BF        $C$L5,NEQ             ; |470| 
+     313                      ; branchcc occurs ; |470| 
+     314 0000009b       $C$L6:    
+     315                      .line   8
+     316 0000009b 0006          LRETR
+     317                      ; return occurs
+     318                      .endfunc        475,000000000h,0
+     319 00000000               .sect   "ramfuncs"
+     320                      .global _InitFlash
+     321                      .sym    _InitFlash,_InitFlash, 32, 2, 0
+     322                      .func   423
+     323              
+     324              ;***************************************************************
+     325              ;* FNAME: _InitFlash                    FR SIZE:   0           *
+     326              ;*                                                             *
+     327              ;* FUNCTION ENVIRONMENT                                        *
+     328              ;*                                                             *
+     329              ;* FUNCTION PROPERTIES                                         *
+     330              ;*                            0 Parameter,  0 Auto,  0 SOE     *
+     331              ;***************************************************************
+     332              
+     333              
+     334              ;***************************************************************
+     335              ;*                                                             *
+     336              ;* Using -g (debug) with optimization (-o2) may disable key op *
+     337              ;*                                                             *
+     338              ;***************************************************************
+     339 00000000       _InitFlash:
+     340                      .line   2
+     341              ;* AR4   assigned to $O$C1
+     342                      .line   3
+     343 00000000 7622   EALLOW
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE    8
+
+     344                      .line   6
+     345 00000001 8F00!         MOVL      XAR4,#_FlashRegs      ; |428| 
+         00000002 0000 
+     346 00000003 1AC4          OR        *+XAR4[0],#0x0001     ; |428| 
+         00000004 0001 
+     347                      .line   14
+     348 00000005 761F!         MOVW      DP,#_FlashRegs+6
+         00000006 0000 
+     349 00000007 CCF4          AND       AL,*+XAR4[6],#0xf0ff  ; |436| 
+         00000008 F0FF 
+     350 00000009 1AA9          OR        AL,#0x0200            ; |436| 
+         0000000a 0200 
+     351 0000000b 9606!         MOV       @_FlashRegs+6,AL      ; |436| 
+     352                      .line   17
+     353 0000000c CC06!         AND       AL,@_FlashRegs+6,#0xfff0 ; |439| 
+         0000000d FFF0 
+     354 0000000e 5002          ORB       AL,#0x02              ; |439| 
+     355 0000000f 9606!         MOV       @_FlashRegs+6,AL      ; |439| 
+     356                      .line   20
+     357 00000010 CCFC          AND       AL,*+XAR4[7],#0xffe0  ; |442| 
+         00000011 FFE0 
+     358 00000012 5003          ORB       AL,#0x03              ; |442| 
+     359 00000013 9607!         MOV       @_FlashRegs+7,AL      ; |442| 
+     360                      .line   24
+     361 00000014 1AE4          OR        *+XAR4[4],#0x01ff     ; |446| 
+         00000015 01FF 
+     362                      .line   25
+     363 00000016 1AEC          OR        *+XAR4[5],#0x01ff     ; |447| 
+         00000017 01FF 
+     364                      .line   26
+     365 00000018 761A   EDIS
+     366                      .line   31
+     367 00000019 F607   RPT #7 || NOP
+         0000001a 7700 
+     368                      .line   32
+     369 0000001b FF69          SPM       #0
+     370 0000001c 0006          LRETR
+     371                      ; return occurs
+     372                      .endfunc        454,000000000h,0
+     373 0000009c               .sect   ".text"
+     374                      .global _DeviceInit
+     375                      .sym    _DeviceInit,_DeviceInit, 32, 2, 0
+     376                      .func   16
+     377              
+     378              ;***************************************************************
+     379              ;* FNAME: _DeviceInit                   FR SIZE:   4           *
+     380              ;*                                                             *
+     381              ;* FUNCTION ENVIRONMENT                                        *
+     382              ;*                                                             *
+     383              ;* FUNCTION PROPERTIES                                         *
+     384              ;*                            2 Parameter,  0 Auto,  2 SOE     *
+     385              ;***************************************************************
+     386              
+     387              
+     388              ;***************************************************************
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE    9
+
+     389              ;*                                                             *
+     390              ;* Using -g (debug) with optimization (-o2) may disable key op *
+     391              ;*                                                             *
+     392              ;***************************************************************
+     393 0000009c       _DeviceInit:
+     394                      .line   2
+     395              ;* AR4   assigned to $O$C1
+     396              ;* AR5   assigned to $O$C2
+     397              ;* AR3   assigned to $O$C3
+     398              ;* AR3   assigned to $O$C4
+     399 0000009c A2BD          MOVL      *SP++,XAR3
+     400 0000009d FE02          ADDB      SP,#2
+     401                      .line   3
+     402 0000009e 7640'         LCR       #_WDogDisable         ; |18| 
+         0000009f 0000 
+     403                      ; call occurs [#_WDogDisable] ; |18| 
+     404                      .line   4
+     405 000000a0 3B10   setc INTM
+     406                      .line   5
+     407 000000a1 7626          AND       IER,#0                ; |20| 
+         000000a2 0000 
+     408                      .line   6
+     409 000000a3 762F          AND       IFR,#0                ; |21| 
+         000000a4 0000 
+     410                      .line   14
+     411 000000a5 7622   EALLOW
+     412                      .line   15
+     413 000000a6 8DC0!         MOVL      XAR3,#_SysCtrlRegs    ; |30| 
+         000000a7 0000 
+     414 000000a8 8AA3          MOVL      XAR4,XAR3             ; |30| 
+     415 000000a9 DC0C          ADDB      XAR4,#12              ; |30| 
+     416 000000aa 1AC4          OR        *+XAR4[0],#0x0008     ; |30| 
+         000000ab 0008 
+     417                      .line   16
+     418 000000ac 76FD          MOVL      XAR7,#4029568         ; |31| 
+         000000ad 7C80 
+     419 000000ae FF69          SPM       #0
+     420 000000af 3E67          LCR       *XAR7                 ; |31| 
+     421                      ; call occurs [XAR7] ; |31| 
+     422                      .line   17
+     423 000000b0 761F!         MOVW      DP,#_SysCtrlRegs+12
+         000000b1 0000 
+     424 000000b2 180C!         AND       @_SysCtrlRegs+12,#0xfff7 ; |32| 
+         000000b3 FFF7 
+     425                      .line   18
+     426 000000b4 761A   EDIS
+     427                      .line   22
+     428 000000b5 7622   EALLOW
+     429                      .line   23
+     430 000000b6 18D3          AND       *+XAR3[2],#0xfeff     ; |38| 
+         000000b7 FEFF 
+     431                      .line   24
+     432 000000b8 1802!         AND       @_SysCtrlRegs+2,#0xfffe ; |39| 
+         000000b9 FFFE 
+     433                      .line   25
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   10
+
+     434 000000ba 1A02!         OR        @_SysCtrlRegs+2,#0x2000 ; |40| 
+         000000bb 2000 
+     435                      .line   26
+     436 000000bc 1A02!         OR        @_SysCtrlRegs+2,#0x4000 ; |41| 
+         000000bd 4000 
+     437                      .line   27
+     438 000000be 1A02!         OR        @_SysCtrlRegs+2,#0x0400 ; |42| 
+         000000bf 0400 
+     439                      .line   28
+     440 000000c0 761A   EDIS
+     441                      .line   48
+     442 000000c1 FF69          SPM       #0
+     443 000000c2 9A0C          MOVB      AL,#12                ; |63| 
+     444 000000c3 7640'         LCR       #_PLLset              ; |63| 
+         000000c4 005B 
+     445                      ; call occurs [#_PLLset] ; |63| 
+     446                      .line   52
+     447 000000c5 7622   EALLOW
+     448                      .line   53
+     449 000000c6 FF69          SPM       #0
+     450 000000c7 7640!         LCR       #_InitPieCtrl         ; |68| 
+         000000c8 0000 
+     451                      ; call occurs [#_InitPieCtrl] ; |68| 
+     452                      .line   54
+     453 000000c9 7640!         LCR       #_InitPieVectTable    ; |69| 
+         000000ca 0000 
+     454                      ; call occurs [#_InitPieVectTable] ; |69| 
+     455                      .line   55
+     456 000000cb 761A   EDIS
+     457                      .line   57
+     458 000000cc 7622   EALLOW
+     459                      .line   58
+     460 000000cd 761F!         MOVW      DP,#_PieVectTable+76
+         000000ce 0001 
+     461 000000cf 8F00!         MOVL      XAR4,#_cpu_timer0_isr ; |73| 
+         000000d0 0000 
+     462 000000d1 A80C!         MOVL      @_PieVectTable+76,XAR4 ; |73| 
+     463                      .line   59
+     464 000000d2 8F00!         MOVL      XAR4,#_adc_isr        ; |74| 
+         000000d3 0000 
+     465 000000d4 A800!         MOVL      @_PieVectTable+64,XAR4 ; |74| 
+     466                      .line   60
+     467 000000d5 761A   EDIS
+     468                      .line   62
+     469 000000d6 8F00!         MOVL      XAR4,#_RamfuncsRunStart ; |77| 
+         000000d7 0000 
+     470 000000d8 FF69          SPM       #0
+     471 000000d9 8F40!         MOVL      XAR5,#_RamfuncsLoadEnd ; |77| 
+         000000da 0000 
+     472 000000db A842          MOVL      *-SP[2],XAR4          ; |77| 
+     473 000000dc 8F00!         MOVL      XAR4,#_RamfuncsLoadStart ; |77| 
+         000000dd 0000 
+     474 000000de 7640'         LCR       #_MemCopy             ; |77| 
+         000000df 008D 
+     475                      ; call occurs [#_MemCopy] ; |77| 
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   11
+
+     476                      .line   64
+     477 000000e0 7640+         LCR       #_InitFlash           ; |79| 
+         000000e1 0000 
+     478                      ; call occurs [#_InitFlash] ; |79| 
+     479                      .line   66
+     480 000000e2 7622   EALLOW
+     481                      .line   70
+     482 000000e3 761F!         MOVW      DP,#_SysCtrlRegs+11
+         000000e4 0000 
+     483 000000e5 56BF!         MOVB      @_SysCtrlRegs+11,#1,UNC ; |85| 
+         000000e6 010B 
+     484                      .line   71
+     485 000000e7 18C3          AND       *+XAR3[0],#0xfffc     ; |86| 
+         000000e8 FFFC 
+     486                      .line   81
+     487 000000e9 1A0C!         OR        @_SysCtrlRegs+12,#0x0008 ; |96| 
+         000000ea 0008 
+     488                      .line   83
+     489 000000eb 8AA3          MOVL      XAR4,XAR3             ; |98| 
+     490 000000ec DC10          ADDB      XAR4,#16              ; |98| 
+     491 000000ed 18C4          AND       *+XAR4[0],#0xfffe     ; |98| 
+         000000ee FFFE 
+     492                      .line   84
+     493 000000ef 1810!         AND       @_SysCtrlRegs+16,#0xfffd ; |99| 
+         000000f0 FFFD 
+     494                      .line   86
+     495 000000f1 180C!         AND       @_SysCtrlRegs+12,#0xffef ; |101| 
+         000000f2 FFEF 
+     496                      .line   88
+     497 000000f3 180C!         AND       @_SysCtrlRegs+12,#0xfeff ; |103| 
+         000000f4 FEFF 
+     498                      .line   90
+     499 000000f5 1A0C!         OR        @_SysCtrlRegs+12,#0x0400 ; |105| 
+         000000f6 0400 
+     500                      .line   92
+     501 000000f7 DB0D          ADDB      XAR3,#13              ; |107| 
+     502 000000f8 18C3          AND       *+XAR3[0],#0xfeff     ; |107| 
+         000000f9 FEFF 
+     503                      .line   94
+     504 000000fa 1A0D!         OR        @_SysCtrlRegs+13,#0x0001 ; |109| 
+         000000fb 0001 
+     505                      .line   95
+     506 000000fc 180D!         AND       @_SysCtrlRegs+13,#0xfffd ; |110| 
+         000000fd FFFD 
+     507                      .line   96
+     508 000000fe 180D!         AND       @_SysCtrlRegs+13,#0xfffb ; |111| 
+         000000ff FFFB 
+     509                      .line   97
+     510 00000100 180D!         AND       @_SysCtrlRegs+13,#0xfff7 ; |112| 
+         00000101 FFF7 
+     511                      .line   99
+     512 00000102 1A0C!         OR        @_SysCtrlRegs+12,#0x0004 ; |114| 
+         00000103 0004 
+     513                      .line   104
+     514 00000104 FF69          SPM       #0
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   12
+
+     515 00000105 7640!         LCR       #_InitCpuTimers       ; |119| 
+         00000106 0000 
+     516                      ; call occurs [#_InitCpuTimers] ; |119| 
+     517                      .line   109
+     518 00000107 8F00          MOVL      XAR4,#1000            ; |124| 
+         00000108 03E8 
+     519 00000109 A842          MOVL      *-SP[2],XAR4          ; |124| 
+     520 0000010a 8F00!         MOVL      XAR4,#_CpuTimer0      ; |124| 
+         0000010b 0000 
+     521 0000010c 023C          MOVB      ACC,#60
+     522 0000010d 7640!         LCR       #_ConfigCpuTimer      ; |124| 
+         0000010e 0000 
+     523                      ; call occurs [#_ConfigCpuTimer] ; |124| 
+     524                      .line   110
+     525 0000010f 761F!         MOVW      DP,#_CpuTimer0Regs+4
+         00000110 0000 
+     526 00000111 2804!         MOV       @_CpuTimer0Regs+4,#16384 ; |125| 
+         00000112 4000 
+     527                      .line   113
+     528 00000113 7622   EALLOW
+     529                      .line   114
+     530 00000114 8DC0!         MOVL      XAR3,#_AdcRegs        ; |129| 
+         00000115 0000 
+     531 00000116 1AC3          OR        *+XAR3[0],#0x0040     ; |129| 
+         00000117 0040 
+     532                      .line   115
+     533 00000118 1AC3          OR        *+XAR3[0],#0x0020     ; |130| 
+         00000119 0020 
+     534                      .line   116
+     535 0000011a 1AC3          OR        *+XAR3[0],#0x0080     ; |131| 
+         0000011b 0080 
+     536                      .line   117
+     537 0000011c 1AC3          OR        *+XAR3[0],#0x4000     ; |132| 
+         0000011d 4000 
+     538                      .line   118
+     539 0000011e 18C3          AND       *+XAR3[0],#0xfff7     ; |133| 
+         0000011f FFF7 
+     540                      .line   119
+     541 00000120 761A   EDIS
+     542                      .line   121
+     543 00000121 FF69          SPM       #0
+     544 00000122 FF20          MOV       ACC,#11997            ; |136| 
+         00000123 2EDD 
+     545 00000124 7640!         LCR       #_DSP28x_usDelay      ; |136| 
+         00000125 0000 
+     546                      ; call occurs [#_DSP28x_usDelay] ; |136| 
+     547                      .line   123
+     548 00000126 7622   EALLOW
+     549                      .line   124
+     550 00000127 1ACB          OR        *+XAR3[1],#0x0001     ; |139| 
+         00000128 0001 
+     551                      .line   125
+     552 00000129 761A   EDIS
+     553                      .line   127
+     554 0000012a FF69          SPM       #0
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   13
+
+     555 0000012b FF20          MOV       ACC,#11997            ; |142| 
+         0000012c 2EDD 
+     556 0000012d 7640!         LCR       #_DSP28x_usDelay      ; |142| 
+         0000012e 0000 
+     557                      ; call occurs [#_DSP28x_usDelay] ; |142| 
+     558                      .line   129
+     559 0000012f 7622   EALLOW
+     560                      .line   132
+     561 00000130 761F!         MOVW      DP,#_AdcRegs+1
+         00000131 0000 
+     562 00000132 1A01!         OR        @_AdcRegs+1,#0x0002   ; |147| 
+         00000133 0002 
+     563                      .line   133
+     564 00000134 1AC3          OR        *+XAR3[0],#0x0004     ; |148| 
+         00000135 0004 
+     565                      .line   134
+     566 00000136 8AA3          MOVL      XAR4,XAR3             ; |149| 
+     567 00000137 DC08          ADDB      XAR4,#8               ; |149| 
+     568 00000138 1AC4          OR        *+XAR4[0],#0x0020     ; |149| 
+         00000139 0020 
+     569                      .line   135
+     570 0000013a 1808!         AND       @_AdcRegs+8,#0xffbf   ; |150| 
+         0000013b FFBF 
+     571                      .line   136
+     572 0000013c CC08!         AND       AL,@_AdcRegs+8,#0xffe0 ; |151| 
+         0000013d FFE0 
+     573 0000013e 5001          ORB       AL,#0x01              ; |151| 
+     574 0000013f 9608!         MOV       @_AdcRegs+8,AL        ; |151| 
+     575                      .line   137
+     576 00000140 8AA3          MOVL      XAR4,XAR3             ; |152| 
+     577 00000141 DC20          ADDB      XAR4,#32              ; |152| 
+     578 00000142 18C4          AND       *+XAR4[0],#0xfc3f     ; |152| 
+         00000143 FC3F 
+     579                      .line   138
+     580 00000144 D021          MOVB      XAR0,#33              ; |153| 
+     581 00000145 CC93          AND       AL,*+XAR3[AR0],#0xfc7f ; |153| 
+         00000146 FC7F 
+     582 00000147 5040          ORB       AL,#0x40              ; |153| 
+     583 00000148 9621!         MOV       @_AdcRegs+33,AL       ; |153| 
+     584                      .line   139
+     585 00000149 D022          MOVB      XAR0,#34              ; |154| 
+     586 0000014a CC93          AND       AL,*+XAR3[AR0],#0xfc3f ; |154| 
+         0000014b FC3F 
+     587 0000014c 5080          ORB       AL,#0x80              ; |154| 
+     588 0000014d 9622!         MOV       @_AdcRegs+34,AL       ; |154| 
+     589                      .line   140
+     590 0000014e D023          MOVB      XAR0,#35              ; |155| 
+     591 0000014f CC93          AND       AL,*+XAR3[AR0],#0xfcff ; |155| 
+         00000150 FCFF 
+     592 00000151 50C0          ORB       AL,#0xc0              ; |155| 
+     593 00000152 9623!         MOV       @_AdcRegs+35,AL       ; |155| 
+     594                      .line   143
+     595 00000153 CC20!         AND       AL,@_AdcRegs+32,#0x07ff ; |158| 
+         00000154 07FF 
+     596 00000155 1AA9          OR        AL,#0x2800            ; |158| 
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   14
+
+         00000156 2800 
+     597 00000157 9620!         MOV       @_AdcRegs+32,AL       ; |158| 
+     598                      .line   144
+     599 00000158 CC21!         AND       AL,@_AdcRegs+33,#0x07ff ; |159| 
+         00000159 07FF 
+     600 0000015a 1AA9          OR        AL,#0x2800            ; |159| 
+         0000015b 2800 
+     601 0000015c 9621!         MOV       @_AdcRegs+33,AL       ; |159| 
+     602                      .line   145
+     603 0000015d CC22!         AND       AL,@_AdcRegs+34,#0x07ff ; |160| 
+         0000015e 07FF 
+     604 0000015f 1AA9          OR        AL,#0x2800            ; |160| 
+         00000160 2800 
+     605 00000161 9622!         MOV       @_AdcRegs+34,AL       ; |160| 
+     606                      .line   146
+     607 00000162 CC23!         AND       AL,@_AdcRegs+35,#0x07ff ; |161| 
+         00000163 07FF 
+     608 00000164 1AA9          OR        AL,#0x2800            ; |161| 
+         00000165 2800 
+     609 00000166 9623!         MOV       @_AdcRegs+35,AL       ; |161| 
+     610                      .line   148
+     611 00000167 CC20!         AND       AL,@_AdcRegs+32,#0xffc0 ; |163| 
+         00000168 FFC0 
+     612 00000169 5006          ORB       AL,#0x06              ; |163| 
+     613 0000016a 9620!         MOV       @_AdcRegs+32,AL       ; |163| 
+     614                      .line   149
+     615 0000016b CC21!         AND       AL,@_AdcRegs+33,#0xffc0 ; |164| 
+         0000016c FFC0 
+     616 0000016d 5006          ORB       AL,#0x06              ; |164| 
+     617 0000016e 9621!         MOV       @_AdcRegs+33,AL       ; |164| 
+     618                      .line   150
+     619 0000016f CC22!         AND       AL,@_AdcRegs+34,#0xffc0 ; |165| 
+         00000170 FFC0 
+     620 00000171 5006          ORB       AL,#0x06              ; |165| 
+     621 00000172 9622!         MOV       @_AdcRegs+34,AL       ; |165| 
+     622                      .line   151
+     623 00000173 CC23!         AND       AL,@_AdcRegs+35,#0xffc0 ; |166| 
+         00000174 FFC0 
+     624 00000175 5006          ORB       AL,#0x06              ; |166| 
+     625 00000176 9623!         MOV       @_AdcRegs+35,AL       ; |166| 
+     626                      .line   154
+     627 00000177 761F!         MOVW      DP,#_EPwm1Regs+5
+         00000178 0000 
+     628 00000179 2805!         MOV       @_EPwm1Regs+5,#1500   ; |169| 
+         0000017a 05DC 
+     629                      .line   155
+     630 0000017b 8F40!         MOVL      XAR5,#_EPwm1Regs      ; |170| 
+         0000017c 0000 
+     631 0000017d CCC5          AND       AL,*+XAR5[0],#0xfffe  ; |170| 
+         0000017e FFFE 
+     632 0000017f 5002          ORB       AL,#0x02              ; |170| 
+     633 00000180 96C5          MOV       *+XAR5[0],AL          ; |170| 
+     634                      .line   156
+     635 00000181 18C5          AND       *+XAR5[0],#0xfffb     ; |171| 
+         00000182 FFFB 
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   15
+
+     636                      .line   157
+     637 00000183 18C5          AND       *+XAR5[0],#0xfff7     ; |172| 
+         00000184 FFF7 
+     638                      .line   158
+     639 00000185 CCC5          AND       AL,*+XAR5[0],#0xffdf  ; |173| 
+         00000186 FFDF 
+     640 00000187 5010          ORB       AL,#0x10              ; |173| 
+     641 00000188 96C5          MOV       *+XAR5[0],AL          ; |173| 
+     642                      .line   161
+     643 00000189 18FD          AND       *+XAR5[7],#0xffef     ; |176| 
+         0000018a FFEF 
+     644                      .line   162
+     645 0000018b 1807!         AND       @_EPwm1Regs+7,#0xffbf ; |177| 
+         0000018c FFBF 
+     646                      .line   163
+     647 0000018d CC07!         AND       AL,@_EPwm1Regs+7,#0xfffe ; |178| 
+         0000018e FFFE 
+     648 0000018f 5002          ORB       AL,#0x02              ; |178| 
+     649 00000190 9607!         MOV       @_EPwm1Regs+7,AL      ; |178| 
+     650                      .line   166
+     651 00000191 D00B          MOVB      XAR0,#11              ; |181| 
+     652 00000192 CC95          AND       AL,*+XAR5[AR0],#0xffef ; |181| 
+         00000193 FFEF 
+     653 00000194 5020          ORB       AL,#0x20              ; |181| 
+     654 00000195 960B!         MOV       @_EPwm1Regs+11,AL     ; |181| 
+     655                      .line   167
+     656 00000196 CC0B!         AND       AL,@_EPwm1Regs+11,#0xff7f ; |182| 
+         00000197 FF7F 
+     657 00000198 5040          ORB       AL,#0x40              ; |182| 
+     658 00000199 960B!         MOV       @_EPwm1Regs+11,AL     ; |182| 
+     659                      .line   168
+     660 0000019a D00C          MOVB      XAR0,#12              ; |183| 
+     661 0000019b CC95          AND       AL,*+XAR5[AR0],#0xffdf ; |183| 
+         0000019c FFDF 
+     662 0000019d 5010          ORB       AL,#0x10              ; |183| 
+     663 0000019e 960C!         MOV       @_EPwm1Regs+12,AL     ; |183| 
+     664                      .line   169
+     665 0000019f CC0C!         AND       AL,@_EPwm1Regs+12,#0xffbf ; |184| 
+         000001a0 FFBF 
+     666 000001a1 5080          ORB       AL,#0x80              ; |184| 
+     667 000001a2 960C!         MOV       @_EPwm1Regs+12,AL     ; |184| 
+     668                      .line   170
+     669 000001a3 D00D          MOVB      XAR0,#13              ; |185| 
+     670 000001a4 CC95          AND       AL,*+XAR5[AR0],#0xffbf ; |185| 
+         000001a5 FFBF 
+     671 000001a6 5080          ORB       AL,#0x80              ; |185| 
+     672 000001a7 960D!         MOV       @_EPwm1Regs+13,AL     ; |185| 
+     673                      .line   173
+     674 000001a8 8AA5          MOVL      XAR4,XAR5             ; |188| 
+     675 000001a9 DC0F          ADDB      XAR4,#15              ; |188| 
+     676 000001aa 18C4          AND       *+XAR4[0],#0xffcf     ; |188| 
+         000001ab FFCF 
+     677                      .line   174
+     678 000001ac 180F!         AND       @_EPwm1Regs+15,#0xfffc ; |189| 
+         000001ad FFFC 
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   16
+
+     679                      .line   176
+     680 000001ae 8AA5          MOVL      XAR4,XAR5             ; |191| 
+     681 000001af DC12          ADDB      XAR4,#18              ; |191| 
+     682 000001b0 1AC4          OR        *+XAR4[0],#0x0100     ; |191| 
+         000001b1 0100 
+     683                      .line   177
+     684 000001b2 D014          MOVB      XAR0,#20              ; |192| 
+     685 000001b3 CC95          AND       AL,*+XAR5[AR0],#0xfffe ; |192| 
+         000001b4 FFFE 
+     686 000001b5 5002          ORB       AL,#0x02              ; |192| 
+     687 000001b6 9614!         MOV       @_EPwm1Regs+20,AL     ; |192| 
+     688                      .line   178
+     689 000001b7 CC14!         AND       AL,@_EPwm1Regs+20,#0xfffb ; |193| 
+         000001b8 FFFB 
+     690 000001b9 5008          ORB       AL,#0x08              ; |193| 
+     691 000001ba 9614!         MOV       @_EPwm1Regs+20,AL     ; |193| 
+     692                      .line   179
+     693 000001bb 8AA5          MOVL      XAR4,XAR5             ; |194| 
+     694 000001bc DC18          ADDB      XAR4,#24              ; |194| 
+     695 000001bd 1AC4          OR        *+XAR4[0],#0x0004     ; |194| 
+         000001be 0004 
+     696                      .line   181
+     697 000001bf 8AA5          MOVL      XAR4,XAR5             ; |196| 
+     698 000001c0 DC19          ADDB      XAR4,#25              ; |196| 
+     699 000001c1 1AC4          OR        *+XAR4[0],#0x0800     ; |196| 
+         000001c2 0800 
+     700                      .line   182
+     701 000001c3 CC19!         AND       AL,@_EPwm1Regs+25,#0xf8ff ; |197| 
+         000001c4 F8FF 
+     702 000001c5 1AA9          OR        AL,#0x0200            ; |197| 
+         000001c6 0200 
+     703 000001c7 9619!         MOV       @_EPwm1Regs+25,AL     ; |197| 
+     704                      .line   183
+     705 000001c8 D01A          MOVB      XAR0,#26              ; |198| 
+     706 000001c9 CC95          AND       AL,*+XAR5[AR0],#0xfdff ; |198| 
+         000001ca FDFF 
+     707 000001cb 1AA9          OR        AL,#0x0100            ; |198| 
+         000001cc 0100 
+     708 000001cd 961A!         MOV       @_EPwm1Regs+26,AL     ; |198| 
+     709                      .line   200
+     710 000001ce D009          MOVB      XAR0,#9               ; |215| 
+     711 000001cf 8F00!         MOVL      XAR4,#_GpioCtrlRegs   ; |215| 
+         000001d0 0000 
+     712 000001d1 761F!         MOVW      DP,#_GpioCtrlRegs+9
+         000001d2 0000 
+     713 000001d3 CC94          AND       AL,*+XAR4[AR0],#0xfdff ; |215| 
+         000001d4 FDFF 
+     714 000001d5 1AA9          OR        AL,#0x0100            ; |215| 
+         000001d6 0100 
+     715 000001d7 9609!         MOV       @_GpioCtrlRegs+9,AL   ; |215| 
+     716                      .line   201
+     717 000001d8 83A4          MOVL      XAR5,XAR4             ; |216| 
+     718 000001d9 DD0B          ADDB      XAR5,#11              ; |216| 
+     719 000001da 18C5          AND       *+XAR5[0],#0xefff     ; |216| 
+         000001db EFFF 
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   17
+
+     720                      .line   206
+     721 000001dc CC09!         AND       AL,@_GpioCtrlRegs+9,#0xf7ff ; |221| 
+         000001dd F7FF 
+     722 000001de 1AA9          OR        AL,#0x0400            ; |221| 
+         000001df 0400 
+     723 000001e0 9609!         MOV       @_GpioCtrlRegs+9,AL   ; |221| 
+     724                      .line   207
+     725 000001e1 1A0B!         OR        @_GpioCtrlRegs+11,#0x2000 ; |222| 
+         000001e2 2000 
+     726                      .line   215
+     727 000001e3 18F4          AND       *+XAR4[6],#0xfffc     ; |230| 
+         000001e4 FFFC 
+     728                      .line   216
+     729 000001e5 DC0A          ADDB      XAR4,#10              ; |231| 
+     730 000001e6 1AC4          OR        *+XAR4[0],#0x0001     ; |231| 
+         000001e7 0001 
+     731                      .line   224
+     732 000001e8 1806!         AND       @_GpioCtrlRegs+6,#0xfff3 ; |239| 
+         000001e9 FFF3 
+     733                      .line   225
+     734 000001ea 1A0A!         OR        @_GpioCtrlRegs+10,#0x0002 ; |240| 
+         000001eb 0002 
+     735                      .line   233
+     736 000001ec 1806!         AND       @_GpioCtrlRegs+6,#0xffcf ; |248| 
+         000001ed FFCF 
+     737                      .line   234
+     738 000001ee 1A0A!         OR        @_GpioCtrlRegs+10,#0x0004 ; |249| 
+         000001ef 0004 
+     739                      .line   235
+     740 000001f0 761F!         MOVW      DP,#_GpioDataRegs+4
+         000001f1 0000 
+     741 000001f2 1A04!         OR        @_GpioDataRegs+4,#0x0004 ; |250| 
+         000001f3 0004 
+     742                      .line   260
+     743 000001f4 FF69          SPM       #0
+     744 000001f5 8F00!         MOVL      XAR4,#_SciaRegs       ; |275| 
+         000001f6 0000 
+     745 000001f7 7640'         LCR       #_SetSCITMSmon        ; |275| 
+         000001f8 0008 
+     746                      ; call occurs [#_SetSCITMSmon] ; |275| 
+     747                      .line   262
+     748 000001f9 761A   EDIS
+     749                      .line   263
+     750 000001fa FF69          SPM       #0
+     751 000001fb FE82          SUBB      SP,#2
+     752 000001fc 82BE          MOVL      XAR3,*--SP
+     753 000001fd 0006          LRETR
+     754                      ; return occurs
+     755                      .endfunc        278,000000180h,4
+     756              ;**************************************************************
+     757              ;* UNDEFINED EXTERNAL REFERENCES                              *
+     758              ;**************************************************************
+     759                      .global _ConfigCpuTimer
+     760                      .global _InitCpuTimers
+     761                      .global _DSP28x_usDelay
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   18
+
+     762                      .global _cpu_timer0_isr
+     763                      .global _adc_isr
+     764                      .global _RamfuncsLoadStart
+     765                      .global _RamfuncsRunStart
+     766                      .global _RamfuncsLoadEnd
+     767                      .global _InitPieVectTable
+     768                      .global _InitPieCtrl
+     769                      .global _CpuTimer0
+     770                      .global _CpuTimer0Regs
+     771                      .global _FlashRegs
+     772                      .global _SciaRegs
+     773                      .global _SysCtrlRegs
+     774                      .global _GpioDataRegs
+     775                      .global _EPwm1Regs
+     776                      .global _GpioCtrlRegs
+     777                      .global _AdcRegs
+     778                      .global _PieVectTable
+     779              
+     780              ;***************************************************************
+     781              ;* TYPE INFORMATION                                            *
+     782              ;***************************************************************
+     783                      .sym    _PINT, 0, 144, 13, 22
+     784                      .sym    _int16, 0, 4, 13, 16
+     785                      .sym    _Uint16, 0, 14, 13, 16
+     786                      .sym    _Uint16, 0, 14, 13, 16
+     787                      .sym    _int32, 0, 5, 13, 32
+     788                      .sym    _Uint32, 0, 15, 13, 32
+     789                      .sym    _float32, 0, 6, 13, 32
+     790                      .sym    _float64, 0, 11, 13, 64
+     791                      .stag   _TIM_REG, 32
+     792                      .member _LSW, 0, 14, 8, 16
+     793                      .member _MSW, 16, 14, 8, 16
+     794                      .eos
+     795                      .utag   _TIM_GROUP, 32
+     796                      .member _all, 0, 15, 11, 32
+     797                      .member _half, 0, 8, 11, 32, _TIM_REG
+     798                      .eos
+     799                      .stag   _PRD_REG, 32
+     800                      .member _LSW, 0, 14, 8, 16
+     801                      .member _MSW, 16, 14, 8, 16
+     802                      .eos
+     803                      .utag   _PRD_GROUP, 32
+     804                      .member _all, 0, 15, 11, 32
+     805                      .member _half, 0, 8, 11, 32, _PRD_REG
+     806                      .eos
+     807                      .stag   _TCR_BITS, 16
+     808                      .member _rsvd1, 0, 14, 18, 4
+     809                      .member _TSS, 4, 14, 18, 1
+     810                      .member _TRB, 5, 14, 18, 1
+     811                      .member _rsvd2, 6, 14, 18, 4
+     812                      .member _SOFT, 10, 14, 18, 1
+     813                      .member _FREE, 11, 14, 18, 1
+     814                      .member _rsvd3, 12, 14, 18, 2
+     815                      .member _TIE, 14, 14, 18, 1
+     816                      .member _TIF, 15, 14, 18, 1
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   19
+
+     817                      .eos
+     818                      .utag   _TCR_REG, 16
+     819                      .member _all, 0, 14, 11, 16
+     820                      .member _bit, 0, 8, 11, 16, _TCR_BITS
+     821                      .eos
+     822                      .stag   _TPR_BITS, 16
+     823                      .member _TDDR, 0, 14, 18, 8
+     824                      .member _PSC, 8, 14, 18, 8
+     825                      .eos
+     826                      .utag   _TPR_REG, 16
+     827                      .member _all, 0, 14, 11, 16
+     828                      .member _bit, 0, 8, 11, 16, _TPR_BITS
+     829                      .eos
+     830                      .stag   _TPRH_BITS, 16
+     831                      .member _TDDRH, 0, 14, 18, 8
+     832                      .member _PSCH, 8, 14, 18, 8
+     833                      .eos
+     834                      .utag   _TPRH_REG, 16
+     835                      .member _all, 0, 14, 11, 16
+     836                      .member _bit, 0, 8, 11, 16, _TPRH_BITS
+     837                      .eos
+     838                      .stag   _CPUTIMER_REGS, 128
+     839                      .member _TIM, 0, 9, 8, 32, _TIM_GROUP
+     840                      .member _PRD, 32, 9, 8, 32, _PRD_GROUP
+     841                      .member _TCR, 64, 9, 8, 16, _TCR_REG
+     842                      .member _rsvd1, 80, 14, 8, 16
+     843                      .member _TPR, 96, 9, 8, 16, _TPR_REG
+     844                      .member _TPRH, 112, 9, 8, 16, _TPRH_REG
+     845                      .eos
+     846                      .stag   _CPUTIMER_VARS, 128
+     847                      .member _RegsAddr, 0, 24, 8, 22, _CPUTIMER_REGS
+     848                      .member _InterruptCount, 32, 15, 8, 32
+     849                      .member _CPUFreqInMHz, 64, 6, 8, 32
+     850                      .member _PeriodInUSec, 96, 6, 8, 32
+     851                      .eos
+     852                      .stag   _SCICCR_BITS, 16
+     853                      .member _SCICHAR, 0, 14, 18, 3
+     854                      .member _ADDRIDLE_MODE, 3, 14, 18, 1
+     855                      .member _LOOPBKENA, 4, 14, 18, 1
+     856                      .member _PARITYENA, 5, 14, 18, 1
+     857                      .member _PARITY, 6, 14, 18, 1
+     858                      .member _STOPBITS, 7, 14, 18, 1
+     859                      .member _rsvd1, 8, 14, 18, 8
+     860                      .eos
+     861                      .utag   _SCICCR_REG, 16
+     862                      .member _all, 0, 14, 11, 16
+     863                      .member _bit, 0, 8, 11, 16, _SCICCR_BITS
+     864                      .eos
+     865                      .stag   _SCICTL1_BITS, 16
+     866                      .member _RXENA, 0, 14, 18, 1
+     867                      .member _TXENA, 1, 14, 18, 1
+     868                      .member _SLEEP, 2, 14, 18, 1
+     869                      .member _TXWAKE, 3, 14, 18, 1
+     870                      .member _rsvd, 4, 14, 18, 1
+     871                      .member _SWRESET, 5, 14, 18, 1
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   20
+
+     872                      .member _RXERRINTENA, 6, 14, 18, 1
+     873                      .member _rsvd1, 7, 14, 18, 9
+     874                      .eos
+     875                      .utag   _SCICTL1_REG, 16
+     876                      .member _all, 0, 14, 11, 16
+     877                      .member _bit, 0, 8, 11, 16, _SCICTL1_BITS
+     878                      .eos
+     879                      .stag   _SCICTL2_BITS, 16
+     880                      .member _TXINTENA, 0, 14, 18, 1
+     881                      .member _RXBKINTENA, 1, 14, 18, 1
+     882                      .member _rsvd, 2, 14, 18, 4
+     883                      .member _TXEMPTY, 6, 14, 18, 1
+     884                      .member _TXRDY, 7, 14, 18, 1
+     885                      .member _rsvd1, 8, 14, 18, 8
+     886                      .eos
+     887                      .utag   _SCICTL2_REG, 16
+     888                      .member _all, 0, 14, 11, 16
+     889                      .member _bit, 0, 8, 11, 16, _SCICTL2_BITS
+     890                      .eos
+     891                      .stag   _SCIRXST_BITS, 16
+     892                      .member _rsvd, 0, 14, 18, 1
+     893                      .member _RXWAKE, 1, 14, 18, 1
+     894                      .member _PE, 2, 14, 18, 1
+     895                      .member _OE, 3, 14, 18, 1
+     896                      .member _FE, 4, 14, 18, 1
+     897                      .member _BRKDT, 5, 14, 18, 1
+     898                      .member _RXRDY, 6, 14, 18, 1
+     899                      .member _RXERROR, 7, 14, 18, 1
+     900                      .eos
+     901                      .utag   _SCIRXST_REG, 16
+     902                      .member _all, 0, 14, 11, 16
+     903                      .member _bit, 0, 8, 11, 16, _SCIRXST_BITS
+     904                      .eos
+     905                      .stag   _SCIRXBUF_BITS, 16
+     906                      .member _RXDT, 0, 14, 18, 8
+     907                      .member _rsvd, 8, 14, 18, 6
+     908                      .member _SCIFFPE, 14, 14, 18, 1
+     909                      .member _SCIFFFE, 15, 14, 18, 1
+     910                      .eos
+     911                      .utag   _SCIRXBUF_REG, 16
+     912                      .member _all, 0, 14, 11, 16
+     913                      .member _bit, 0, 8, 11, 16, _SCIRXBUF_BITS
+     914                      .eos
+     915                      .stag   _SCIFFTX_BITS, 16
+     916                      .member _TXFFIL, 0, 14, 18, 5
+     917                      .member _TXFFIENA, 5, 14, 18, 1
+     918                      .member _TXFFINTCLR, 6, 14, 18, 1
+     919                      .member _TXFFINT, 7, 14, 18, 1
+     920                      .member _TXFFST, 8, 14, 18, 5
+     921                      .member _TXFIFOXRESET, 13, 14, 18, 1
+     922                      .member _SCIFFENA, 14, 14, 18, 1
+     923                      .member _SCIRST, 15, 14, 18, 1
+     924                      .eos
+     925                      .utag   _SCIFFTX_REG, 16
+     926                      .member _all, 0, 14, 11, 16
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   21
+
+     927                      .member _bit, 0, 8, 11, 16, _SCIFFTX_BITS
+     928                      .eos
+     929                      .stag   _SCIFFRX_BITS, 16
+     930                      .member _RXFFIL, 0, 14, 18, 5
+     931                      .member _RXFFIENA, 5, 14, 18, 1
+     932                      .member _RXFFINTCLR, 6, 14, 18, 1
+     933                      .member _RXFFINT, 7, 14, 18, 1
+     934                      .member _RXFFST, 8, 14, 18, 5
+     935                      .member _RXFIFORESET, 13, 14, 18, 1
+     936                      .member _RXFFOVRCLR, 14, 14, 18, 1
+     937                      .member _RXFFOVF, 15, 14, 18, 1
+     938                      .eos
+     939                      .utag   _SCIFFRX_REG, 16
+     940                      .member _all, 0, 14, 11, 16
+     941                      .member _bit, 0, 8, 11, 16, _SCIFFRX_BITS
+     942                      .eos
+     943                      .stag   _SCIFFCT_BITS, 16
+     944                      .member _FFTXDLY, 0, 14, 18, 8
+     945                      .member _rsvd, 8, 14, 18, 5
+     946                      .member _CDC, 13, 14, 18, 1
+     947                      .member _ABDCLR, 14, 14, 18, 1
+     948                      .member _ABD, 15, 14, 18, 1
+     949                      .eos
+     950                      .utag   _SCIFFCT_REG, 16
+     951                      .member _all, 0, 14, 11, 16
+     952                      .member _bit, 0, 8, 11, 16, _SCIFFCT_BITS
+     953                      .eos
+     954                      .stag   _SCIPRI_BITS, 16
+     955                      .member _rsvd, 0, 14, 18, 3
+     956                      .member _FREE, 3, 14, 18, 1
+     957                      .member _SOFT, 4, 14, 18, 1
+     958                      .member _rsvd1, 5, 14, 18, 3
+     959                      .eos
+     960                      .utag   _SCIPRI_REG, 16
+     961                      .member _all, 0, 14, 11, 16
+     962                      .member _bit, 0, 8, 11, 16, _SCIPRI_BITS
+     963                      .eos
+     964                      .stag   _SCI_REGS, 256
+     965                      .member _SCICCR, 0, 9, 8, 16, _SCICCR_REG
+     966                      .member _SCICTL1, 16, 9, 8, 16, _SCICTL1_REG
+     967                      .member _SCIHBAUD, 32, 14, 8, 16
+     968                      .member _SCILBAUD, 48, 14, 8, 16
+     969                      .member _SCICTL2, 64, 9, 8, 16, _SCICTL2_REG
+     970                      .member _SCIRXST, 80, 9, 8, 16, _SCIRXST_REG
+     971                      .member _SCIRXEMU, 96, 14, 8, 16
+     972                      .member _SCIRXBUF, 112, 9, 8, 16, _SCIRXBUF_REG
+     973                      .member _rsvd1, 128, 14, 8, 16
+     974                      .member _SCITXBUF, 144, 14, 8, 16
+     975                      .member _SCIFFTX, 160, 9, 8, 16, _SCIFFTX_REG
+     976                      .member _SCIFFRX, 176, 9, 8, 16, _SCIFFRX_REG
+     977                      .member _SCIFFCT, 192, 9, 8, 16, _SCIFFCT_REG
+     978                      .member _rsvd2, 208, 14, 8, 16
+     979                      .member _rsvd3, 224, 14, 8, 16
+     980                      .member _SCIPRI, 240, 9, 8, 16, _SCIPRI_REG
+     981                      .eos
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   22
+
+     982                      .stag   _ADCCTL1_BITS, 16
+     983                      .member _TEMPCONV, 0, 14, 18, 1
+     984                      .member _VREFLOCONV, 1, 14, 18, 1
+     985                      .member _INTPULSEPOS, 2, 14, 18, 1
+     986                      .member _ADCREFSEL, 3, 14, 18, 1
+     987                      .member _rsvd1, 4, 14, 18, 1
+     988                      .member _ADCREFPWD, 5, 14, 18, 1
+     989                      .member _ADCBGPWD, 6, 14, 18, 1
+     990                      .member _ADCPWDN, 7, 14, 18, 1
+     991                      .member _ADCBSYCHN, 8, 14, 18, 5
+     992                      .member _ADCBSY, 13, 14, 18, 1
+     993                      .member _ADCENABLE, 14, 14, 18, 1
+     994                      .member _RESET, 15, 14, 18, 1
+     995                      .eos
+     996                      .utag   _ADCCTL1_REG, 16
+     997                      .member _all, 0, 14, 11, 16
+     998                      .member _bit, 0, 8, 11, 16, _ADCCTL1_BITS
+     999                      .eos
+    1000                      .stag   _ADCCTL2_BITS, 16
+    1001                      .member _CLKDIV2EN, 0, 14, 18, 1
+    1002                      .member _ADCNONOVERLAP, 1, 14, 18, 1
+    1003                      .member _rsvd1, 2, 14, 18, 14
+    1004                      .eos
+    1005                      .utag   _ADCCTL2_REG, 16
+    1006                      .member _all, 0, 14, 11, 16
+    1007                      .member _bit, 0, 8, 11, 16, _ADCCTL2_BITS
+    1008                      .eos
+    1009                      .stag   _ADCINT_BITS, 16
+    1010                      .member _ADCINT1, 0, 14, 18, 1
+    1011                      .member _ADCINT2, 1, 14, 18, 1
+    1012                      .member _ADCINT3, 2, 14, 18, 1
+    1013                      .member _ADCINT4, 3, 14, 18, 1
+    1014                      .member _ADCINT5, 4, 14, 18, 1
+    1015                      .member _ADCINT6, 5, 14, 18, 1
+    1016                      .member _ADCINT7, 6, 14, 18, 1
+    1017                      .member _ADCINT8, 7, 14, 18, 1
+    1018                      .member _ADCINT9, 8, 14, 18, 1
+    1019                      .member _rsvd1, 9, 14, 18, 7
+    1020                      .eos
+    1021                      .utag   _ADCINT_REG, 16
+    1022                      .member _all, 0, 14, 11, 16
+    1023                      .member _bit, 0, 8, 11, 16, _ADCINT_BITS
+    1024                      .eos
+    1025                      .stag   _INTSEL1N2_BITS, 16
+    1026                      .member _INT1SEL, 0, 14, 18, 5
+    1027                      .member _INT1E, 5, 14, 18, 1
+    1028                      .member _INT1CONT, 6, 14, 18, 1
+    1029                      .member _rsvd1, 7, 14, 18, 1
+    1030                      .member _INT2SEL, 8, 14, 18, 5
+    1031                      .member _INT2E, 13, 14, 18, 1
+    1032                      .member _INT2CONT, 14, 14, 18, 1
+    1033                      .member _rsvd2, 15, 14, 18, 1
+    1034                      .eos
+    1035                      .utag   _INTSEL1N2_REG, 16
+    1036                      .member _all, 0, 14, 11, 16
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   23
+
+    1037                      .member _bit, 0, 8, 11, 16, _INTSEL1N2_BITS
+    1038                      .eos
+    1039                      .stag   _INTSEL3N4_BITS, 16
+    1040                      .member _INT3SEL, 0, 14, 18, 5
+    1041                      .member _INT3E, 5, 14, 18, 1
+    1042                      .member _INT3CONT, 6, 14, 18, 1
+    1043                      .member _rsvd1, 7, 14, 18, 1
+    1044                      .member _INT4SEL, 8, 14, 18, 5
+    1045                      .member _INT4E, 13, 14, 18, 1
+    1046                      .member _INT4CONT, 14, 14, 18, 1
+    1047                      .member _rsvd2, 15, 14, 18, 1
+    1048                      .eos
+    1049                      .utag   _INTSEL3N4_REG, 16
+    1050                      .member _all, 0, 14, 11, 16
+    1051                      .member _bit, 0, 8, 11, 16, _INTSEL3N4_BITS
+    1052                      .eos
+    1053                      .stag   _INTSEL5N6_BITS, 16
+    1054                      .member _INT5SEL, 0, 14, 18, 5
+    1055                      .member _INT5E, 5, 14, 18, 1
+    1056                      .member _INT5CONT, 6, 14, 18, 1
+    1057                      .member _rsvd1, 7, 14, 18, 1
+    1058                      .member _INT6SEL, 8, 14, 18, 5
+    1059                      .member _INT6E, 13, 14, 18, 1
+    1060                      .member _INT6CONT, 14, 14, 18, 1
+    1061                      .member _rsvd2, 15, 14, 18, 1
+    1062                      .eos
+    1063                      .utag   _INTSEL5N6_REG, 16
+    1064                      .member _all, 0, 14, 11, 16
+    1065                      .member _bit, 0, 8, 11, 16, _INTSEL5N6_BITS
+    1066                      .eos
+    1067                      .stag   _INTSEL7N8_BITS, 16
+    1068                      .member _INT7SEL, 0, 14, 18, 5
+    1069                      .member _INT7E, 5, 14, 18, 1
+    1070                      .member _INT7CONT, 6, 14, 18, 1
+    1071                      .member _rsvd1, 7, 14, 18, 1
+    1072                      .member _INT8SEL, 8, 14, 18, 5
+    1073                      .member _INT8E, 13, 14, 18, 1
+    1074                      .member _INT8CONT, 14, 14, 18, 1
+    1075                      .member _rsvd2, 15, 14, 18, 1
+    1076                      .eos
+    1077                      .utag   _INTSEL7N8_REG, 16
+    1078                      .member _all, 0, 14, 11, 16
+    1079                      .member _bit, 0, 8, 11, 16, _INTSEL7N8_BITS
+    1080                      .eos
+    1081                      .stag   _INTSEL9N10_BITS, 16
+    1082                      .member _INT9SEL, 0, 14, 18, 5
+    1083                      .member _INT9E, 5, 14, 18, 1
+    1084                      .member _INT9CONT, 6, 14, 18, 1
+    1085                      .member _rsvd1, 7, 14, 18, 1
+    1086                      .member _INT10SEL, 8, 14, 18, 5
+    1087                      .member _INT10E, 13, 14, 18, 1
+    1088                      .member _INT10CONT, 14, 14, 18, 1
+    1089                      .member _rsvd2, 15, 14, 18, 1
+    1090                      .eos
+    1091                      .utag   _INTSEL9N10_REG, 16
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   24
+
+    1092                      .member _all, 0, 14, 11, 16
+    1093                      .member _bit, 0, 8, 11, 16, _INTSEL9N10_BITS
+    1094                      .eos
+    1095                      .stag   _SOCPRICTL_BITS, 16
+    1096                      .member _SOCPRIORITY, 0, 14, 18, 5
+    1097                      .member _RRPOINTER, 5, 14, 18, 6
+    1098                      .member _rsvd1, 11, 14, 18, 4
+    1099                      .member _ONESHOT, 15, 14, 18, 1
+    1100                      .eos
+    1101                      .utag   _SOCPRICTL_REG, 16
+    1102                      .member _all, 0, 14, 11, 16
+    1103                      .member _bit, 0, 8, 11, 16, _SOCPRICTL_BITS
+    1104                      .eos
+    1105                      .stag   _ADCSAMPLEMODE_BITS, 16
+    1106                      .member _SIMULEN0, 0, 14, 18, 1
+    1107                      .member _SIMULEN2, 1, 14, 18, 1
+    1108                      .member _SIMULEN4, 2, 14, 18, 1
+    1109                      .member _SIMULEN6, 3, 14, 18, 1
+    1110                      .member _SIMULEN8, 4, 14, 18, 1
+    1111                      .member _SIMULEN10, 5, 14, 18, 1
+    1112                      .member _SIMULEN12, 6, 14, 18, 1
+    1113                      .member _SIMULEN14, 7, 14, 18, 1
+    1114                      .member _rsvd1, 8, 14, 18, 8
+    1115                      .eos
+    1116                      .utag   _ADCSAMPLEMODE_REG, 16
+    1117                      .member _all, 0, 14, 11, 16
+    1118                      .member _bit, 0, 8, 11, 16, _ADCSAMPLEMODE_BITS
+    1119                      .eos
+    1120                      .stag   _ADCINTSOCSEL1_BITS, 16
+    1121                      .member _SOC0, 0, 14, 18, 2
+    1122                      .member _SOC1, 2, 14, 18, 2
+    1123                      .member _SOC2, 4, 14, 18, 2
+    1124                      .member _SOC3, 6, 14, 18, 2
+    1125                      .member _SOC4, 8, 14, 18, 2
+    1126                      .member _SOC5, 10, 14, 18, 2
+    1127                      .member _SOC6, 12, 14, 18, 2
+    1128                      .member _SOC7, 14, 14, 18, 2
+    1129                      .eos
+    1130                      .utag   _ADCINTSOCSEL1_REG, 16
+    1131                      .member _all, 0, 14, 11, 16
+    1132                      .member _bit, 0, 8, 11, 16, _ADCINTSOCSEL1_BITS
+    1133                      .eos
+    1134                      .stag   _ADCINTSOCSEL2_BITS, 16
+    1135                      .member _SOC8, 0, 14, 18, 2
+    1136                      .member _SOC9, 2, 14, 18, 2
+    1137                      .member _SOC10, 4, 14, 18, 2
+    1138                      .member _SOC11, 6, 14, 18, 2
+    1139                      .member _SOC12, 8, 14, 18, 2
+    1140                      .member _SOC13, 10, 14, 18, 2
+    1141                      .member _SOC14, 12, 14, 18, 2
+    1142                      .member _SOC15, 14, 14, 18, 2
+    1143                      .eos
+    1144                      .utag   _ADCINTSOCSEL2_REG, 16
+    1145                      .member _all, 0, 14, 11, 16
+    1146                      .member _bit, 0, 8, 11, 16, _ADCINTSOCSEL2_BITS
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   25
+
+    1147                      .eos
+    1148                      .stag   _ADCSOC_BITS, 16
+    1149                      .member _SOC0, 0, 14, 18, 1
+    1150                      .member _SOC1, 1, 14, 18, 1
+    1151                      .member _SOC2, 2, 14, 18, 1
+    1152                      .member _SOC3, 3, 14, 18, 1
+    1153                      .member _SOC4, 4, 14, 18, 1
+    1154                      .member _SOC5, 5, 14, 18, 1
+    1155                      .member _SOC6, 6, 14, 18, 1
+    1156                      .member _SOC7, 7, 14, 18, 1
+    1157                      .member _SOC8, 8, 14, 18, 1
+    1158                      .member _SOC9, 9, 14, 18, 1
+    1159                      .member _SOC10, 10, 14, 18, 1
+    1160                      .member _SOC11, 11, 14, 18, 1
+    1161                      .member _SOC12, 12, 14, 18, 1
+    1162                      .member _SOC13, 13, 14, 18, 1
+    1163                      .member _SOC14, 14, 14, 18, 1
+    1164                      .member _SOC15, 15, 14, 18, 1
+    1165                      .eos
+    1166                      .utag   _ADCSOC_REG, 16
+    1167                      .member _all, 0, 14, 11, 16
+    1168                      .member _bit, 0, 8, 11, 16, _ADCSOC_BITS
+    1169                      .eos
+    1170                      .stag   _ADCSOCxCTL_BITS, 16
+    1171                      .member _ACQPS, 0, 14, 18, 6
+    1172                      .member _CHSEL, 6, 14, 18, 4
+    1173                      .member _rsvd1, 10, 14, 18, 1
+    1174                      .member _TRIGSEL, 11, 14, 18, 5
+    1175                      .eos
+    1176                      .utag   _ADCSOCxCTL_REG, 16
+    1177                      .member _all, 0, 14, 11, 16
+    1178                      .member _bit, 0, 8, 11, 16, _ADCSOCxCTL_BITS
+    1179                      .eos
+    1180                      .stag   _ADCREFTRIM_BITS, 16
+    1181                      .member _BG_FINE_TRIM, 0, 14, 18, 5
+    1182                      .member _BG_COARSE_TRIM, 5, 14, 18, 4
+    1183                      .member _EXTREF_FINE_TRIM, 9, 14, 18, 5
+    1184                      .member _rsvd1, 14, 14, 18, 2
+    1185                      .eos
+    1186                      .utag   _ADCREFTRIM_REG, 16
+    1187                      .member _all, 0, 14, 11, 16
+    1188                      .member _bit, 0, 8, 11, 16, _ADCREFTRIM_BITS
+    1189                      .eos
+    1190                      .stag   _ADCOFFTRIM_BITS, 16
+    1191                      .member _OFFTRIM, 0, 4, 18, 9
+    1192                      .member _rsvd1, 9, 14, 18, 7
+    1193                      .eos
+    1194                      .utag   _ADCOFFTRIM_REG, 16
+    1195                      .member _all, 0, 14, 11, 16
+    1196                      .member _bit, 0, 8, 11, 16, _ADCOFFTRIM_BITS
+    1197                      .eos
+    1198                      .stag   _COMPHYSTCTL_BITS, 32
+    1199                      .member _rsvd1, 0, 14, 18, 1
+    1200                      .member _COMP1_HYST_DISABLE, 1, 14, 18, 1
+    1201                      .member _rsvd2, 2, 14, 18, 4
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   26
+
+    1202                      .member _COMP2_HYST_DISABLE, 6, 14, 18, 1
+    1203                      .member _rsvd3, 16, 14, 18, 10
+    1204                      .eos
+    1205                      .utag   _COMPHYSTCTL_REG, 32
+    1206                      .member _all, 0, 14, 11, 16
+    1207                      .member _bit, 0, 8, 11, 32, _COMPHYSTCTL_BITS
+    1208                      .eos
+    1209                      .stag   _ADC_REGS, 1296
+    1210                      .member _ADCCTL1, 0, 9, 8, 16, _ADCCTL1_REG
+    1211                      .member _ADCCTL2, 16, 9, 8, 16, _ADCCTL2_REG
+    1212                      .member _rsvd1, 32, 62, 8, 32, , 2
+    1213                      .member _ADCINTFLG, 64, 9, 8, 16, _ADCINT_REG
+    1214                      .member _ADCINTFLGCLR, 80, 9, 8, 16, _ADCINT_REG
+    1215                      .member _ADCINTOVF, 96, 9, 8, 16, _ADCINT_REG
+    1216                      .member _ADCINTOVFCLR, 112, 9, 8, 16, _ADCINT_REG
+    1217                      .member _INTSEL1N2, 128, 9, 8, 16, _INTSEL1N2_REG
+    1218                      .member _INTSEL3N4, 144, 9, 8, 16, _INTSEL3N4_REG
+    1219                      .member _INTSEL5N6, 160, 9, 8, 16, _INTSEL5N6_REG
+    1220                      .member _INTSEL7N8, 176, 9, 8, 16, _INTSEL7N8_REG
+    1221                      .member _INTSEL9N10, 192, 9, 8, 16, _INTSEL9N10_REG
+    1222                      .member _rsvd2, 208, 62, 8, 48, , 3
+    1223                      .member _SOCPRICTL, 256, 9, 8, 16, _SOCPRICTL_REG
+    1224                      .member _rsvd3, 272, 14, 8, 16
+    1225                      .member _ADCSAMPLEMODE, 288, 9, 8, 16, _ADCSAMPLEMODE_REG
+    1226                      .member _rsvd4, 304, 14, 8, 16
+    1227                      .member _ADCINTSOCSEL1, 320, 9, 8, 16, _ADCINTSOCSEL1_REG
+    1228                      .member _ADCINTSOCSEL2, 336, 9, 8, 16, _ADCINTSOCSEL2_REG
+    1229                      .member _rsvd5, 352, 62, 8, 32, , 2
+    1230                      .member _ADCSOCFLG1, 384, 9, 8, 16, _ADCSOC_REG
+    1231                      .member _rsvd6, 400, 14, 8, 16
+    1232                      .member _ADCSOCFRC1, 416, 9, 8, 16, _ADCSOC_REG
+    1233                      .member _rsvd7, 432, 14, 8, 16
+    1234                      .member _ADCSOCOVF1, 448, 9, 8, 16, _ADCSOC_REG
+    1235                      .member _rsvd8, 464, 14, 8, 16
+    1236                      .member _ADCSOCOVFCLR1, 480, 9, 8, 16, _ADCSOC_REG
+    1237                      .member _rsvd9, 496, 14, 8, 16
+    1238                      .member _ADCSOC0CTL, 512, 9, 8, 16, _ADCSOCxCTL_REG
+    1239                      .member _ADCSOC1CTL, 528, 9, 8, 16, _ADCSOCxCTL_REG
+    1240                      .member _ADCSOC2CTL, 544, 9, 8, 16, _ADCSOCxCTL_REG
+    1241                      .member _ADCSOC3CTL, 560, 9, 8, 16, _ADCSOCxCTL_REG
+    1242                      .member _ADCSOC4CTL, 576, 9, 8, 16, _ADCSOCxCTL_REG
+    1243                      .member _ADCSOC5CTL, 592, 9, 8, 16, _ADCSOCxCTL_REG
+    1244                      .member _ADCSOC6CTL, 608, 9, 8, 16, _ADCSOCxCTL_REG
+    1245                      .member _ADCSOC7CTL, 624, 9, 8, 16, _ADCSOCxCTL_REG
+    1246                      .member _ADCSOC8CTL, 640, 9, 8, 16, _ADCSOCxCTL_REG
+    1247                      .member _ADCSOC9CTL, 656, 9, 8, 16, _ADCSOCxCTL_REG
+    1248                      .member _ADCSOC10CTL, 672, 9, 8, 16, _ADCSOCxCTL_REG
+    1249                      .member _ADCSOC11CTL, 688, 9, 8, 16, _ADCSOCxCTL_REG
+    1250                      .member _ADCSOC12CTL, 704, 9, 8, 16, _ADCSOCxCTL_REG
+    1251                      .member _ADCSOC13CTL, 720, 9, 8, 16, _ADCSOCxCTL_REG
+    1252                      .member _ADCSOC14CTL, 736, 9, 8, 16, _ADCSOCxCTL_REG
+    1253                      .member _ADCSOC15CTL, 752, 9, 8, 16, _ADCSOCxCTL_REG
+    1254                      .member _rsvd10, 768, 62, 8, 256, , 16
+    1255                      .member _ADCREFTRIM, 1024, 9, 8, 16, _ADCREFTRIM_REG
+    1256                      .member _ADCOFFTRIM, 1040, 9, 8, 16, _ADCOFFTRIM_REG
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   27
+
+    1257                      .member _rsvd11, 1056, 62, 8, 160, , 10
+    1258                      .member _COMPHYSTCTL, 1216, 9, 8, 32, _COMPHYSTCTL_REG
+    1259                      .member _rsvd12, 1248, 62, 8, 48, , 3
+    1260                      .eos
+    1261                      .stag   _TBCTL_BITS, 16
+    1262                      .member _CTRMODE, 0, 14, 18, 2
+    1263                      .member _PHSEN, 2, 14, 18, 1
+    1264                      .member _PRDLD, 3, 14, 18, 1
+    1265                      .member _SYNCOSEL, 4, 14, 18, 2
+    1266                      .member _SWFSYNC, 6, 14, 18, 1
+    1267                      .member _HSPCLKDIV, 7, 14, 18, 3
+    1268                      .member _CLKDIV, 10, 14, 18, 3
+    1269                      .member _PHSDIR, 13, 14, 18, 1
+    1270                      .member _FREE_SOFT, 14, 14, 18, 2
+    1271                      .eos
+    1272                      .utag   _TBCTL_REG, 16
+    1273                      .member _all, 0, 14, 11, 16
+    1274                      .member _bit, 0, 8, 11, 16, _TBCTL_BITS
+    1275                      .eos
+    1276                      .stag   _TBSTS_BITS, 16
+    1277                      .member _CTRDIR, 0, 14, 18, 1
+    1278                      .member _SYNCI, 1, 14, 18, 1
+    1279                      .member _CTRMAX, 2, 14, 18, 1
+    1280                      .member _rsvd1, 3, 14, 18, 13
+    1281                      .eos
+    1282                      .utag   _TBSTS_REG, 16
+    1283                      .member _all, 0, 14, 11, 16
+    1284                      .member _bit, 0, 8, 11, 16, _TBSTS_BITS
+    1285                      .eos
+    1286                      .stag   _TBPHS_HRPWM_REG, 32
+    1287                      .member _TBPHSHR, 0, 14, 8, 16
+    1288                      .member _TBPHS, 16, 14, 8, 16
+    1289                      .eos
+    1290                      .utag   _TBPHS_HRPWM_GROUP, 32
+    1291                      .member _all, 0, 15, 11, 32
+    1292                      .member _half, 0, 8, 11, 32, _TBPHS_HRPWM_REG
+    1293                      .eos
+    1294                      .stag   _CMPCTL_BITS, 16
+    1295                      .member _LOADAMODE, 0, 14, 18, 2
+    1296                      .member _LOADBMODE, 2, 14, 18, 2
+    1297                      .member _SHDWAMODE, 4, 14, 18, 1
+    1298                      .member _rsvd1, 5, 14, 18, 1
+    1299                      .member _SHDWBMODE, 6, 14, 18, 1
+    1300                      .member _rsvd2, 7, 14, 18, 1
+    1301                      .member _SHDWAFULL, 8, 14, 18, 1
+    1302                      .member _SHDWBFULL, 9, 14, 18, 1
+    1303                      .member _rsvd3, 10, 14, 18, 6
+    1304                      .eos
+    1305                      .utag   _CMPCTL_REG, 16
+    1306                      .member _all, 0, 14, 11, 16
+    1307                      .member _bit, 0, 8, 11, 16, _CMPCTL_BITS
+    1308                      .eos
+    1309                      .stag   _CMPA_HRPWM_REG, 32
+    1310                      .member _CMPAHR, 0, 14, 8, 16
+    1311                      .member _CMPA, 16, 14, 8, 16
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   28
+
+    1312                      .eos
+    1313                      .utag   _CMPA_HRPWM_GROUP, 32
+    1314                      .member _all, 0, 15, 11, 32
+    1315                      .member _half, 0, 8, 11, 32, _CMPA_HRPWM_REG
+    1316                      .eos
+    1317                      .stag   _AQCTL_BITS, 16
+    1318                      .member _ZRO, 0, 14, 18, 2
+    1319                      .member _PRD, 2, 14, 18, 2
+    1320                      .member _CAU, 4, 14, 18, 2
+    1321                      .member _CAD, 6, 14, 18, 2
+    1322                      .member _CBU, 8, 14, 18, 2
+    1323                      .member _CBD, 10, 14, 18, 2
+    1324                      .member _rsvd, 12, 14, 18, 4
+    1325                      .eos
+    1326                      .utag   _AQCTL_REG, 16
+    1327                      .member _all, 0, 14, 11, 16
+    1328                      .member _bit, 0, 8, 11, 16, _AQCTL_BITS
+    1329                      .eos
+    1330                      .stag   _AQSFRC_BITS, 16
+    1331                      .member _ACTSFA, 0, 14, 18, 2
+    1332                      .member _OTSFA, 2, 14, 18, 1
+    1333                      .member _ACTSFB, 3, 14, 18, 2
+    1334                      .member _OTSFB, 5, 14, 18, 1
+    1335                      .member _RLDCSF, 6, 14, 18, 2
+    1336                      .member _rsvd1, 8, 14, 18, 8
+    1337                      .eos
+    1338                      .utag   _AQSFRC_REG, 16
+    1339                      .member _all, 0, 14, 11, 16
+    1340                      .member _bit, 0, 8, 11, 16, _AQSFRC_BITS
+    1341                      .eos
+    1342                      .stag   _AQCSFRC_BITS, 16
+    1343                      .member _CSFA, 0, 14, 18, 2
+    1344                      .member _CSFB, 2, 14, 18, 2
+    1345                      .member _rsvd1, 4, 14, 18, 12
+    1346                      .eos
+    1347                      .utag   _AQCSFRC_REG, 16
+    1348                      .member _all, 0, 14, 11, 16
+    1349                      .member _bit, 0, 8, 11, 16, _AQCSFRC_BITS
+    1350                      .eos
+    1351                      .stag   _DBCTL_BITS, 16
+    1352                      .member _OUT_MODE, 0, 14, 18, 2
+    1353                      .member _POLSEL, 2, 14, 18, 2
+    1354                      .member _IN_MODE, 4, 14, 18, 2
+    1355                      .member _rsvd1, 6, 14, 18, 9
+    1356                      .member _HALFCYCLE, 15, 14, 18, 1
+    1357                      .eos
+    1358                      .utag   _DBCTL_REG, 16
+    1359                      .member _all, 0, 14, 11, 16
+    1360                      .member _bit, 0, 8, 11, 16, _DBCTL_BITS
+    1361                      .eos
+    1362                      .stag   _TZSEL_BITS, 16
+    1363                      .member _CBC1, 0, 14, 18, 1
+    1364                      .member _CBC2, 1, 14, 18, 1
+    1365                      .member _CBC3, 2, 14, 18, 1
+    1366                      .member _CBC4, 3, 14, 18, 1
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   29
+
+    1367                      .member _CBC5, 4, 14, 18, 1
+    1368                      .member _CBC6, 5, 14, 18, 1
+    1369                      .member _DCAEVT2, 6, 14, 18, 1
+    1370                      .member _DCBEVT2, 7, 14, 18, 1
+    1371                      .member _OSHT1, 8, 14, 18, 1
+    1372                      .member _OSHT2, 9, 14, 18, 1
+    1373                      .member _OSHT3, 10, 14, 18, 1
+    1374                      .member _OSHT4, 11, 14, 18, 1
+    1375                      .member _OSHT5, 12, 14, 18, 1
+    1376                      .member _OSHT6, 13, 14, 18, 1
+    1377                      .member _DCAEVT1, 14, 14, 18, 1
+    1378                      .member _DCBEVT1, 15, 14, 18, 1
+    1379                      .eos
+    1380                      .utag   _TZSEL_REG, 16
+    1381                      .member _all, 0, 14, 11, 16
+    1382                      .member _bit, 0, 8, 11, 16, _TZSEL_BITS
+    1383                      .eos
+    1384                      .stag   _TZDCSEL_BITS, 16
+    1385                      .member _DCAEVT1, 0, 14, 18, 3
+    1386                      .member _DCAEVT2, 3, 14, 18, 3
+    1387                      .member _DCBEVT1, 6, 14, 18, 3
+    1388                      .member _DCBEVT2, 9, 14, 18, 3
+    1389                      .member _rsvd1, 12, 14, 18, 4
+    1390                      .eos
+    1391                      .utag   _TZDCSEL_REG, 16
+    1392                      .member _all, 0, 14, 11, 16
+    1393                      .member _bit, 0, 8, 11, 16, _TZDCSEL_BITS
+    1394                      .eos
+    1395                      .stag   _TZCTL_BITS, 16
+    1396                      .member _TZA, 0, 14, 18, 2
+    1397                      .member _TZB, 2, 14, 18, 2
+    1398                      .member _DCAEVT1, 4, 14, 18, 2
+    1399                      .member _DCAEVT2, 6, 14, 18, 2
+    1400                      .member _DCBEVT1, 8, 14, 18, 2
+    1401                      .member _DCBEVT2, 10, 14, 18, 2
+    1402                      .member _rsvd, 12, 14, 18, 4
+    1403                      .eos
+    1404                      .utag   _TZCTL_REG, 16
+    1405                      .member _all, 0, 14, 11, 16
+    1406                      .member _bit, 0, 8, 11, 16, _TZCTL_BITS
+    1407                      .eos
+    1408                      .stag   _TZEINT_BITS, 16
+    1409                      .member _rsvd1, 0, 14, 18, 1
+    1410                      .member _CBC, 1, 14, 18, 1
+    1411                      .member _OST, 2, 14, 18, 1
+    1412                      .member _DCAEVT1, 3, 14, 18, 1
+    1413                      .member _DCAEVT2, 4, 14, 18, 1
+    1414                      .member _DCBEVT1, 5, 14, 18, 1
+    1415                      .member _DCBEVT2, 6, 14, 18, 1
+    1416                      .member _rsvd2, 7, 14, 18, 9
+    1417                      .eos
+    1418                      .utag   _TZEINT_REG, 16
+    1419                      .member _all, 0, 14, 11, 16
+    1420                      .member _bit, 0, 8, 11, 16, _TZEINT_BITS
+    1421                      .eos
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   30
+
+    1422                      .stag   _TZFLG_BITS, 16
+    1423                      .member _INT, 0, 14, 18, 1
+    1424                      .member _CBC, 1, 14, 18, 1
+    1425                      .member _OST, 2, 14, 18, 1
+    1426                      .member _DCAEVT1, 3, 14, 18, 1
+    1427                      .member _DCAEVT2, 4, 14, 18, 1
+    1428                      .member _DCBEVT1, 5, 14, 18, 1
+    1429                      .member _DCBEVT2, 6, 14, 18, 1
+    1430                      .member _rsvd2, 7, 14, 18, 9
+    1431                      .eos
+    1432                      .utag   _TZFLG_REG, 16
+    1433                      .member _all, 0, 14, 11, 16
+    1434                      .member _bit, 0, 8, 11, 16, _TZFLG_BITS
+    1435                      .eos
+    1436                      .stag   _TZCLR_BITS, 16
+    1437                      .member _INT, 0, 14, 18, 1
+    1438                      .member _CBC, 1, 14, 18, 1
+    1439                      .member _OST, 2, 14, 18, 1
+    1440                      .member _DCAEVT1, 3, 14, 18, 1
+    1441                      .member _DCAEVT2, 4, 14, 18, 1
+    1442                      .member _DCBEVT1, 5, 14, 18, 1
+    1443                      .member _DCBEVT2, 6, 14, 18, 1
+    1444                      .member _rsvd2, 7, 14, 18, 9
+    1445                      .eos
+    1446                      .utag   _TZCLR_REG, 16
+    1447                      .member _all, 0, 14, 11, 16
+    1448                      .member _bit, 0, 8, 11, 16, _TZCLR_BITS
+    1449                      .eos
+    1450                      .stag   _TZFRC_BITS, 16
+    1451                      .member _rsvd1, 0, 14, 18, 1
+    1452                      .member _CBC, 1, 14, 18, 1
+    1453                      .member _OST, 2, 14, 18, 1
+    1454                      .member _DCAEVT1, 3, 14, 18, 1
+    1455                      .member _DCAEVT2, 4, 14, 18, 1
+    1456                      .member _DCBEVT1, 5, 14, 18, 1
+    1457                      .member _DCBEVT2, 6, 14, 18, 1
+    1458                      .member _rsvd2, 7, 14, 18, 9
+    1459                      .eos
+    1460                      .utag   _TZFRC_REG, 16
+    1461                      .member _all, 0, 14, 11, 16
+    1462                      .member _bit, 0, 8, 11, 16, _TZFRC_BITS
+    1463                      .eos
+    1464                      .stag   _ETSEL_BITS, 16
+    1465                      .member _INTSEL, 0, 14, 18, 3
+    1466                      .member _INTEN, 3, 14, 18, 1
+    1467                      .member _rsvd1, 4, 14, 18, 4
+    1468                      .member _SOCASEL, 8, 14, 18, 3
+    1469                      .member _SOCAEN, 11, 14, 18, 1
+    1470                      .member _SOCBSEL, 12, 14, 18, 3
+    1471                      .member _SOCBEN, 15, 14, 18, 1
+    1472                      .eos
+    1473                      .utag   _ETSEL_REG, 16
+    1474                      .member _all, 0, 14, 11, 16
+    1475                      .member _bit, 0, 8, 11, 16, _ETSEL_BITS
+    1476                      .eos
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   31
+
+    1477                      .stag   _ETPS_BITS, 16
+    1478                      .member _INTPRD, 0, 14, 18, 2
+    1479                      .member _INTCNT, 2, 14, 18, 2
+    1480                      .member _rsvd1, 4, 14, 18, 4
+    1481                      .member _SOCAPRD, 8, 14, 18, 2
+    1482                      .member _SOCACNT, 10, 14, 18, 2
+    1483                      .member _SOCBPRD, 12, 14, 18, 2
+    1484                      .member _SOCBCNT, 14, 14, 18, 2
+    1485                      .eos
+    1486                      .utag   _ETPS_REG, 16
+    1487                      .member _all, 0, 14, 11, 16
+    1488                      .member _bit, 0, 8, 11, 16, _ETPS_BITS
+    1489                      .eos
+    1490                      .stag   _ETFLG_BITS, 16
+    1491                      .member _INT, 0, 14, 18, 1
+    1492                      .member _rsvd1, 1, 14, 18, 1
+    1493                      .member _SOCA, 2, 14, 18, 1
+    1494                      .member _SOCB, 3, 14, 18, 1
+    1495                      .member _rsvd2, 4, 14, 18, 12
+    1496                      .eos
+    1497                      .utag   _ETFLG_REG, 16
+    1498                      .member _all, 0, 14, 11, 16
+    1499                      .member _bit, 0, 8, 11, 16, _ETFLG_BITS
+    1500                      .eos
+    1501                      .stag   _ETCLR_BITS, 16
+    1502                      .member _INT, 0, 14, 18, 1
+    1503                      .member _rsvd1, 1, 14, 18, 1
+    1504                      .member _SOCA, 2, 14, 18, 1
+    1505                      .member _SOCB, 3, 14, 18, 1
+    1506                      .member _rsvd2, 4, 14, 18, 12
+    1507                      .eos
+    1508                      .utag   _ETCLR_REG, 16
+    1509                      .member _all, 0, 14, 11, 16
+    1510                      .member _bit, 0, 8, 11, 16, _ETCLR_BITS
+    1511                      .eos
+    1512                      .stag   _ETFRC_BITS, 16
+    1513                      .member _INT, 0, 14, 18, 1
+    1514                      .member _rsvd1, 1, 14, 18, 1
+    1515                      .member _SOCA, 2, 14, 18, 1
+    1516                      .member _SOCB, 3, 14, 18, 1
+    1517                      .member _rsvd2, 4, 14, 18, 12
+    1518                      .eos
+    1519                      .utag   _ETFRC_REG, 16
+    1520                      .member _all, 0, 14, 11, 16
+    1521                      .member _bit, 0, 8, 11, 16, _ETFRC_BITS
+    1522                      .eos
+    1523                      .stag   _PCCTL_BITS, 16
+    1524                      .member _CHPEN, 0, 14, 18, 1
+    1525                      .member _OSHTWTH, 1, 14, 18, 4
+    1526                      .member _CHPFREQ, 5, 14, 18, 3
+    1527                      .member _CHPDUTY, 8, 14, 18, 3
+    1528                      .member _rsvd1, 11, 14, 18, 5
+    1529                      .eos
+    1530                      .utag   _PCCTL_REG, 16
+    1531                      .member _all, 0, 14, 11, 16
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   32
+
+    1532                      .member _bit, 0, 8, 11, 16, _PCCTL_BITS
+    1533                      .eos
+    1534                      .stag   _HRCNFG_BITS, 16
+    1535                      .member _EDGMODE, 0, 14, 18, 2
+    1536                      .member _CTLMODE, 2, 14, 18, 1
+    1537                      .member _HRLOAD, 3, 14, 18, 2
+    1538                      .member _SELOUTB, 5, 14, 18, 1
+    1539                      .member _AUTOCONV, 6, 14, 18, 1
+    1540                      .member _SWAPAB, 7, 14, 18, 1
+    1541                      .member _rsvd1, 8, 14, 18, 8
+    1542                      .eos
+    1543                      .utag   _HRCNFG_REG, 16
+    1544                      .member _all, 0, 14, 11, 16
+    1545                      .member _bit, 0, 8, 11, 16, _HRCNFG_BITS
+    1546                      .eos
+    1547                      .stag   _HRPWR_BITS, 16
+    1548                      .member _rsvd1, 0, 14, 18, 6
+    1549                      .member _MEPOFF, 6, 14, 18, 4
+    1550                      .member _rsvd2, 10, 14, 18, 6
+    1551                      .eos
+    1552                      .utag   _HRPWR_REG, 16
+    1553                      .member _all, 0, 14, 11, 16
+    1554                      .member _bit, 0, 8, 11, 16, _HRPWR_BITS
+    1555                      .eos
+    1556                      .stag   _HRPCTL_BITS, 16
+    1557                      .member _HRPE, 0, 14, 18, 1
+    1558                      .member _rsvd1, 1, 14, 18, 1
+    1559                      .member _TBPHSHRLOADE, 2, 14, 18, 1
+    1560                      .member _rsvd2, 3, 14, 18, 13
+    1561                      .eos
+    1562                      .utag   _HRPCTL_REG, 16
+    1563                      .member _all, 0, 14, 11, 16
+    1564                      .member _bit, 0, 8, 11, 16, _HRPCTL_BITS
+    1565                      .eos
+    1566                      .stag   _TBPRD_HRPWM_REG, 32
+    1567                      .member _TBPRDHR, 0, 14, 8, 16
+    1568                      .member _TBPRD, 16, 14, 8, 16
+    1569                      .eos
+    1570                      .utag   _TBPRD_HRPWM_GROUP, 32
+    1571                      .member _all, 0, 15, 11, 32
+    1572                      .member _half, 0, 8, 11, 32, _TBPRD_HRPWM_REG
+    1573                      .eos
+    1574                      .stag   _DCTRIPSEL_BITS, 16
+    1575                      .member _DCAHCOMPSEL, 0, 14, 18, 4
+    1576                      .member _DCALCOMPSEL, 4, 14, 18, 4
+    1577                      .member _DCBHCOMPSEL, 8, 14, 18, 4
+    1578                      .member _DCBLCOMPSEL, 12, 14, 18, 4
+    1579                      .eos
+    1580                      .utag   _DCTRIPSEL_REG, 16
+    1581                      .member _all, 0, 14, 11, 16
+    1582                      .member _bit, 0, 8, 11, 16, _DCTRIPSEL_BITS
+    1583                      .eos
+    1584                      .stag   _DCCTL_BITS, 16
+    1585                      .member _EVT1SRCSEL, 0, 14, 18, 1
+    1586                      .member _EVT1FRCSYNCSEL, 1, 14, 18, 1
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   33
+
+    1587                      .member _EVT1SOCE, 2, 14, 18, 1
+    1588                      .member _EVT1SYNCE, 3, 14, 18, 1
+    1589                      .member _rsvd1, 4, 14, 18, 4
+    1590                      .member _EVT2SRCSEL, 8, 14, 18, 1
+    1591                      .member _EVT2FRCSYNCSEL, 9, 14, 18, 1
+    1592                      .member _rsvd2, 10, 14, 18, 6
+    1593                      .eos
+    1594                      .utag   _DCCTL_REG, 16
+    1595                      .member _all, 0, 14, 11, 16
+    1596                      .member _bit, 0, 8, 11, 16, _DCCTL_BITS
+    1597                      .eos
+    1598                      .stag   _DCFCTL_BITS, 16
+    1599                      .member _SRCSEL, 0, 14, 18, 2
+    1600                      .member _BLANKE, 2, 14, 18, 1
+    1601                      .member _BLANKINV, 3, 14, 18, 1
+    1602                      .member _PULSESEL, 4, 14, 18, 2
+    1603                      .member _rsvd, 6, 14, 18, 10
+    1604                      .eos
+    1605                      .utag   _DCFCTL_REG, 16
+    1606                      .member _all, 0, 14, 11, 16
+    1607                      .member _bit, 0, 8, 11, 16, _DCFCTL_BITS
+    1608                      .eos
+    1609                      .stag   _DCCAPCTL_BITS, 16
+    1610                      .member _CAPE, 0, 14, 18, 1
+    1611                      .member _SHDWMODE, 1, 14, 18, 1
+    1612                      .member _rsvd, 2, 14, 18, 14
+    1613                      .eos
+    1614                      .utag   _DCCAPCTL_REG, 16
+    1615                      .member _all, 0, 14, 11, 16
+    1616                      .member _bit, 0, 8, 11, 16, _DCCAPCTL_BITS
+    1617                      .eos
+    1618                      .stag   _EPWM_REGS, 1024
+    1619                      .member _TBCTL, 0, 9, 8, 16, _TBCTL_REG
+    1620                      .member _TBSTS, 16, 9, 8, 16, _TBSTS_REG
+    1621                      .member _TBPHS, 32, 9, 8, 32, _TBPHS_HRPWM_GROUP
+    1622                      .member _TBCTR, 64, 14, 8, 16
+    1623                      .member _TBPRD, 80, 14, 8, 16
+    1624                      .member _TBPRDHR, 96, 14, 8, 16
+    1625                      .member _CMPCTL, 112, 9, 8, 16, _CMPCTL_REG
+    1626                      .member _CMPA, 128, 9, 8, 32, _CMPA_HRPWM_GROUP
+    1627                      .member _CMPB, 160, 14, 8, 16
+    1628                      .member _AQCTLA, 176, 9, 8, 16, _AQCTL_REG
+    1629                      .member _AQCTLB, 192, 9, 8, 16, _AQCTL_REG
+    1630                      .member _AQSFRC, 208, 9, 8, 16, _AQSFRC_REG
+    1631                      .member _AQCSFRC, 224, 9, 8, 16, _AQCSFRC_REG
+    1632                      .member _DBCTL, 240, 9, 8, 16, _DBCTL_REG
+    1633                      .member _DBRED, 256, 14, 8, 16
+    1634                      .member _DBFED, 272, 14, 8, 16
+    1635                      .member _TZSEL, 288, 9, 8, 16, _TZSEL_REG
+    1636                      .member _TZDCSEL, 304, 9, 8, 16, _TZDCSEL_REG
+    1637                      .member _TZCTL, 320, 9, 8, 16, _TZCTL_REG
+    1638                      .member _TZEINT, 336, 9, 8, 16, _TZEINT_REG
+    1639                      .member _TZFLG, 352, 9, 8, 16, _TZFLG_REG
+    1640                      .member _TZCLR, 368, 9, 8, 16, _TZCLR_REG
+    1641                      .member _TZFRC, 384, 9, 8, 16, _TZFRC_REG
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   34
+
+    1642                      .member _ETSEL, 400, 9, 8, 16, _ETSEL_REG
+    1643                      .member _ETPS, 416, 9, 8, 16, _ETPS_REG
+    1644                      .member _ETFLG, 432, 9, 8, 16, _ETFLG_REG
+    1645                      .member _ETCLR, 448, 9, 8, 16, _ETCLR_REG
+    1646                      .member _ETFRC, 464, 9, 8, 16, _ETFRC_REG
+    1647                      .member _PCCTL, 480, 9, 8, 16, _PCCTL_REG
+    1648                      .member _rsvd3, 496, 14, 8, 16
+    1649                      .member _HRCNFG, 512, 9, 8, 16, _HRCNFG_REG
+    1650                      .member _HRPWR, 528, 9, 8, 16, _HRPWR_REG
+    1651                      .member _rsvd4, 544, 62, 8, 64, , 4
+    1652                      .member _HRMSTEP, 608, 14, 8, 16
+    1653                      .member _rsvd5, 624, 14, 8, 16
+    1654                      .member _HRPCTL, 640, 9, 8, 16, _HRPCTL_REG
+    1655                      .member _rsvd6, 656, 14, 8, 16
+    1656                      .member _TBPRDM, 672, 9, 8, 32, _TBPRD_HRPWM_GROUP
+    1657                      .member _CMPAM, 704, 9, 8, 32, _CMPA_HRPWM_GROUP
+    1658                      .member _rsvd7, 736, 62, 8, 32, , 2
+    1659                      .member _DCTRIPSEL, 768, 9, 8, 16, _DCTRIPSEL_REG
+    1660                      .member _DCACTL, 784, 9, 8, 16, _DCCTL_REG
+    1661                      .member _DCBCTL, 800, 9, 8, 16, _DCCTL_REG
+    1662                      .member _DCFCTL, 816, 9, 8, 16, _DCFCTL_REG
+    1663                      .member _DCCAPCTL, 832, 9, 8, 16, _DCCAPCTL_REG
+    1664                      .member _DCFOFFSET, 848, 14, 8, 16
+    1665                      .member _DCFOFFSETCNT, 864, 14, 8, 16
+    1666                      .member _DCFWINDOW, 880, 14, 8, 16
+    1667                      .member _DCFWINDOWCNT, 896, 14, 8, 16
+    1668                      .member _DCCAP, 912, 14, 8, 16
+    1669                      .member _rsvd8, 928, 62, 8, 96, , 6
+    1670                      .eos
+    1671                      .stag   _GPACTRL_BITS, 32
+    1672                      .member _QUALPRD0, 0, 14, 18, 8
+    1673                      .member _QUALPRD1, 8, 14, 18, 8
+    1674                      .member _QUALPRD2, 16, 14, 18, 8
+    1675                      .member _QUALPRD3, 24, 14, 18, 8
+    1676                      .eos
+    1677                      .utag   _GPACTRL_REG, 32
+    1678                      .member _all, 0, 15, 11, 32
+    1679                      .member _bit, 0, 8, 11, 32, _GPACTRL_BITS
+    1680                      .eos
+    1681                      .stag   _GPA1_BITS, 32
+    1682                      .member _GPIO0, 0, 14, 18, 2
+    1683                      .member _GPIO1, 2, 14, 18, 2
+    1684                      .member _GPIO2, 4, 14, 18, 2
+    1685                      .member _GPIO3, 6, 14, 18, 2
+    1686                      .member _GPIO4, 8, 14, 18, 2
+    1687                      .member _GPIO5, 10, 14, 18, 2
+    1688                      .member _GPIO6, 12, 14, 18, 2
+    1689                      .member _GPIO7, 14, 14, 18, 2
+    1690                      .member _GPIO8, 16, 14, 18, 2
+    1691                      .member _GPIO9, 18, 14, 18, 2
+    1692                      .member _GPIO10, 20, 14, 18, 2
+    1693                      .member _GPIO11, 22, 14, 18, 2
+    1694                      .member _GPIO12, 24, 14, 18, 2
+    1695                      .member _GPIO13, 26, 14, 18, 2
+    1696                      .member _GPIO14, 28, 14, 18, 2
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   35
+
+    1697                      .member _GPIO15, 30, 14, 18, 2
+    1698                      .eos
+    1699                      .utag   _GPA1_REG, 32
+    1700                      .member _all, 0, 15, 11, 32
+    1701                      .member _bit, 0, 8, 11, 32, _GPA1_BITS
+    1702                      .eos
+    1703                      .stag   _GPA2_BITS, 32
+    1704                      .member _GPIO16, 0, 14, 18, 2
+    1705                      .member _GPIO17, 2, 14, 18, 2
+    1706                      .member _GPIO18, 4, 14, 18, 2
+    1707                      .member _GPIO19, 6, 14, 18, 2
+    1708                      .member _GPIO20, 8, 14, 18, 2
+    1709                      .member _GPIO21, 10, 14, 18, 2
+    1710                      .member _GPIO22, 12, 14, 18, 2
+    1711                      .member _GPIO23, 14, 14, 18, 2
+    1712                      .member _GPIO24, 16, 14, 18, 2
+    1713                      .member _GPIO25, 18, 14, 18, 2
+    1714                      .member _GPIO26, 20, 14, 18, 2
+    1715                      .member _GPIO27, 22, 14, 18, 2
+    1716                      .member _GPIO28, 24, 14, 18, 2
+    1717                      .member _GPIO29, 26, 14, 18, 2
+    1718                      .member _GPIO30, 28, 14, 18, 2
+    1719                      .member _GPIO31, 30, 14, 18, 2
+    1720                      .eos
+    1721                      .utag   _GPA2_REG, 32
+    1722                      .member _all, 0, 15, 11, 32
+    1723                      .member _bit, 0, 8, 11, 32, _GPA2_BITS
+    1724                      .eos
+    1725                      .stag   _GPADAT_BITS, 32
+    1726                      .member _GPIO0, 0, 14, 18, 1
+    1727                      .member _GPIO1, 1, 14, 18, 1
+    1728                      .member _GPIO2, 2, 14, 18, 1
+    1729                      .member _GPIO3, 3, 14, 18, 1
+    1730                      .member _GPIO4, 4, 14, 18, 1
+    1731                      .member _GPIO5, 5, 14, 18, 1
+    1732                      .member _GPIO6, 6, 14, 18, 1
+    1733                      .member _GPIO7, 7, 14, 18, 1
+    1734                      .member _GPIO8, 8, 14, 18, 1
+    1735                      .member _GPIO9, 9, 14, 18, 1
+    1736                      .member _GPIO10, 10, 14, 18, 1
+    1737                      .member _GPIO11, 11, 14, 18, 1
+    1738                      .member _GPIO12, 12, 14, 18, 1
+    1739                      .member _GPIO13, 13, 14, 18, 1
+    1740                      .member _GPIO14, 14, 14, 18, 1
+    1741                      .member _GPIO15, 15, 14, 18, 1
+    1742                      .member _GPIO16, 16, 14, 18, 1
+    1743                      .member _GPIO17, 17, 14, 18, 1
+    1744                      .member _GPIO18, 18, 14, 18, 1
+    1745                      .member _GPIO19, 19, 14, 18, 1
+    1746                      .member _GPIO20, 20, 14, 18, 1
+    1747                      .member _GPIO21, 21, 14, 18, 1
+    1748                      .member _GPIO22, 22, 14, 18, 1
+    1749                      .member _GPIO23, 23, 14, 18, 1
+    1750                      .member _GPIO24, 24, 14, 18, 1
+    1751                      .member _GPIO25, 25, 14, 18, 1
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   36
+
+    1752                      .member _GPIO26, 26, 14, 18, 1
+    1753                      .member _GPIO27, 27, 14, 18, 1
+    1754                      .member _GPIO28, 28, 14, 18, 1
+    1755                      .member _GPIO29, 29, 14, 18, 1
+    1756                      .member _GPIO30, 30, 14, 18, 1
+    1757                      .member _GPIO31, 31, 14, 18, 1
+    1758                      .eos
+    1759                      .utag   _GPADAT_REG, 32
+    1760                      .member _all, 0, 15, 11, 32
+    1761                      .member _bit, 0, 8, 11, 32, _GPADAT_BITS
+    1762                      .eos
+    1763                      .stag   _GPBCTRL_BITS, 32
+    1764                      .member _QUALPRD0, 0, 14, 18, 8
+    1765                      .member _rsvd1, 8, 14, 18, 8
+    1766                      .member _rsvd2, 16, 14, 18, 16
+    1767                      .eos
+    1768                      .utag   _GPBCTRL_REG, 32
+    1769                      .member _all, 0, 15, 11, 32
+    1770                      .member _bit, 0, 8, 11, 32, _GPBCTRL_BITS
+    1771                      .eos
+    1772                      .stag   _GPB1_BITS, 32
+    1773                      .member _GPIO32, 0, 14, 18, 2
+    1774                      .member _GPIO33, 2, 14, 18, 2
+    1775                      .member _GPIO34, 4, 14, 18, 2
+    1776                      .member _GPIO35, 6, 14, 18, 2
+    1777                      .member _GPIO36, 8, 14, 18, 2
+    1778                      .member _GPIO37, 10, 14, 18, 2
+    1779                      .member _GPIO38, 12, 14, 18, 2
+    1780                      .member _rsvd1, 14, 14, 18, 2
+    1781                      .member _rsvd2, 16, 14, 18, 16
+    1782                      .eos
+    1783                      .utag   _GPB1_REG, 32
+    1784                      .member _all, 0, 15, 11, 32
+    1785                      .member _bit, 0, 8, 11, 32, _GPB1_BITS
+    1786                      .eos
+    1787                      .stag   _GPBDAT_BITS, 32
+    1788                      .member _GPIO32, 0, 14, 18, 1
+    1789                      .member _GPIO33, 1, 14, 18, 1
+    1790                      .member _GPIO34, 2, 14, 18, 1
+    1791                      .member _GPIO35, 3, 14, 18, 1
+    1792                      .member _GPIO36, 4, 14, 18, 1
+    1793                      .member _GPIO37, 5, 14, 18, 1
+    1794                      .member _GPIO38, 6, 14, 18, 1
+    1795                      .member _rsvd1, 7, 14, 18, 9
+    1796                      .member _rsvd2, 16, 14, 18, 16
+    1797                      .eos
+    1798                      .utag   _GPBDAT_REG, 32
+    1799                      .member _all, 0, 15, 11, 32
+    1800                      .member _bit, 0, 8, 11, 32, _GPBDAT_BITS
+    1801                      .eos
+    1802                      .stag   _AIO_BITS, 32
+    1803                      .member _rsvd1, 0, 14, 18, 2
+    1804                      .member _rsvd2, 2, 14, 18, 2
+    1805                      .member _AIO2, 4, 14, 18, 2
+    1806                      .member _rsvd3, 6, 14, 18, 2
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   37
+
+    1807                      .member _AIO4, 8, 14, 18, 2
+    1808                      .member _rsvd4, 10, 14, 18, 2
+    1809                      .member _AIO6, 12, 14, 18, 2
+    1810                      .member _rsvd5, 14, 14, 18, 2
+    1811                      .member _rsvd6, 16, 14, 18, 2
+    1812                      .member _rsvd7, 18, 14, 18, 2
+    1813                      .member _AIO10, 20, 14, 18, 2
+    1814                      .member _rsvd8, 22, 14, 18, 2
+    1815                      .member _AIO12, 24, 14, 18, 2
+    1816                      .member _rsvd9, 26, 14, 18, 2
+    1817                      .member _AIO14, 28, 14, 18, 2
+    1818                      .member _rsvd10, 30, 14, 18, 2
+    1819                      .eos
+    1820                      .utag   _AIO_REG, 32
+    1821                      .member _all, 0, 15, 11, 32
+    1822                      .member _bit, 0, 8, 11, 32, _AIO_BITS
+    1823                      .eos
+    1824                      .stag   _AIODAT_BITS, 16
+    1825                      .member _rsvd1, 0, 14, 18, 1
+    1826                      .member _rsvd2, 1, 14, 18, 1
+    1827                      .member _AIO2, 2, 14, 18, 1
+    1828                      .member _rsvd3, 3, 14, 18, 1
+    1829                      .member _AIO4, 4, 14, 18, 1
+    1830                      .member _rsvd4, 5, 14, 18, 1
+    1831                      .member _AIO6, 6, 14, 18, 1
+    1832                      .member _rsvd5, 7, 14, 18, 1
+    1833                      .member _rsvd6, 8, 14, 18, 1
+    1834                      .member _rsvd7, 9, 14, 18, 1
+    1835                      .member _AIO10, 10, 14, 18, 1
+    1836                      .member _rsvd8, 11, 14, 18, 1
+    1837                      .member _AIO12, 12, 14, 18, 1
+    1838                      .member _rsvd9, 13, 14, 18, 1
+    1839                      .member _AIO14, 14, 14, 18, 1
+    1840                      .member _rsvd10, 15, 14, 18, 1
+    1841                      .eos
+    1842                      .utag   _AIODAT_REG, 16
+    1843                      .member _all, 0, 14, 11, 16
+    1844                      .member _bit, 0, 8, 11, 16, _AIODAT_BITS
+    1845                      .eos
+    1846                      .stag   _GPIO_CTRL_REGS, 1024
+    1847                      .member _GPACTRL, 0, 9, 8, 32, _GPACTRL_REG
+    1848                      .member _GPAQSEL1, 32, 9, 8, 32, _GPA1_REG
+    1849                      .member _GPAQSEL2, 64, 9, 8, 32, _GPA2_REG
+    1850                      .member _GPAMUX1, 96, 9, 8, 32, _GPA1_REG
+    1851                      .member _GPAMUX2, 128, 9, 8, 32, _GPA2_REG
+    1852                      .member _GPADIR, 160, 9, 8, 32, _GPADAT_REG
+    1853                      .member _GPAPUD, 192, 9, 8, 32, _GPADAT_REG
+    1854                      .member _rsvd1, 224, 15, 8, 32
+    1855                      .member _GPBCTRL, 256, 9, 8, 32, _GPBCTRL_REG
+    1856                      .member _GPBQSEL1, 288, 9, 8, 32, _GPB1_REG
+    1857                      .member _rsvd2, 320, 15, 8, 32
+    1858                      .member _GPBMUX1, 352, 9, 8, 32, _GPB1_REG
+    1859                      .member _rsvd3, 384, 15, 8, 32
+    1860                      .member _GPBDIR, 416, 9, 8, 32, _GPBDAT_REG
+    1861                      .member _GPBPUD, 448, 9, 8, 32, _GPBDAT_REG
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   38
+
+    1862                      .member _rsvd4, 480, 62, 8, 384, , 24
+    1863                      .member _AIOMUX1, 864, 9, 8, 32, _AIO_REG
+    1864                      .member _rsvd5, 896, 15, 8, 32
+    1865                      .member _AIODIR, 928, 9, 8, 16, _AIODAT_REG
+    1866                      .member _rsvd6, 944, 62, 8, 80, , 5
+    1867                      .eos
+    1868                      .stag   _GPIO_DATA_REGS, 512
+    1869                      .member _GPADAT, 0, 9, 8, 32, _GPADAT_REG
+    1870                      .member _GPASET, 32, 9, 8, 32, _GPADAT_REG
+    1871                      .member _GPACLEAR, 64, 9, 8, 32, _GPADAT_REG
+    1872                      .member _GPATOGGLE, 96, 9, 8, 32, _GPADAT_REG
+    1873                      .member _GPBDAT, 128, 9, 8, 32, _GPBDAT_REG
+    1874                      .member _GPBSET, 160, 9, 8, 32, _GPBDAT_REG
+    1875                      .member _GPBCLEAR, 192, 9, 8, 32, _GPBDAT_REG
+    1876                      .member _GPBTOGGLE, 224, 9, 8, 32, _GPBDAT_REG
+    1877                      .member _rsvd1, 256, 62, 8, 128, , 8
+    1878                      .member _AIODAT, 384, 9, 8, 16, _AIODAT_REG
+    1879                      .member _rsvd2, 400, 14, 8, 16
+    1880                      .member _AIOSET, 416, 9, 8, 16, _AIODAT_REG
+    1881                      .member _rsvd3, 432, 14, 8, 16
+    1882                      .member _AIOCLEAR, 448, 9, 8, 16, _AIODAT_REG
+    1883                      .member _rsvd4, 464, 14, 8, 16
+    1884                      .member _AIOTOGGLE, 480, 9, 8, 16, _AIODAT_REG
+    1885                      .member _rsvd5, 496, 14, 8, 16
+    1886                      .eos
+    1887                      .stag   _PIE_VECT_TABLE, 4096
+    1888                      .member _PIE1_RESERVED, 0, 144, 8, 22
+    1889                      .member _PIE2_RESERVED, 32, 144, 8, 22
+    1890                      .member _PIE3_RESERVED, 64, 144, 8, 22
+    1891                      .member _PIE4_RESERVED, 96, 144, 8, 22
+    1892                      .member _PIE5_RESERVED, 128, 144, 8, 22
+    1893                      .member _PIE6_RESERVED, 160, 144, 8, 22
+    1894                      .member _PIE7_RESERVED, 192, 144, 8, 22
+    1895                      .member _PIE8_RESERVED, 224, 144, 8, 22
+    1896                      .member _PIE9_RESERVED, 256, 144, 8, 22
+    1897                      .member _PIE10_RESERVED, 288, 144, 8, 22
+    1898                      .member _PIE11_RESERVED, 320, 144, 8, 22
+    1899                      .member _PIE12_RESERVED, 352, 144, 8, 22
+    1900                      .member _PIE13_RESERVED, 384, 144, 8, 22
+    1901                      .member _TINT1, 416, 144, 8, 22
+    1902                      .member _TINT2, 448, 144, 8, 22
+    1903                      .member _DATALOG, 480, 144, 8, 22
+    1904                      .member _RTOSINT, 512, 144, 8, 22
+    1905                      .member _EMUINT, 544, 144, 8, 22
+    1906                      .member _NMI, 576, 144, 8, 22
+    1907                      .member _ILLEGAL, 608, 144, 8, 22
+    1908                      .member _USER1, 640, 144, 8, 22
+    1909                      .member _USER2, 672, 144, 8, 22
+    1910                      .member _USER3, 704, 144, 8, 22
+    1911                      .member _USER4, 736, 144, 8, 22
+    1912                      .member _USER5, 768, 144, 8, 22
+    1913                      .member _USER6, 800, 144, 8, 22
+    1914                      .member _USER7, 832, 144, 8, 22
+    1915                      .member _USER8, 864, 144, 8, 22
+    1916                      .member _USER9, 896, 144, 8, 22
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   39
+
+    1917                      .member _USER10, 928, 144, 8, 22
+    1918                      .member _USER11, 960, 144, 8, 22
+    1919                      .member _USER12, 992, 144, 8, 22
+    1920                      .member _ADCINT1, 1024, 144, 8, 22
+    1921                      .member _ADCINT2, 1056, 144, 8, 22
+    1922                      .member _rsvd1_3, 1088, 144, 8, 22
+    1923                      .member _XINT1, 1120, 144, 8, 22
+    1924                      .member _XINT2, 1152, 144, 8, 22
+    1925                      .member _ADCINT9, 1184, 144, 8, 22
+    1926                      .member _TINT0, 1216, 144, 8, 22
+    1927                      .member _WAKEINT, 1248, 144, 8, 22
+    1928                      .member _EPWM1_TZINT, 1280, 144, 8, 22
+    1929                      .member _EPWM2_TZINT, 1312, 144, 8, 22
+    1930                      .member _EPWM3_TZINT, 1344, 144, 8, 22
+    1931                      .member _EPWM4_TZINT, 1376, 144, 8, 22
+    1932                      .member _rsvd2_5, 1408, 144, 8, 22
+    1933                      .member _rsvd2_6, 1440, 144, 8, 22
+    1934                      .member _rsvd2_7, 1472, 144, 8, 22
+    1935                      .member _rsvd2_8, 1504, 144, 8, 22
+    1936                      .member _EPWM1_INT, 1536, 144, 8, 22
+    1937                      .member _EPWM2_INT, 1568, 144, 8, 22
+    1938                      .member _EPWM3_INT, 1600, 144, 8, 22
+    1939                      .member _EPWM4_INT, 1632, 144, 8, 22
+    1940                      .member _rsvd3_5, 1664, 144, 8, 22
+    1941                      .member _rsvd3_6, 1696, 144, 8, 22
+    1942                      .member _rsvd3_7, 1728, 144, 8, 22
+    1943                      .member _rsvd3_8, 1760, 144, 8, 22
+    1944                      .member _ECAP1_INT, 1792, 144, 8, 22
+    1945                      .member _rsvd4_2, 1824, 144, 8, 22
+    1946                      .member _rsvd4_3, 1856, 144, 8, 22
+    1947                      .member _rsvd4_4, 1888, 144, 8, 22
+    1948                      .member _rsvd4_5, 1920, 144, 8, 22
+    1949                      .member _rsvd4_6, 1952, 144, 8, 22
+    1950                      .member _rsvd4_7, 1984, 144, 8, 22
+    1951                      .member _rsvd4_8, 2016, 144, 8, 22
+    1952                      .member _rsvd5_1, 2048, 144, 8, 22
+    1953                      .member _rsvd5_2, 2080, 144, 8, 22
+    1954                      .member _rsvd5_3, 2112, 144, 8, 22
+    1955                      .member _rsvd5_4, 2144, 144, 8, 22
+    1956                      .member _rsvd5_5, 2176, 144, 8, 22
+    1957                      .member _rsvd5_6, 2208, 144, 8, 22
+    1958                      .member _rsvd5_7, 2240, 144, 8, 22
+    1959                      .member _rsvd5_8, 2272, 144, 8, 22
+    1960                      .member _SPIRXINTA, 2304, 144, 8, 22
+    1961                      .member _SPITXINTA, 2336, 144, 8, 22
+    1962                      .member _rsvd6_3, 2368, 144, 8, 22
+    1963                      .member _rsvd6_4, 2400, 144, 8, 22
+    1964                      .member _rsvd6_5, 2432, 144, 8, 22
+    1965                      .member _rsvd6_6, 2464, 144, 8, 22
+    1966                      .member _rsvd6_7, 2496, 144, 8, 22
+    1967                      .member _rsvd6_8, 2528, 144, 8, 22
+    1968                      .member _rsvd7_1, 2560, 144, 8, 22
+    1969                      .member _rsvd7_2, 2592, 144, 8, 22
+    1970                      .member _rsvd7_3, 2624, 144, 8, 22
+    1971                      .member _rsvd7_4, 2656, 144, 8, 22
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   40
+
+    1972                      .member _rsvd7_5, 2688, 144, 8, 22
+    1973                      .member _rsvd7_6, 2720, 144, 8, 22
+    1974                      .member _rsvd7_7, 2752, 144, 8, 22
+    1975                      .member _rsvd7_8, 2784, 144, 8, 22
+    1976                      .member _I2CINT1A, 2816, 144, 8, 22
+    1977                      .member _I2CINT2A, 2848, 144, 8, 22
+    1978                      .member _rsvd8_3, 2880, 144, 8, 22
+    1979                      .member _rsvd8_4, 2912, 144, 8, 22
+    1980                      .member _rsvd8_5, 2944, 144, 8, 22
+    1981                      .member _rsvd8_6, 2976, 144, 8, 22
+    1982                      .member _rsvd8_7, 3008, 144, 8, 22
+    1983                      .member _rsvd8_8, 3040, 144, 8, 22
+    1984                      .member _SCIRXINTA, 3072, 144, 8, 22
+    1985                      .member _SCITXINTA, 3104, 144, 8, 22
+    1986                      .member _rsvd9_3, 3136, 144, 8, 22
+    1987                      .member _rsvd9_4, 3168, 144, 8, 22
+    1988                      .member _rsvd9_5, 3200, 144, 8, 22
+    1989                      .member _rsvd9_6, 3232, 144, 8, 22
+    1990                      .member _rsvd9_7, 3264, 144, 8, 22
+    1991                      .member _rsvd9_8, 3296, 144, 8, 22
+    1992                      .member _rsvd10_1, 3328, 144, 8, 22
+    1993                      .member _rsvd10_2, 3360, 144, 8, 22
+    1994                      .member _ADCINT3, 3392, 144, 8, 22
+    1995                      .member _ADCINT4, 3424, 144, 8, 22
+    1996                      .member _ADCINT5, 3456, 144, 8, 22
+    1997                      .member _ADCINT6, 3488, 144, 8, 22
+    1998                      .member _ADCINT7, 3520, 144, 8, 22
+    1999                      .member _ADCINT8, 3552, 144, 8, 22
+    2000                      .member _rsvd11_1, 3584, 144, 8, 22
+    2001                      .member _rsvd11_2, 3616, 144, 8, 22
+    2002                      .member _rsvd11_3, 3648, 144, 8, 22
+    2003                      .member _rsvd11_4, 3680, 144, 8, 22
+    2004                      .member _rsvd11_5, 3712, 144, 8, 22
+    2005                      .member _rsvd11_6, 3744, 144, 8, 22
+    2006                      .member _rsvd11_7, 3776, 144, 8, 22
+    2007                      .member _rsvd11_8, 3808, 144, 8, 22
+    2008                      .member _XINT3, 3840, 144, 8, 22
+    2009                      .member _rsvd12_2, 3872, 144, 8, 22
+    2010                      .member _rsvd12_3, 3904, 144, 8, 22
+    2011                      .member _rsvd12_4, 3936, 144, 8, 22
+    2012                      .member _rsvd12_5, 3968, 144, 8, 22
+    2013                      .member _rsvd12_6, 4000, 144, 8, 22
+    2014                      .member _rsvd12_7, 4032, 144, 8, 22
+    2015                      .member _rsvd12_8, 4064, 144, 8, 22
+    2016                      .eos
+    2017                      .stag   _XCLK_BITS, 16
+    2018                      .member _XCLKOUTDIV, 0, 14, 18, 2
+    2019                      .member _rsvd1, 2, 14, 18, 3
+    2020                      .member _rsvd2, 5, 14, 18, 1
+    2021                      .member _XCLKINSEL, 6, 14, 18, 1
+    2022                      .member _rsvd3, 7, 14, 18, 9
+    2023                      .eos
+    2024                      .utag   _XCLK_REG, 16
+    2025                      .member _all, 0, 14, 11, 16
+    2026                      .member _bit, 0, 8, 11, 16, _XCLK_BITS
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   41
+
+    2027                      .eos
+    2028                      .stag   _PLLSTS_BITS, 16
+    2029                      .member _PLLLOCKS, 0, 14, 18, 1
+    2030                      .member _rsvd1, 1, 14, 18, 1
+    2031                      .member _PLLOFF, 2, 14, 18, 1
+    2032                      .member _MCLKSTS, 3, 14, 18, 1
+    2033                      .member _MCLKCLR, 4, 14, 18, 1
+    2034                      .member _OSCOFF, 5, 14, 18, 1
+    2035                      .member _MCLKOFF, 6, 14, 18, 1
+    2036                      .member _DIVSEL, 7, 14, 18, 2
+    2037                      .member _rsvd2, 9, 14, 18, 6
+    2038                      .member _NORMRDYE, 15, 14, 18, 1
+    2039                      .eos
+    2040                      .utag   _PLLSTS_REG, 16
+    2041                      .member _all, 0, 14, 11, 16
+    2042                      .member _bit, 0, 8, 11, 16, _PLLSTS_BITS
+    2043                      .eos
+    2044                      .stag   _CLKCTL_BITS, 16
+    2045                      .member _OSCCLKSRCSEL, 0, 14, 18, 1
+    2046                      .member _OSCCLKSRC2SEL, 1, 14, 18, 1
+    2047                      .member _WDCLKSRCSEL, 2, 14, 18, 1
+    2048                      .member _TMR2CLKSRCSEL, 3, 14, 18, 2
+    2049                      .member _TMR2CLKPRESCALE, 5, 14, 18, 3
+    2050                      .member _INTOSC1OFF, 8, 14, 18, 1
+    2051                      .member _INTOSC1HALTI, 9, 14, 18, 1
+    2052                      .member _INTOSC2OFF, 10, 14, 18, 1
+    2053                      .member _INTOSC2HALTI, 11, 14, 18, 1
+    2054                      .member _WDHALTI, 12, 14, 18, 1
+    2055                      .member _XCLKINOFF, 13, 14, 18, 1
+    2056                      .member _XTALOSCOFF, 14, 14, 18, 1
+    2057                      .member _NMIRESETSEL, 15, 14, 18, 1
+    2058                      .eos
+    2059                      .utag   _CLKCTL_REG, 16
+    2060                      .member _all, 0, 14, 11, 16
+    2061                      .member _bit, 0, 8, 11, 16, _CLKCTL_BITS
+    2062                      .eos
+    2063                      .stag   _INTOSC1TRIM_BITS, 16
+    2064                      .member _COARSETRIM, 0, 14, 18, 8
+    2065                      .member _rsvd1, 8, 14, 18, 1
+    2066                      .member _FINETRIM, 9, 14, 18, 6
+    2067                      .member _rsvd2, 15, 14, 18, 1
+    2068                      .eos
+    2069                      .utag   _INTOSC1TRIM_REG, 16
+    2070                      .member _all, 0, 14, 11, 16
+    2071                      .member _bit, 0, 8, 11, 16, _INTOSC1TRIM_BITS
+    2072                      .eos
+    2073                      .stag   _INTOSC2TRIM_BITS, 16
+    2074                      .member _COARSETRIM, 0, 14, 18, 8
+    2075                      .member _rsvd1, 8, 14, 18, 1
+    2076                      .member _FINETRIM, 9, 14, 18, 6
+    2077                      .member _rsvd2, 15, 14, 18, 1
+    2078                      .eos
+    2079                      .utag   _INTOSC2TRIM_REG, 16
+    2080                      .member _all, 0, 14, 11, 16
+    2081                      .member _bit, 0, 8, 11, 16, _INTOSC2TRIM_BITS
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   42
+
+    2082                      .eos
+    2083                      .stag   _LOSPCP_BITS, 16
+    2084                      .member _LSPCLK, 0, 14, 18, 3
+    2085                      .member _rsvd1, 3, 14, 18, 13
+    2086                      .eos
+    2087                      .utag   _LOSPCP_REG, 16
+    2088                      .member _all, 0, 14, 11, 16
+    2089                      .member _bit, 0, 8, 11, 16, _LOSPCP_BITS
+    2090                      .eos
+    2091                      .stag   _PCLKCR0_BITS, 16
+    2092                      .member _HRPWMENCLK, 0, 14, 18, 1
+    2093                      .member _rsvd1, 1, 14, 18, 1
+    2094                      .member _TBCLKSYNC, 2, 14, 18, 1
+    2095                      .member _ADCENCLK, 3, 14, 18, 1
+    2096                      .member _I2CAENCLK, 4, 14, 18, 1
+    2097                      .member _rsvd2, 5, 14, 18, 3
+    2098                      .member _SPIAENCLK, 8, 14, 18, 1
+    2099                      .member _rsvd3, 9, 14, 18, 1
+    2100                      .member _SCIAENCLK, 10, 14, 18, 1
+    2101                      .member _rsvd4, 11, 14, 18, 5
+    2102                      .eos
+    2103                      .utag   _PCLKCR0_REG, 16
+    2104                      .member _all, 0, 14, 11, 16
+    2105                      .member _bit, 0, 8, 11, 16, _PCLKCR0_BITS
+    2106                      .eos
+    2107                      .stag   _PCLKCR1_BITS, 16
+    2108                      .member _EPWM1ENCLK, 0, 14, 18, 1
+    2109                      .member _EPWM2ENCLK, 1, 14, 18, 1
+    2110                      .member _EPWM3ENCLK, 2, 14, 18, 1
+    2111                      .member _EPWM4ENCLK, 3, 14, 18, 1
+    2112                      .member _rsvd1, 4, 14, 18, 4
+    2113                      .member _ECAP1ENCLK, 8, 14, 18, 1
+    2114                      .member _rsvd2, 9, 14, 18, 7
+    2115                      .eos
+    2116                      .utag   _PCLKCR1_REG, 16
+    2117                      .member _all, 0, 14, 11, 16
+    2118                      .member _bit, 0, 8, 11, 16, _PCLKCR1_BITS
+    2119                      .eos
+    2120                      .stag   _LPMCR0_BITS, 16
+    2121                      .member _LPM, 0, 14, 18, 2
+    2122                      .member _QUALSTDBY, 2, 14, 18, 6
+    2123                      .member _rsvd1, 8, 14, 18, 7
+    2124                      .member _WDINTE, 15, 14, 18, 1
+    2125                      .eos
+    2126                      .utag   _LPMCR0_REG, 16
+    2127                      .member _all, 0, 14, 11, 16
+    2128                      .member _bit, 0, 8, 11, 16, _LPMCR0_BITS
+    2129                      .eos
+    2130                      .stag   _PCLKCR3_BITS, 16
+    2131                      .member _COMP1ENCLK, 0, 14, 18, 1
+    2132                      .member _COMP2ENCLK, 1, 14, 18, 1
+    2133                      .member _rsvd1, 2, 14, 18, 1
+    2134                      .member _rsvd2, 3, 14, 18, 5
+    2135                      .member _CPUTIMER0ENCLK, 8, 14, 18, 1
+    2136                      .member _CPUTIMER1ENCLK, 9, 14, 18, 1
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   43
+
+    2137                      .member _CPUTIMER2ENCLK, 10, 14, 18, 1
+    2138                      .member _rsvd3, 11, 14, 18, 2
+    2139                      .member _GPIOINENCLK, 13, 14, 18, 1
+    2140                      .member _rsvd4, 14, 14, 18, 2
+    2141                      .eos
+    2142                      .utag   _PCLKCR3_REG, 16
+    2143                      .member _all, 0, 14, 11, 16
+    2144                      .member _bit, 0, 8, 11, 16, _PCLKCR3_BITS
+    2145                      .eos
+    2146                      .stag   _PLLCR_BITS, 16
+    2147                      .member _DIV, 0, 14, 18, 4
+    2148                      .member _rsvd1, 4, 14, 18, 12
+    2149                      .eos
+    2150                      .utag   _PLLCR_REG, 16
+    2151                      .member _all, 0, 14, 11, 16
+    2152                      .member _bit, 0, 8, 11, 16, _PLLCR_BITS
+    2153                      .eos
+    2154                      .stag   _SYS_CTRL_REGS, 496
+    2155                      .member _XCLK, 0, 9, 8, 16, _XCLK_REG
+    2156                      .member _PLLSTS, 16, 9, 8, 16, _PLLSTS_REG
+    2157                      .member _CLKCTL, 32, 9, 8, 16, _CLKCTL_REG
+    2158                      .member _PLLLOCKPRD, 48, 14, 8, 16
+    2159                      .member _INTOSC1TRIM, 64, 9, 8, 16, _INTOSC1TRIM_REG
+    2160                      .member _rsvd1, 80, 14, 8, 16
+    2161                      .member _INTOSC2TRIM, 96, 9, 8, 16, _INTOSC2TRIM_REG
+    2162                      .member _rsvd2, 112, 62, 8, 64, , 4
+    2163                      .member _LOSPCP, 176, 9, 8, 16, _LOSPCP_REG
+    2164                      .member _PCLKCR0, 192, 9, 8, 16, _PCLKCR0_REG
+    2165                      .member _PCLKCR1, 208, 9, 8, 16, _PCLKCR1_REG
+    2166                      .member _LPMCR0, 224, 9, 8, 16, _LPMCR0_REG
+    2167                      .member _rsvd3, 240, 14, 8, 16
+    2168                      .member _PCLKCR3, 256, 9, 8, 16, _PCLKCR3_REG
+    2169                      .member _PLLCR, 272, 9, 8, 16, _PLLCR_REG
+    2170                      .member _SCSR, 288, 14, 8, 16
+    2171                      .member _WDCNTR, 304, 14, 8, 16
+    2172                      .member _rsvd4, 320, 14, 8, 16
+    2173                      .member _WDKEY, 336, 14, 8, 16
+    2174                      .member _rsvd5, 352, 62, 8, 48, , 3
+    2175                      .member _WDCR, 400, 14, 8, 16
+    2176                      .member _rsvd6, 416, 62, 8, 80, , 5
+    2177                      .eos
+    2178                      .stag   _FOPT_BITS, 16
+    2179                      .member _ENPIPE, 0, 14, 18, 1
+    2180                      .member _rsvd, 1, 14, 18, 15
+    2181                      .eos
+    2182                      .utag   _FOPT_REG, 16
+    2183                      .member _all, 0, 14, 11, 16
+    2184                      .member _bit, 0, 8, 11, 16, _FOPT_BITS
+    2185                      .eos
+    2186                      .stag   _FPWR_BITS, 16
+    2187                      .member _PWR, 0, 14, 18, 2
+    2188                      .member _rsvd, 2, 14, 18, 14
+    2189                      .eos
+    2190                      .utag   _FPWR_REG, 16
+    2191                      .member _all, 0, 14, 11, 16
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   44
+
+    2192                      .member _bit, 0, 8, 11, 16, _FPWR_BITS
+    2193                      .eos
+    2194                      .stag   _FSTATUS_BITS, 16
+    2195                      .member _PWRS, 0, 14, 18, 2
+    2196                      .member _STDBYWAITS, 2, 14, 18, 1
+    2197                      .member _ACTIVEWAITS, 3, 14, 18, 1
+    2198                      .member _rsvd1, 4, 14, 18, 4
+    2199                      .member _V3STAT, 8, 14, 18, 1
+    2200                      .member _rsvd2, 9, 14, 18, 7
+    2201                      .eos
+    2202                      .utag   _FSTATUS_REG, 16
+    2203                      .member _all, 0, 14, 11, 16
+    2204                      .member _bit, 0, 8, 11, 16, _FSTATUS_BITS
+    2205                      .eos
+    2206                      .stag   _FSTDBYWAIT_BITS, 16
+    2207                      .member _STDBYWAIT, 0, 14, 18, 9
+    2208                      .member _rsvd, 9, 14, 18, 7
+    2209                      .eos
+    2210                      .utag   _FSTDBYWAIT_REG, 16
+    2211                      .member _all, 0, 14, 11, 16
+    2212                      .member _bit, 0, 8, 11, 16, _FSTDBYWAIT_BITS
+    2213                      .eos
+    2214                      .stag   _FACTIVEWAIT_BITS, 16
+    2215                      .member _ACTIVEWAIT, 0, 14, 18, 9
+    2216                      .member _rsvd, 9, 14, 18, 7
+    2217                      .eos
+    2218                      .utag   _FACTIVEWAIT_REG, 16
+    2219                      .member _all, 0, 14, 11, 16
+    2220                      .member _bit, 0, 8, 11, 16, _FACTIVEWAIT_BITS
+    2221                      .eos
+    2222                      .stag   _FBANKWAIT_BITS, 16
+    2223                      .member _RANDWAIT, 0, 14, 18, 4
+    2224                      .member _rsvd1, 4, 14, 18, 4
+    2225                      .member _PAGEWAIT, 8, 14, 18, 4
+    2226                      .member _rsvd2, 12, 14, 18, 4
+    2227                      .eos
+    2228                      .utag   _FBANKWAIT_REG, 16
+    2229                      .member _all, 0, 14, 11, 16
+    2230                      .member _bit, 0, 8, 11, 16, _FBANKWAIT_BITS
+    2231                      .eos
+    2232                      .stag   _FOTPWAIT_BITS, 16
+    2233                      .member _OTPWAIT, 0, 14, 18, 5
+    2234                      .member _rsvd, 5, 14, 18, 11
+    2235                      .eos
+    2236                      .utag   _FOTPWAIT_REG, 16
+    2237                      .member _all, 0, 14, 11, 16
+    2238                      .member _bit, 0, 8, 11, 16, _FOTPWAIT_BITS
+    2239                      .eos
+    2240                      .stag   _FLASH_REGS, 128
+    2241                      .member _FOPT, 0, 9, 8, 16, _FOPT_REG
+    2242                      .member _rsvd1, 16, 14, 8, 16
+    2243                      .member _FPWR, 32, 9, 8, 16, _FPWR_REG
+    2244                      .member _FSTATUS, 48, 9, 8, 16, _FSTATUS_REG
+    2245                      .member _FSTDBYWAIT, 64, 9, 8, 16, _FSTDBYWAIT_REG
+    2246                      .member _FACTIVEWAIT, 80, 9, 8, 16, _FACTIVEWAIT_REG
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   45
+
+    2247                      .member _FBANKWAIT, 96, 9, 8, 16, _FBANKWAIT_REG
+    2248                      .member _FOTPWAIT, 112, 9, 8, 16, _FOTPWAIT_REG
+    2249                      .eos
+    2250                      .stag   _ADC_RESULT_REGS, 512
+    2251                      .member _ADCRESULT0, 0, 14, 8, 16
+    2252                      .member _ADCRESULT1, 16, 14, 8, 16
+    2253                      .member _ADCRESULT2, 32, 14, 8, 16
+    2254                      .member _ADCRESULT3, 48, 14, 8, 16
+    2255                      .member _ADCRESULT4, 64, 14, 8, 16
+    2256                      .member _ADCRESULT5, 80, 14, 8, 16
+    2257                      .member _ADCRESULT6, 96, 14, 8, 16
+    2258                      .member _ADCRESULT7, 112, 14, 8, 16
+    2259                      .member _ADCRESULT8, 128, 14, 8, 16
+    2260                      .member _ADCRESULT9, 144, 14, 8, 16
+    2261                      .member _ADCRESULT10, 160, 14, 8, 16
+    2262                      .member _ADCRESULT11, 176, 14, 8, 16
+    2263                      .member _ADCRESULT12, 192, 14, 8, 16
+    2264                      .member _ADCRESULT13, 208, 14, 8, 16
+    2265                      .member _ADCRESULT14, 224, 14, 8, 16
+    2266                      .member _ADCRESULT15, 240, 14, 8, 16
+    2267                      .member _rsvd, 256, 62, 8, 256, , 16
+    2268                      .eos
+    2269                      .stag   _DEVICECNF_BITS, 32
+    2270                      .member _rsvd1, 0, 14, 18, 3
+    2271                      .member _VMAPS, 3, 14, 18, 1
+    2272                      .member _rsvd2, 4, 14, 18, 1
+    2273                      .member _XRSn, 5, 14, 18, 1
+    2274                      .member _rsvd3, 6, 14, 18, 10
+    2275                      .member _rsvd4, 16, 14, 18, 3
+    2276                      .member _ENPROT, 19, 14, 18, 1
+    2277                      .member _rsvd5, 20, 14, 18, 7
+    2278                      .member _TRSTn, 27, 14, 18, 1
+    2279                      .member _rsvd6, 28, 14, 18, 4
+    2280                      .eos
+    2281                      .utag   _DEVICECNF_REG, 32
+    2282                      .member _all, 0, 15, 11, 32
+    2283                      .member _bit, 0, 8, 11, 32, _DEVICECNF_BITS
+    2284                      .eos
+    2285                      .stag   _CLASSID_BITS, 16
+    2286                      .member _CLASSNO, 0, 14, 18, 8
+    2287                      .member _PARTTYPE, 8, 14, 18, 8
+    2288                      .eos
+    2289                      .utag   _CLASSID_REG, 16
+    2290                      .member _all, 0, 14, 11, 16
+    2291                      .member _bit, 0, 8, 11, 16, _CLASSID_BITS
+    2292                      .eos
+    2293                      .stag   _DEV_EMU_REGS, 64
+    2294                      .member _DEVICECNF, 0, 9, 8, 32, _DEVICECNF_REG
+    2295                      .member _CLASSID, 32, 9, 8, 16, _CLASSID_REG
+    2296                      .member _REVID, 48, 14, 8, 16
+    2297                      .eos
+    2298                      .stag   _PARTID_BITS, 16
+    2299                      .member _PARTNO, 0, 14, 18, 8
+    2300                      .member _PARTTYPE, 8, 14, 18, 8
+    2301                      .eos
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   46
+
+    2302                      .utag   _PARTID_REG, 16
+    2303                      .member _all, 0, 14, 11, 16
+    2304                      .member _bit, 0, 8, 11, 16, _PARTID_BITS
+    2305                      .eos
+    2306                      .stag   _PARTID_REGS, 16
+    2307                      .member _PARTID, 0, 9, 8, 16, _PARTID_REG
+    2308                      .eos
+    2309                      .stag   _COMPCTL_BITS, 16
+    2310                      .member _COMPDACEN, 0, 14, 18, 1
+    2311                      .member _COMPSOURCE, 1, 14, 18, 1
+    2312                      .member _CMPINV, 2, 14, 18, 1
+    2313                      .member _QUALSEL, 3, 14, 18, 5
+    2314                      .member _SYNCSEL, 8, 14, 18, 1
+    2315                      .member _rsvd1, 9, 14, 18, 7
+    2316                      .eos
+    2317                      .utag   _COMPCTL_REG, 16
+    2318                      .member _all, 0, 14, 11, 16
+    2319                      .member _bit, 0, 8, 11, 16, _COMPCTL_BITS
+    2320                      .eos
+    2321                      .stag   _COMPSTS_BITS, 16
+    2322                      .member _COMPSTS, 0, 14, 18, 1
+    2323                      .member _rsvd1, 1, 14, 18, 15
+    2324                      .eos
+    2325                      .utag   _COMPSTS_REG, 16
+    2326                      .member _all, 0, 14, 11, 16
+    2327                      .member _bit, 0, 8, 11, 16, _COMPSTS_BITS
+    2328                      .eos
+    2329                      .stag   _DACVAL_BITS, 16
+    2330                      .member _DACVAL, 0, 14, 18, 10
+    2331                      .member _rsvd1, 10, 14, 18, 6
+    2332                      .eos
+    2333                      .utag   _DACVAL_REG, 16
+    2334                      .member _all, 0, 14, 11, 16
+    2335                      .member _bit, 0, 8, 11, 16, _DACVAL_BITS
+    2336                      .eos
+    2337                      .stag   _COMP_REGS, 272
+    2338                      .member _COMPCTL, 0, 9, 8, 16, _COMPCTL_REG
+    2339                      .member _rsvd1, 16, 14, 8, 16
+    2340                      .member _COMPSTS, 32, 9, 8, 16, _COMPSTS_REG
+    2341                      .member _rsvd2, 48, 62, 8, 48, , 3
+    2342                      .member _DACVAL, 96, 9, 8, 16, _DACVAL_REG
+    2343                      .member _rsvd4, 112, 62, 8, 160, , 10
+    2344                      .eos
+    2345                      .stag   _ECCTL1_BITS, 16
+    2346                      .member _CAP1POL, 0, 14, 18, 1
+    2347                      .member _CTRRST1, 1, 14, 18, 1
+    2348                      .member _CAP2POL, 2, 14, 18, 1
+    2349                      .member _CTRRST2, 3, 14, 18, 1
+    2350                      .member _CAP3POL, 4, 14, 18, 1
+    2351                      .member _CTRRST3, 5, 14, 18, 1
+    2352                      .member _CAP4POL, 6, 14, 18, 1
+    2353                      .member _CTRRST4, 7, 14, 18, 1
+    2354                      .member _CAPLDEN, 8, 14, 18, 1
+    2355                      .member _PRESCALE, 9, 14, 18, 5
+    2356                      .member _FREE_SOFT, 14, 14, 18, 2
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   47
+
+    2357                      .eos
+    2358                      .utag   _ECCTL1_REG, 16
+    2359                      .member _all, 0, 14, 11, 16
+    2360                      .member _bit, 0, 8, 11, 16, _ECCTL1_BITS
+    2361                      .eos
+    2362                      .stag   _ECCTL2_BITS, 16
+    2363                      .member _CONT_ONESHT, 0, 14, 18, 1
+    2364                      .member _STOP_WRAP, 1, 14, 18, 2
+    2365                      .member _REARM, 3, 14, 18, 1
+    2366                      .member _TSCTRSTOP, 4, 14, 18, 1
+    2367                      .member _SYNCI_EN, 5, 14, 18, 1
+    2368                      .member _SYNCO_SEL, 6, 14, 18, 2
+    2369                      .member _SWSYNC, 8, 14, 18, 1
+    2370                      .member _CAP_APWM, 9, 14, 18, 1
+    2371                      .member _APWMPOL, 10, 14, 18, 1
+    2372                      .member _rsvd1, 11, 14, 18, 5
+    2373                      .eos
+    2374                      .utag   _ECCTL2_REG, 16
+    2375                      .member _all, 0, 14, 11, 16
+    2376                      .member _bit, 0, 8, 11, 16, _ECCTL2_BITS
+    2377                      .eos
+    2378                      .stag   _ECEINT_BITS, 16
+    2379                      .member _rsvd1, 0, 14, 18, 1
+    2380                      .member _CEVT1, 1, 14, 18, 1
+    2381                      .member _CEVT2, 2, 14, 18, 1
+    2382                      .member _CEVT3, 3, 14, 18, 1
+    2383                      .member _CEVT4, 4, 14, 18, 1
+    2384                      .member _CTROVF, 5, 14, 18, 1
+    2385                      .member _CTR_EQ_PRD, 6, 14, 18, 1
+    2386                      .member _CTR_EQ_CMP, 7, 14, 18, 1
+    2387                      .member _rsvd2, 8, 14, 18, 8
+    2388                      .eos
+    2389                      .utag   _ECEINT_REG, 16
+    2390                      .member _all, 0, 14, 11, 16
+    2391                      .member _bit, 0, 8, 11, 16, _ECEINT_BITS
+    2392                      .eos
+    2393                      .stag   _ECFLG_BITS, 16
+    2394                      .member _INT, 0, 14, 18, 1
+    2395                      .member _CEVT1, 1, 14, 18, 1
+    2396                      .member _CEVT2, 2, 14, 18, 1
+    2397                      .member _CEVT3, 3, 14, 18, 1
+    2398                      .member _CEVT4, 4, 14, 18, 1
+    2399                      .member _CTROVF, 5, 14, 18, 1
+    2400                      .member _CTR_EQ_PRD, 6, 14, 18, 1
+    2401                      .member _CTR_EQ_CMP, 7, 14, 18, 1
+    2402                      .member _rsvd2, 8, 14, 18, 8
+    2403                      .eos
+    2404                      .utag   _ECFLG_REG, 16
+    2405                      .member _all, 0, 14, 11, 16
+    2406                      .member _bit, 0, 8, 11, 16, _ECFLG_BITS
+    2407                      .eos
+    2408                      .stag   _ECAP_REGS, 512
+    2409                      .member _TSCTR, 0, 15, 8, 32
+    2410                      .member _CTRPHS, 32, 15, 8, 32
+    2411                      .member _CAP1, 64, 15, 8, 32
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   48
+
+    2412                      .member _CAP2, 96, 15, 8, 32
+    2413                      .member _CAP3, 128, 15, 8, 32
+    2414                      .member _CAP4, 160, 15, 8, 32
+    2415                      .member _rsvd1, 192, 62, 8, 128, , 8
+    2416                      .member _ECCTL1, 320, 9, 8, 16, _ECCTL1_REG
+    2417                      .member _ECCTL2, 336, 9, 8, 16, _ECCTL2_REG
+    2418                      .member _ECEINT, 352, 9, 8, 16, _ECEINT_REG
+    2419                      .member _ECFLG, 368, 9, 8, 16, _ECFLG_REG
+    2420                      .member _ECCLR, 384, 9, 8, 16, _ECFLG_REG
+    2421                      .member _ECFRC, 400, 9, 8, 16, _ECEINT_REG
+    2422                      .member _rsvd2, 416, 62, 8, 96, , 6
+    2423                      .eos
+    2424                      .stag   _GPIOXINT_BITS, 16
+    2425                      .member _GPIOSEL, 0, 14, 18, 5
+    2426                      .member _rsvd1, 5, 14, 18, 11
+    2427                      .eos
+    2428                      .utag   _GPIOXINT_REG, 16
+    2429                      .member _all, 0, 14, 11, 16
+    2430                      .member _bit, 0, 8, 11, 16, _GPIOXINT_BITS
+    2431                      .eos
+    2432                      .stag   _GPIO_INT_REGS, 160
+    2433                      .member _GPIOXINT1SEL, 0, 9, 8, 16, _GPIOXINT_REG
+    2434                      .member _GPIOXINT2SEL, 16, 9, 8, 16, _GPIOXINT_REG
+    2435                      .member _GPIOXINT3SEL, 32, 9, 8, 16, _GPIOXINT_REG
+    2436                      .member _rsvd1, 48, 62, 8, 80, , 5
+    2437                      .member _GPIOLPMSEL, 128, 9, 8, 32, _GPADAT_REG
+    2438                      .eos
+    2439                      .stag   _I2CISRC_BITS, 16
+    2440                      .member _INTCODE, 0, 14, 18, 3
+    2441                      .member _rsvd1, 3, 14, 18, 13
+    2442                      .eos
+    2443                      .utag   _I2CISRC_REG, 16
+    2444                      .member _all, 0, 14, 11, 16
+    2445                      .member _bit, 0, 8, 11, 16, _I2CISRC_BITS
+    2446                      .eos
+    2447                      .stag   _I2CIER_BITS, 16
+    2448                      .member _ARBL, 0, 14, 18, 1
+    2449                      .member _NACK, 1, 14, 18, 1
+    2450                      .member _ARDY, 2, 14, 18, 1
+    2451                      .member _RRDY, 3, 14, 18, 1
+    2452                      .member _XRDY, 4, 14, 18, 1
+    2453                      .member _SCD, 5, 14, 18, 1
+    2454                      .member _AAS, 6, 14, 18, 1
+    2455                      .member _rsvd, 7, 14, 18, 9
+    2456                      .eos
+    2457                      .utag   _I2CIER_REG, 16
+    2458                      .member _all, 0, 14, 11, 16
+    2459                      .member _bit, 0, 8, 11, 16, _I2CIER_BITS
+    2460                      .eos
+    2461                      .stag   _I2CSTR_BITS, 16
+    2462                      .member _ARBL, 0, 14, 18, 1
+    2463                      .member _NACK, 1, 14, 18, 1
+    2464                      .member _ARDY, 2, 14, 18, 1
+    2465                      .member _RRDY, 3, 14, 18, 1
+    2466                      .member _XRDY, 4, 14, 18, 1
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   49
+
+    2467                      .member _SCD, 5, 14, 18, 1
+    2468                      .member _rsvd1, 6, 14, 18, 2
+    2469                      .member _AD0, 8, 14, 18, 1
+    2470                      .member _AAS, 9, 14, 18, 1
+    2471                      .member _XSMT, 10, 14, 18, 1
+    2472                      .member _RSFULL, 11, 14, 18, 1
+    2473                      .member _BB, 12, 14, 18, 1
+    2474                      .member _NACKSNT, 13, 14, 18, 1
+    2475                      .member _SDIR, 14, 14, 18, 1
+    2476                      .member _rsvd2, 15, 14, 18, 1
+    2477                      .eos
+    2478                      .utag   _I2CSTR_REG, 16
+    2479                      .member _all, 0, 14, 11, 16
+    2480                      .member _bit, 0, 8, 11, 16, _I2CSTR_BITS
+    2481                      .eos
+    2482                      .stag   _I2CMDR_BITS, 16
+    2483                      .member _BC, 0, 14, 18, 3
+    2484                      .member _FDF, 3, 14, 18, 1
+    2485                      .member _STB, 4, 14, 18, 1
+    2486                      .member _IRS, 5, 14, 18, 1
+    2487                      .member _DLB, 6, 14, 18, 1
+    2488                      .member _RM, 7, 14, 18, 1
+    2489                      .member _XA, 8, 14, 18, 1
+    2490                      .member _TRX, 9, 14, 18, 1
+    2491                      .member _MST, 10, 14, 18, 1
+    2492                      .member _STP, 11, 14, 18, 1
+    2493                      .member _rsvd1, 12, 14, 18, 1
+    2494                      .member _STT, 13, 14, 18, 1
+    2495                      .member _FREE, 14, 14, 18, 1
+    2496                      .member _NACKMOD, 15, 14, 18, 1
+    2497                      .eos
+    2498                      .utag   _I2CMDR_REG, 16
+    2499                      .member _all, 0, 14, 11, 16
+    2500                      .member _bit, 0, 8, 11, 16, _I2CMDR_BITS
+    2501                      .eos
+    2502                      .stag   _I2CEMDR_BITS, 16
+    2503                      .member _BCM, 0, 14, 18, 1
+    2504                      .member _rsvd1, 1, 14, 18, 15
+    2505                      .eos
+    2506                      .utag   _I2CEMDR_REG, 16
+    2507                      .member _all, 0, 14, 11, 16
+    2508                      .member _bit, 0, 8, 11, 16, _I2CEMDR_BITS
+    2509                      .eos
+    2510                      .stag   _I2CPSC_BITS, 16
+    2511                      .member _IPSC, 0, 14, 18, 8
+    2512                      .member _rsvd1, 8, 14, 18, 8
+    2513                      .eos
+    2514                      .utag   _I2CPSC_REG, 16
+    2515                      .member _all, 0, 14, 11, 16
+    2516                      .member _bit, 0, 8, 11, 16, _I2CPSC_BITS
+    2517                      .eos
+    2518                      .stag   _I2CFFTX_BITS, 16
+    2519                      .member _TXFFIL, 0, 14, 18, 5
+    2520                      .member _TXFFIENA, 5, 14, 18, 1
+    2521                      .member _TXFFINTCLR, 6, 14, 18, 1
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   50
+
+    2522                      .member _TXFFINT, 7, 14, 18, 1
+    2523                      .member _TXFFST, 8, 14, 18, 5
+    2524                      .member _TXFFRST, 13, 14, 18, 1
+    2525                      .member _I2CFFEN, 14, 14, 18, 1
+    2526                      .member _rsvd1, 15, 14, 18, 1
+    2527                      .eos
+    2528                      .utag   _I2CFFTX_REG, 16
+    2529                      .member _all, 0, 14, 11, 16
+    2530                      .member _bit, 0, 8, 11, 16, _I2CFFTX_BITS
+    2531                      .eos
+    2532                      .stag   _I2CFFRX_BITS, 16
+    2533                      .member _RXFFIL, 0, 14, 18, 5
+    2534                      .member _RXFFIENA, 5, 14, 18, 1
+    2535                      .member _RXFFINTCLR, 6, 14, 18, 1
+    2536                      .member _RXFFINT, 7, 14, 18, 1
+    2537                      .member _RXFFST, 8, 14, 18, 5
+    2538                      .member _RXFFRST, 13, 14, 18, 1
+    2539                      .member _rsvd1, 14, 14, 18, 2
+    2540                      .eos
+    2541                      .utag   _I2CFFRX_REG, 16
+    2542                      .member _all, 0, 14, 11, 16
+    2543                      .member _bit, 0, 8, 11, 16, _I2CFFRX_BITS
+    2544                      .eos
+    2545                      .stag   _I2C_REGS, 544
+    2546                      .member _I2COAR, 0, 14, 8, 16
+    2547                      .member _I2CIER, 16, 9, 8, 16, _I2CIER_REG
+    2548                      .member _I2CSTR, 32, 9, 8, 16, _I2CSTR_REG
+    2549                      .member _I2CCLKL, 48, 14, 8, 16
+    2550                      .member _I2CCLKH, 64, 14, 8, 16
+    2551                      .member _I2CCNT, 80, 14, 8, 16
+    2552                      .member _I2CDRR, 96, 14, 8, 16
+    2553                      .member _I2CSAR, 112, 14, 8, 16
+    2554                      .member _I2CDXR, 128, 14, 8, 16
+    2555                      .member _I2CMDR, 144, 9, 8, 16, _I2CMDR_REG
+    2556                      .member _I2CISRC, 160, 9, 8, 16, _I2CISRC_REG
+    2557                      .member _I2CEMDR, 176, 9, 8, 16, _I2CEMDR_REG
+    2558                      .member _I2CPSC, 192, 9, 8, 16, _I2CPSC_REG
+    2559                      .member _rsvd2, 208, 62, 8, 304, , 19
+    2560                      .member _I2CFFTX, 512, 9, 8, 16, _I2CFFTX_REG
+    2561                      .member _I2CFFRX, 528, 9, 8, 16, _I2CFFRX_REG
+    2562                      .eos
+    2563                      .stag   _NMICFG_BITS, 16
+    2564                      .member _rsvd1, 0, 14, 18, 1
+    2565                      .member _CLOCKFAIL, 1, 14, 18, 1
+    2566                      .member _rsvd2, 2, 14, 18, 14
+    2567                      .eos
+    2568                      .utag   _NMICFG_REG, 16
+    2569                      .member _all, 0, 14, 11, 16
+    2570                      .member _bit, 0, 8, 11, 16, _NMICFG_BITS
+    2571                      .eos
+    2572                      .stag   _NMIFLG_BITS, 16
+    2573                      .member _NMIINT, 0, 14, 18, 1
+    2574                      .member _CLOCKFAIL, 1, 14, 18, 1
+    2575                      .member _rsvd1, 2, 14, 18, 14
+    2576                      .eos
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   51
+
+    2577                      .utag   _NMIFLG_REG, 16
+    2578                      .member _all, 0, 14, 11, 16
+    2579                      .member _bit, 0, 8, 11, 16, _NMIFLG_BITS
+    2580                      .eos
+    2581                      .stag   _NMIFLGCLR_BITS, 16
+    2582                      .member _NMIINT, 0, 14, 18, 1
+    2583                      .member _CLOCKFAIL, 1, 14, 18, 1
+    2584                      .member _rsvd1, 2, 14, 18, 14
+    2585                      .eos
+    2586                      .utag   _NMIFLGCLR_REG, 16
+    2587                      .member _all, 0, 14, 11, 16
+    2588                      .member _bit, 0, 8, 11, 16, _NMIFLGCLR_BITS
+    2589                      .eos
+    2590                      .stag   _NMIFLGFRC_BITS, 16
+    2591                      .member _rsvd1, 0, 14, 18, 1
+    2592                      .member _CLOCKFAIL, 1, 14, 18, 1
+    2593                      .member _rsvd2, 2, 14, 18, 14
+    2594                      .eos
+    2595                      .utag   _NMIFLGFRC_REG, 16
+    2596                      .member _all, 0, 14, 11, 16
+    2597                      .member _bit, 0, 8, 11, 16, _NMIFLGFRC_BITS
+    2598                      .eos
+    2599                      .stag   _NMIINTRUPT_REGS, 256
+    2600                      .member _NMICFG, 0, 9, 8, 16, _NMICFG_REG
+    2601                      .member _NMIFLG, 16, 9, 8, 16, _NMIFLG_REG
+    2602                      .member _NMIFLGCLR, 32, 9, 8, 16, _NMIFLGCLR_REG
+    2603                      .member _NMIFLGFRC, 48, 9, 8, 16, _NMIFLGFRC_REG
+    2604                      .member _NMIWDCNT, 64, 14, 8, 16
+    2605                      .member _NMIWDPRD, 80, 14, 8, 16
+    2606                      .member _rsvd1, 96, 62, 8, 160, , 10
+    2607                      .eos
+    2608                      .stag   _PIECTRL_BITS, 16
+    2609                      .member _ENPIE, 0, 14, 18, 1
+    2610                      .member _PIEVECT, 1, 14, 18, 15
+    2611                      .eos
+    2612                      .utag   _PIECTRL_REG, 16
+    2613                      .member _all, 0, 14, 11, 16
+    2614                      .member _bit, 0, 8, 11, 16, _PIECTRL_BITS
+    2615                      .eos
+    2616                      .stag   _PIEIER_BITS, 16
+    2617                      .member _INTx1, 0, 14, 18, 1
+    2618                      .member _INTx2, 1, 14, 18, 1
+    2619                      .member _INTx3, 2, 14, 18, 1
+    2620                      .member _INTx4, 3, 14, 18, 1
+    2621                      .member _INTx5, 4, 14, 18, 1
+    2622                      .member _INTx6, 5, 14, 18, 1
+    2623                      .member _INTx7, 6, 14, 18, 1
+    2624                      .member _INTx8, 7, 14, 18, 1
+    2625                      .member _rsvd, 8, 14, 18, 8
+    2626                      .eos
+    2627                      .utag   _PIEIER_REG, 16
+    2628                      .member _all, 0, 14, 11, 16
+    2629                      .member _bit, 0, 8, 11, 16, _PIEIER_BITS
+    2630                      .eos
+    2631                      .stag   _PIEIFR_BITS, 16
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   52
+
+    2632                      .member _INTx1, 0, 14, 18, 1
+    2633                      .member _INTx2, 1, 14, 18, 1
+    2634                      .member _INTx3, 2, 14, 18, 1
+    2635                      .member _INTx4, 3, 14, 18, 1
+    2636                      .member _INTx5, 4, 14, 18, 1
+    2637                      .member _INTx6, 5, 14, 18, 1
+    2638                      .member _INTx7, 6, 14, 18, 1
+    2639                      .member _INTx8, 7, 14, 18, 1
+    2640                      .member _rsvd, 8, 14, 18, 8
+    2641                      .eos
+    2642                      .utag   _PIEIFR_REG, 16
+    2643                      .member _all, 0, 14, 11, 16
+    2644                      .member _bit, 0, 8, 11, 16, _PIEIFR_BITS
+    2645                      .eos
+    2646                      .stag   _PIEACK_BITS, 16
+    2647                      .member _ACK1, 0, 14, 18, 1
+    2648                      .member _ACK2, 1, 14, 18, 1
+    2649                      .member _ACK3, 2, 14, 18, 1
+    2650                      .member _ACK4, 3, 14, 18, 1
+    2651                      .member _ACK5, 4, 14, 18, 1
+    2652                      .member _ACK6, 5, 14, 18, 1
+    2653                      .member _ACK7, 6, 14, 18, 1
+    2654                      .member _ACK8, 7, 14, 18, 1
+    2655                      .member _ACK9, 8, 14, 18, 1
+    2656                      .member _ACK10, 9, 14, 18, 1
+    2657                      .member _ACK11, 10, 14, 18, 1
+    2658                      .member _ACK12, 11, 14, 18, 1
+    2659                      .member _rsvd, 12, 14, 18, 4
+    2660                      .eos
+    2661                      .utag   _PIEACK_REG, 16
+    2662                      .member _all, 0, 14, 11, 16
+    2663                      .member _bit, 0, 8, 11, 16, _PIEACK_BITS
+    2664                      .eos
+    2665                      .stag   _PIE_CTRL_REGS, 416
+    2666                      .member _PIECTRL, 0, 9, 8, 16, _PIECTRL_REG
+    2667                      .member _PIEACK, 16, 9, 8, 16, _PIEACK_REG
+    2668                      .member _PIEIER1, 32, 9, 8, 16, _PIEIER_REG
+    2669                      .member _PIEIFR1, 48, 9, 8, 16, _PIEIFR_REG
+    2670                      .member _PIEIER2, 64, 9, 8, 16, _PIEIER_REG
+    2671                      .member _PIEIFR2, 80, 9, 8, 16, _PIEIFR_REG
+    2672                      .member _PIEIER3, 96, 9, 8, 16, _PIEIER_REG
+    2673                      .member _PIEIFR3, 112, 9, 8, 16, _PIEIFR_REG
+    2674                      .member _PIEIER4, 128, 9, 8, 16, _PIEIER_REG
+    2675                      .member _PIEIFR4, 144, 9, 8, 16, _PIEIFR_REG
+    2676                      .member _PIEIER5, 160, 9, 8, 16, _PIEIER_REG
+    2677                      .member _PIEIFR5, 176, 9, 8, 16, _PIEIFR_REG
+    2678                      .member _PIEIER6, 192, 9, 8, 16, _PIEIER_REG
+    2679                      .member _PIEIFR6, 208, 9, 8, 16, _PIEIFR_REG
+    2680                      .member _PIEIER7, 224, 9, 8, 16, _PIEIER_REG
+    2681                      .member _PIEIFR7, 240, 9, 8, 16, _PIEIFR_REG
+    2682                      .member _PIEIER8, 256, 9, 8, 16, _PIEIER_REG
+    2683                      .member _PIEIFR8, 272, 9, 8, 16, _PIEIFR_REG
+    2684                      .member _PIEIER9, 288, 9, 8, 16, _PIEIER_REG
+    2685                      .member _PIEIFR9, 304, 9, 8, 16, _PIEIFR_REG
+    2686                      .member _PIEIER10, 320, 9, 8, 16, _PIEIER_REG
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   53
+
+    2687                      .member _PIEIFR10, 336, 9, 8, 16, _PIEIFR_REG
+    2688                      .member _PIEIER11, 352, 9, 8, 16, _PIEIER_REG
+    2689                      .member _PIEIFR11, 368, 9, 8, 16, _PIEIFR_REG
+    2690                      .member _PIEIER12, 384, 9, 8, 16, _PIEIER_REG
+    2691                      .member _PIEIFR12, 400, 9, 8, 16, _PIEIFR_REG
+    2692                      .eos
+    2693                      .stag   _SPIFFTX_BITS, 16
+    2694                      .member _TXFFIL, 0, 14, 18, 5
+    2695                      .member _TXFFIENA, 5, 14, 18, 1
+    2696                      .member _TXFFINTCLR, 6, 14, 18, 1
+    2697                      .member _TXFFINT, 7, 14, 18, 1
+    2698                      .member _TXFFST, 8, 14, 18, 5
+    2699                      .member _TXFIFO, 13, 14, 18, 1
+    2700                      .member _SPIFFENA, 14, 14, 18, 1
+    2701                      .member _SPIRST, 15, 14, 18, 1
+    2702                      .eos
+    2703                      .utag   _SPIFFTX_REG, 16
+    2704                      .member _all, 0, 14, 11, 16
+    2705                      .member _bit, 0, 8, 11, 16, _SPIFFTX_BITS
+    2706                      .eos
+    2707                      .stag   _SPIFFRX_BITS, 16
+    2708                      .member _RXFFIL, 0, 14, 18, 5
+    2709                      .member _RXFFIENA, 5, 14, 18, 1
+    2710                      .member _RXFFINTCLR, 6, 14, 18, 1
+    2711                      .member _RXFFINT, 7, 14, 18, 1
+    2712                      .member _RXFFST, 8, 14, 18, 5
+    2713                      .member _RXFIFORESET, 13, 14, 18, 1
+    2714                      .member _RXFFOVFCLR, 14, 14, 18, 1
+    2715                      .member _RXFFOVF, 15, 14, 18, 1
+    2716                      .eos
+    2717                      .utag   _SPIFFRX_REG, 16
+    2718                      .member _all, 0, 14, 11, 16
+    2719                      .member _bit, 0, 8, 11, 16, _SPIFFRX_BITS
+    2720                      .eos
+    2721                      .stag   _SPIFFCT_BITS, 16
+    2722                      .member _TXDLY, 0, 14, 18, 8
+    2723                      .member _rsvd, 8, 14, 18, 8
+    2724                      .eos
+    2725                      .utag   _SPIFFCT_REG, 16
+    2726                      .member _all, 0, 14, 11, 16
+    2727                      .member _bit, 0, 8, 11, 16, _SPIFFCT_BITS
+    2728                      .eos
+    2729                      .stag   _SPICCR_BITS, 16
+    2730                      .member _SPICHAR, 0, 14, 18, 4
+    2731                      .member _SPILBK, 4, 14, 18, 1
+    2732                      .member _rsvd1, 5, 14, 18, 1
+    2733                      .member _CLKPOLARITY, 6, 14, 18, 1
+    2734                      .member _SPISWRESET, 7, 14, 18, 1
+    2735                      .member _rsvd2, 8, 14, 18, 8
+    2736                      .eos
+    2737                      .utag   _SPICCR_REG, 16
+    2738                      .member _all, 0, 14, 11, 16
+    2739                      .member _bit, 0, 8, 11, 16, _SPICCR_BITS
+    2740                      .eos
+    2741                      .stag   _SPICTL_BITS, 16
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   54
+
+    2742                      .member _SPIINTENA, 0, 14, 18, 1
+    2743                      .member _TALK, 1, 14, 18, 1
+    2744                      .member _MASTER_SLAVE, 2, 14, 18, 1
+    2745                      .member _CLK_PHASE, 3, 14, 18, 1
+    2746                      .member _OVERRUNINTENA, 4, 14, 18, 1
+    2747                      .member _rsvd, 5, 14, 18, 11
+    2748                      .eos
+    2749                      .utag   _SPICTL_REG, 16
+    2750                      .member _all, 0, 14, 11, 16
+    2751                      .member _bit, 0, 8, 11, 16, _SPICTL_BITS
+    2752                      .eos
+    2753                      .stag   _SPISTS_BITS, 16
+    2754                      .member _rsvd1, 0, 14, 18, 5
+    2755                      .member _BUFFULL_FLAG, 5, 14, 18, 1
+    2756                      .member _INT_FLAG, 6, 14, 18, 1
+    2757                      .member _OVERRUN_FLAG, 7, 14, 18, 1
+    2758                      .member _rsvd2, 8, 14, 18, 8
+    2759                      .eos
+    2760                      .utag   _SPISTS_REG, 16
+    2761                      .member _all, 0, 14, 11, 16
+    2762                      .member _bit, 0, 8, 11, 16, _SPISTS_BITS
+    2763                      .eos
+    2764                      .stag   _SPIPRI_BITS, 16
+    2765                      .member _TRIWIRE, 0, 14, 18, 1
+    2766                      .member _rsvd1, 1, 14, 18, 3
+    2767                      .member _FREE, 4, 14, 18, 1
+    2768                      .member _SOFT, 5, 14, 18, 1
+    2769                      .member _PRIORITY, 6, 14, 18, 1
+    2770                      .member _rsvd2, 7, 14, 18, 9
+    2771                      .eos
+    2772                      .utag   _SPIPRI_REG, 16
+    2773                      .member _all, 0, 14, 11, 16
+    2774                      .member _bit, 0, 8, 11, 16, _SPIPRI_BITS
+    2775                      .eos
+    2776                      .stag   _SPI_REGS, 256
+    2777                      .member _SPICCR, 0, 9, 8, 16, _SPICCR_REG
+    2778                      .member _SPICTL, 16, 9, 8, 16, _SPICTL_REG
+    2779                      .member _SPISTS, 32, 9, 8, 16, _SPISTS_REG
+    2780                      .member _rsvd1, 48, 14, 8, 16
+    2781                      .member _SPIBRR, 64, 14, 8, 16
+    2782                      .member _rsvd2, 80, 14, 8, 16
+    2783                      .member _SPIRXEMU, 96, 14, 8, 16
+    2784                      .member _SPIRXBUF, 112, 14, 8, 16
+    2785                      .member _SPITXBUF, 128, 14, 8, 16
+    2786                      .member _SPIDAT, 144, 14, 8, 16
+    2787                      .member _SPIFFTX, 160, 9, 8, 16, _SPIFFTX_REG
+    2788                      .member _SPIFFRX, 176, 9, 8, 16, _SPIFFRX_REG
+    2789                      .member _SPIFFCT, 192, 9, 8, 16, _SPIFFCT_REG
+    2790                      .member _rsvd3, 208, 62, 8, 32, , 2
+    2791                      .member _SPIPRI, 240, 9, 8, 16, _SPIPRI_REG
+    2792                      .eos
+    2793                      .stag   _BORCFG_BITS, 16
+    2794                      .member _BORENZ, 0, 14, 18, 1
+    2795                      .member _rsvd1, 1, 14, 18, 15
+    2796                      .eos
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   55
+
+    2797                      .utag   _BORCFG_REG, 16
+    2798                      .member _all, 0, 14, 11, 16
+    2799                      .member _bit, 0, 8, 11, 16, _BORCFG_BITS
+    2800                      .eos
+    2801                      .stag   _SYS_PWR_CTRL_REGS, 48
+    2802                      .member _BORCFG, 0, 9, 8, 16, _BORCFG_REG
+    2803                      .member _rsvd1, 16, 62, 8, 32, , 2
+    2804                      .eos
+    2805                      .stag   _CSMSCR_BITS, 16
+    2806                      .member _SECURE, 0, 14, 18, 1
+    2807                      .member _rsvd1, 1, 14, 18, 14
+    2808                      .member _FORCESEC, 15, 14, 18, 1
+    2809                      .eos
+    2810                      .utag   _CSMSCR_REG, 16
+    2811                      .member _all, 0, 14, 11, 16
+    2812                      .member _bit, 0, 8, 11, 16, _CSMSCR_BITS
+    2813                      .eos
+    2814                      .stag   _CSM_REGS, 256
+    2815                      .member _KEY0, 0, 14, 8, 16
+    2816                      .member _KEY1, 16, 14, 8, 16
+    2817                      .member _KEY2, 32, 14, 8, 16
+    2818                      .member _KEY3, 48, 14, 8, 16
+    2819                      .member _KEY4, 64, 14, 8, 16
+    2820                      .member _KEY5, 80, 14, 8, 16
+    2821                      .member _KEY6, 96, 14, 8, 16
+    2822                      .member _KEY7, 112, 14, 8, 16
+    2823                      .member _rsvd1, 128, 14, 8, 16
+    2824                      .member _rsvd2, 144, 14, 8, 16
+    2825                      .member _rsvd3, 160, 14, 8, 16
+    2826                      .member _rsvd4, 176, 14, 8, 16
+    2827                      .member _rsvd5, 192, 14, 8, 16
+    2828                      .member _rsvd6, 208, 14, 8, 16
+    2829                      .member _rsvd7, 224, 14, 8, 16
+    2830                      .member _CSMSCR, 240, 9, 8, 16, _CSMSCR_REG
+    2831                      .eos
+    2832                      .stag   _CSM_PWL, 128
+    2833                      .member _PSWD0, 0, 14, 8, 16
+    2834                      .member _PSWD1, 16, 14, 8, 16
+    2835                      .member _PSWD2, 32, 14, 8, 16
+    2836                      .member _PSWD3, 48, 14, 8, 16
+    2837                      .member _PSWD4, 64, 14, 8, 16
+    2838                      .member _PSWD5, 80, 14, 8, 16
+    2839                      .member _PSWD6, 96, 14, 8, 16
+    2840                      .member _PSWD7, 112, 14, 8, 16
+    2841                      .eos
+    2842                      .stag   _XINTCR_BITS, 16
+    2843                      .member _ENABLE, 0, 14, 18, 1
+    2844                      .member _rsvd1, 1, 14, 18, 1
+    2845                      .member _POLARITY, 2, 14, 18, 2
+    2846                      .member _rsvd2, 4, 14, 18, 12
+    2847                      .eos
+    2848                      .utag   _XINTCR_REG, 16
+    2849                      .member _all, 0, 14, 11, 16
+    2850                      .member _bit, 0, 8, 11, 16, _XINTCR_BITS
+    2851                      .eos
+TMS320C2000 Assembler PC v5.0.0 Sun Apr 03 20:26:16 2016
+
+Tools Copyright (c) 1996-2007 Texas Instruments Incorporated
+C:\Users\FEHR~1\AppData\Local\Temp\3267211                           PAGE   56
+
+    2852                      .stag   _XINTRUPT_REGS, 256
+    2853                      .member _XINT1CR, 0, 9, 8, 16, _XINTCR_REG
+    2854                      .member _XINT2CR, 16, 9, 8, 16, _XINTCR_REG
+    2855                      .member _XINT3CR, 32, 9, 8, 16, _XINTCR_REG
+    2856                      .member _rsvd1, 48, 62, 8, 80, , 5
+    2857                      .member _XINT1CTR, 128, 14, 8, 16
+    2858                      .member _XINT2CTR, 144, 14, 8, 16
+    2859                      .member _XINT3CTR, 160, 14, 8, 16
+    2860                      .member _rsvd, 176, 62, 8, 80, , 5
+    2861                      .eos
+
+No Assembly Errors, No Assembly Warnings
