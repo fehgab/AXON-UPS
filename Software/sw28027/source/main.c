@@ -23,7 +23,7 @@ __interrupt void cpu_timer0_isr(void)
 __interrupt void  adc_isr(void)
 {
 	//Set 0-1500 0->100% duty cycle, 1500 -> 0% duty cycle
-	if (pwm_duty <= 1500 && pwm_duty > 0)
+	if (pwm_duty <= 1000 && pwm_duty >= 0)
 	{
 		EPwm1Regs.CMPA.half.CMPA 	= pwm_duty;	// Set compare A value
 	}

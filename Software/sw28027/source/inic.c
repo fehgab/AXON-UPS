@@ -175,7 +175,7 @@ void DeviceInit(void)
 // Counter Compare
   EPwm1Regs.CMPCTL.bit.SHDWAMODE = CC_SHADOW;
   EPwm1Regs.CMPCTL.bit.SHDWBMODE = CC_SHADOW;
-	EPwm1Regs.CMPCTL.bit.LOADAMODE = CC_CTR_ZERO_PRD;
+  EPwm1Regs.CMPCTL.bit.LOADAMODE = CC_CTR_PRD;
 
   // Action Qualifier
   EPwm1Regs.AQCTLA.bit.CAU = AQ_SET; // set actions for EPWM1A
@@ -227,8 +227,8 @@ void DeviceInit(void)
 //PWMA1
 //--------------------------------------------------------------------------------------
 //  GPIO-0 - PIN FUNCTION = --Spare--
-	GpioCtrlRegs.GPAMUX1.bit.GPIO0 = 0;	// 0=GPIO, 1=SCITXDA, 2=SCLA, 3=TZ3
-	GpioCtrlRegs.GPADIR.bit.GPIO0 = 1;		// 1=OUTput,  0=INput
+	GpioCtrlRegs.GPAMUX1.bit.GPIO0 = 1;	// 0=GPIO, 1=SCITXDA, 2=SCLA, 3=TZ3
+//	GpioCtrlRegs.GPADIR.bit.GPIO0 = 1;		// 1=OUTput,  0=INput
 //	GpioDataRegs.GPACLEAR.bit.GPIO0 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO0 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
@@ -236,8 +236,8 @@ void DeviceInit(void)
 //PWMB1
 //--------------------------------------------------------------------------------------
 //  GPIO-1 - PIN FUNCTION = --Spare--
-	GpioCtrlRegs.GPAMUX1.bit.GPIO1 = 0;	// 0=GPIO, 1=SCITXDA, 2=SCLA, 3=TZ3
-	GpioCtrlRegs.GPADIR.bit.GPIO1 = 1;		// 1=OUTput,  0=INput
+	GpioCtrlRegs.GPAMUX1.bit.GPIO1 = 1;	// 0=GPIO, 1=SCITXDA, 2=SCLA, 3=TZ3
+//	GpioCtrlRegs.GPADIR.bit.GPIO1 = 1;		// 1=OUTput,  0=INput
 //	GpioDataRegs.GPACLEAR.bit.GPIO1 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO1 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
