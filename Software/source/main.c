@@ -15,7 +15,7 @@ Uint16 adc_int_cnt;
 Uint16 pwm_counter;
 Uint16 pwm_counter_max = 100;
 Uint16 down = 1;
-Uint16 pwm_duty = 1500;
+Uint16 pwm_duty = 750;
 
 MEASUREMENT_TYPE batteryVoltage;
 MEASUREMENT_TYPE batteryCurrentOffset;
@@ -35,27 +35,30 @@ __interrupt void cpu_timer0_isr(void)
 
 __interrupt void  adc_isr(void)
 {
-
-	if(pwm_counter >= pwm_counter_max){
-		pwm_counter = 0;
-		if (pwm_duty < 1500)
-		{
-			if(down == 1){
-				pwm_duty -= 10;
-			}
-			else{
-				pwm_duty += 10;
-			}
-		}
-		if(pwm_duty <= 10){
-			pwm_duty = 1;
-			down = 0;
-		}
-		if(pwm_duty >= 1500 && pwm_duty < 2000){
-			pwm_duty = 1499;
-			down = 1;
-		}
+//	if(pwm_counter >= pwm_counter_max){
+//		pwm_counter = 0;
+//		if (pwm_duty < 1500)
+//		{
+//			if(down == 1){
+//				pwm_duty -= 10;
+//			}
+//			else{
+//				pwm_duty += 10;
+//			}
+//		}
+//		if(pwm_duty <= 10){
+//			pwm_duty = 1;
+//			down = 0;
+//		}
+//		if(pwm_duty >= 1500 && pwm_duty < 2000){
+//			pwm_duty = 1499;
+//			down = 1;
+//		}
+	if(pwm_duty >= 750){
 		EPwm1Regs.CMPA.half.CMPA = pwm_duty;
+	}
+	else{
+		pwm_duty = 750;
 	}
 
 	if(adc_int_cnt >= 4){
@@ -82,7 +85,7 @@ __interrupt void  adc_isr(void)
 		   break;
 	}
 	adc_int_cnt++;
-	pwm_counter++;
+//	pwm_counter++;
 
 	bbx_trigger();
   AdcRegs.ADCINTFLGCLR.bit.ADCINT1 = 1;		//Clear ADCINT1 flag reinitialize for next SOC
