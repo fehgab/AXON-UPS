@@ -54,7 +54,7 @@ __interrupt void  adc_isr(void)
 //			pwm_duty = 1499;
 //			down = 1;
 //		}
-	if(pwm_duty >= 750){
+	if(pwm_duty <= 750){
 		EPwm1Regs.CMPA.half.CMPA = pwm_duty;
 	}
 	else{
