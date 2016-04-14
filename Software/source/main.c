@@ -35,12 +35,7 @@ __interrupt void cpu_timer0_isr(void)
 
 __interrupt void  adc_isr(void)
 {
-<<<<<<< HEAD:Software/sw28027/source/main.c
-	//Set 0-1500 0->100% duty cycle, 1500 -> 0% duty cycle
-	if (pwm_duty <= 1000 && pwm_duty >= 0)
-	{
-		EPwm1Regs.CMPA.half.CMPA 	= pwm_duty;	// Set compare A value
-=======
+
 	if(pwm_counter >= pwm_counter_max){
 		pwm_counter = 0;
 		if (pwm_duty < 1500)
@@ -61,7 +56,6 @@ __interrupt void  adc_isr(void)
 			down = 1;
 		}
 		EPwm1Regs.CMPA.half.CMPA = pwm_duty;
->>>>>>> 86700ba85e144900b14a8764bd85ef6b21f8ddd1:Software/source/main.c
 	}
 
 	if(adc_int_cnt >= 4){
