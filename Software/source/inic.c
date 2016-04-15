@@ -166,20 +166,17 @@ void DeviceInit(void)
 	AdcRegs.ADCSOC3CTL.bit.ACQPS 	= 6;	// set SOC3 S/H Window to 7 ADC Clock Cycles, (6 ACQPS plus 1)
 
   //pwm control
-  EPwm1Regs.TBPRD 				= 1500;	// Set period for ePWM1 40kHz
+  EPwm1Regs.TBPRD 				= 750;	// Set period for ePWM1 40kHz
   EPwm1Regs.TBCTL.bit.CTRMODE 	= TB_COUNT_UPDOWN;		// count updown
   EPwm1Regs.TBCTL.bit.PHSEN = TB_DISABLE; 						// Master module
   EPwm1Regs.TBCTL.bit.PRDLD = TB_SHADOW;
   EPwm1Regs.TBCTL.bit.SYNCOSEL = TB_CTR_ZERO; // Sync down-stream module
+  EPwm1Regs.TBCTL.bit.HSPCLKDIV = TB_DIV1;
 
 // Counter Compare
   EPwm1Regs.CMPCTL.bit.SHDWAMODE = CC_SHADOW;
   EPwm1Regs.CMPCTL.bit.SHDWBMODE = CC_SHADOW;
-<<<<<<< HEAD:Software/sw28027/source/inic.c
-  EPwm1Regs.CMPCTL.bit.LOADAMODE = CC_CTR_PRD;
-=======
   EPwm1Regs.CMPCTL.bit.LOADAMODE = CC_CTR_ZERO_PRD;
->>>>>>> 86700ba85e144900b14a8764bd85ef6b21f8ddd1:Software/source/inic.c
 
   // Action Qualifier
   EPwm1Regs.AQCTLA.bit.CAU = AQ_SET; // set actions for EPWM1A
