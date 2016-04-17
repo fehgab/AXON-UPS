@@ -15,7 +15,7 @@ Uint16 adc_int_cnt;
 Uint16 pwm_counter;
 Uint16 pwm_counter_max = 100;
 Uint16 down = 1;
-Uint16 pwm_duty = 0;
+Uint16 pwm_duty = 500;
 
 MEASUREMENT_TYPE batteryVoltage;
 MEASUREMENT_TYPE batteryCurrentOffset;

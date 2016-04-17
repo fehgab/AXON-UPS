@@ -188,9 +188,9 @@ void DeviceInit(void)
   // Dead-Band generator bypass
   EPwm1Regs.DBCTL.bit.IN_MODE = 0;
   EPwm1Regs.DBCTL.bit.OUT_MODE = 3; // Dead band fully enabled (rising and falling edge delay)
-  EPwm1Regs.DBCTL.bit.POLSEL = 1; // EPWMxA is inverted.
-  EPwm1Regs.DBRED = 100;
-  EPwm1Regs.DBFED = 100;
+  EPwm1Regs.DBCTL.bit.POLSEL = 2; // EPWMxA is inverted.
+  EPwm1Regs.DBRED = 70;
+  EPwm1Regs.DBFED = 70;
 
 	EPwm1Regs.TZSEL.bit.OSHT1 = TZ_ENABLE;
 	EPwm1Regs.TZCTL.bit.TZA = TZ_FORCE_LO; // TZ1 to TZ6 Trip Action On EPWMxA
