@@ -2,3 +2,4 @@
 *.SchDocPreview
 Software/AXON-UPS/Debug/
 Software/Debug/
+.metadata/
