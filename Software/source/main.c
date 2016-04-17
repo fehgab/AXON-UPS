@@ -23,6 +23,11 @@ MEASUREMENT_TYPE batteryCurrent;
 MEASUREMENT_TYPE inputVoltage;
 MEASUREMENT_TYPE outputVoltage;
 
+Uint16 outputVoltageResult = 0;
+Uint16 inputVoltageResult = 0;
+Uint16 batteryVoltageResult = 0;
+Uint16 batteryCurrentResult = 0;
+
 void ISR_ILLEGAL(void);
 
 __interrupt void cpu_timer0_isr(void)
@@ -67,17 +72,21 @@ __interrupt void  adc_isr(void)
 
 	switch(adc_int_cnt) {
 	   case 0:
-	   	outputVoltage = calculateOutputVoltage(AdcResult.ADCRESULT0);
-	      break;
+		   outputVoltageResult = AdcResult.ADCRESULT0;
+		   outputVoltage = calculateOutputVoltage(AdcResult.ADCRESULT0);
+		   break;
 	   case 1:
-		  inputVoltage = calculateInputVoltage(AdcResult.ADCRESULT1);
-	      break;
+		   inputVoltageResult = AdcResult.ADCRESULT1;
+		   inputVoltage = calculateInputVoltage(AdcResult.ADCRESULT1);
+		   break;
 	   case 2:
+		   batteryVoltageResult = AdcResult.ADCRESULT2;
 		   batteryVoltage = calculateBatteryVoltage(AdcResult.ADCRESULT2);
 		   break;
 	   case 3:
 		   calculateBatteryCurrentOffset(AdcResult.ADCRESULT3);
 		   if(current_sample_cnt > 99){
+			   batteryCurrentResult = AdcResult.ADCRESULT3;
 			   batteryCurrent = calculateBatteryCurrent(AdcResult.ADCRESULT3);
 		   }
 		   break;

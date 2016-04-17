@@ -258,6 +258,15 @@ EALLOW;
 	GpioDataRegs.GPASET.bit.GPIO2 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
 
+//LED1
+//--------------------------------------------------------------------------------------
+//  GPIO-33 - PIN FUNCTION = --Spare--
+	GpioCtrlRegs.GPBMUX1.bit.GPIO33 = 0;	// 0=GPIO, 1=SCITXDA, 2=SCLA, 3=TZ3
+	GpioCtrlRegs.GPBDIR.bit.GPIO33 = 1;		// 1=OUTput,  0=INput
+	GpioDataRegs.GPBCLEAR.bit.GPIO33 = 1;	// uncomment if --> Set Low initially
+//	GpioDataRegs.GPBSET.bit.GPIO33 = 1;		// uncomment if --> Set High initially
+//--------------------------------------------------------------------------------------
+
 //--------------------------------------------------------------------------------------
 //  GPIO-12 - PIN FUNCTION = --Spare--
 //	GpioCtrlRegs.GPAMUX1.bit.GPIO12 = 3;	// 0=GPIO, 1=SCIRXA, 2=SDAA, 3=TZ2
