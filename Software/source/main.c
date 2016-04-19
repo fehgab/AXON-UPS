@@ -5,6 +5,7 @@
 #include "IQmathLib.h"
 #include "adcMeasurements.h"
 #include "bbx.h"
+#include "PI_controller.h"
 
 extern MEASUREMENT_TYPE current_sample_cnt;
 
@@ -12,9 +13,6 @@ extern MEASUREMENT_TYPE current_sample_cnt;
 Uint16 sw_timer_1ms;
 Uint16 adc_int_cnt;
 
-Uint16 pwm_counter;
-Uint16 pwm_counter_max = 100;
-Uint16 down = 1;
 Uint16 pwm_duty = 500;
 
 MEASUREMENT_TYPE batteryVoltage;
@@ -40,25 +38,7 @@ __interrupt void cpu_timer0_isr(void)
 
 __interrupt void  adc_isr(void)
 {
-//	if(pwm_counter >= pwm_counter_max){
-//		pwm_counter = 0;
-//		if (pwm_duty < 1500)
-//		{
-//			if(down == 1){
-//				pwm_duty -= 10;
-//			}
-//			else{
-//				pwm_duty += 10;
-//			}
-//		}
-//		if(pwm_duty <= 10){
-//			pwm_duty = 1;
-//			down = 0;
-//		}
-//		if(pwm_duty >= 1500 && pwm_duty < 2000){
-//			pwm_duty = 1499;
-//			down = 1;
-//		}
+
 	if(pwm_duty <= 750){
 		EPwm1Regs.CMPA.half.CMPA = pwm_duty;
 	}
@@ -88,13 +68,13 @@ __interrupt void  adc_isr(void)
 		   if(current_sample_cnt > 99){
 			   batteryCurrentResult = AdcResult.ADCRESULT3;
 			   batteryCurrent = calculateBatteryCurrent(AdcResult.ADCRESULT3);
+			   currentController(batteryCurrent);
 		   }
 		   break;
 	   default:
 		   break;
 	}
 	adc_int_cnt++;
-//	pwm_counter++;
 
 	bbx_trigger();
   AdcRegs.ADCINTFLGCLR.bit.ADCINT1 = 1;		//Clear ADCINT1 flag reinitialize for next SOC
