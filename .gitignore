@@ -2,3 +2,6 @@
 *.SchDocPreview
 Software/AXON-UPS/Debug/
 Software/Debug/
+Software/RemoteSystemsTempFiles/
+Software/.metadata/version.ini
+Software/.metadata/
