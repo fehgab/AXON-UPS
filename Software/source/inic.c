@@ -36,11 +36,11 @@ void DeviceInit(void)
 // sources to minimize power consumption
 	EALLOW;
 	SysCtrlRegs.CLKCTL.bit.INTOSC1OFF = 0;
-  SysCtrlRegs.CLKCTL.bit.OSCCLKSRCSEL=0;  // Clk Src = INTOSC1
+	SysCtrlRegs.CLKCTL.bit.OSCCLKSRCSEL=0;  // Clk Src = INTOSC1
 	SysCtrlRegs.CLKCTL.bit.XCLKINOFF=1;     // Turn off XCLKIN
 	SysCtrlRegs.CLKCTL.bit.XTALOSCOFF=1;    // Turn off XTALOSC
 	SysCtrlRegs.CLKCTL.bit.INTOSC2OFF=1;    // Turn off INTOSC2
-  EDIS;
+	EDIS;
 
 
 // SYSTEM CLOCK speed based on internal oscillator = 10 MHz
@@ -65,20 +65,20 @@ void DeviceInit(void)
 // Initialise interrupt controller and Vector Table
 // to defaults for now. Application ISR mapping done later.
 	EALLOW;  // This is needed to write to EALLOW protected register
-  InitPieCtrl();
+	InitPieCtrl();
 	InitPieVectTable();
-  EDIS;    // This is needed to disable write to EALLOW protected registers
+	EDIS;    // This is needed to disable write to EALLOW protected registers
 
 	EALLOW;  // This is needed to write to EALLOW protected register
 	PieVectTable.TINT0 = &cpu_timer0_isr;
 	PieVectTable.ADCINT1 = &adc_isr;
-  EDIS;    // This is needed to disable write to EALLOW protected registers
+	EDIS;    // This is needed to disable write to EALLOW protected registers
 
-  MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
+	MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 
-  InitFlash();
+	InitFlash();
 
-  EALLOW; // below registers are "protected", allow access.
+	EALLOW; // below registers are "protected", allow access.
 
 // LOW SPEED CLOCKS prescale register settings
 
@@ -116,13 +116,13 @@ void DeviceInit(void)
 
 // Step 4. Initialize the Device Peripheral. This function can be
 //         found in F2806x_CpuTimers.c
-   InitCpuTimers();   // For this example, only initialize the Cpu Timers
+	InitCpuTimers();   // For this example, only initialize the Cpu Timers
 
 // Configure CPU-Timer 0 to interrupt every 1 milisecond:
 // 60MHz CPU Freq, 1 milisecond Period (in uSeconds)
 
-   ConfigCpuTimer(&CpuTimer0, 60, 1000);
-   CpuTimer0Regs.TCR.all = 0x4000; // Use write-only instruction to set TSS bit = 0
+	ConfigCpuTimer(&CpuTimer0, 60, 1000);
+	CpuTimer0Regs.TCR.all = 0x4000; // Use write-only instruction to set TSS bit = 0
 
 // Configure ADC power up sequence
    	EALLOW;
@@ -148,59 +148,61 @@ void DeviceInit(void)
 	AdcRegs.ADCCTL1.bit.INTPULSEPOS	= 1;		// ADCINT1 trips after AdcResults latch
 	AdcRegs.INTSEL1N2.bit.INT1E     = 1;		// Enabled ADCINT1
 	AdcRegs.INTSEL1N2.bit.INT1CONT  = 0;		// Disable ADCINT1 Continuous mode
-  AdcRegs.INTSEL1N2.bit.INT1SEL 	= 1;  	// setup EOC1 to trigger ADCINT1 to fire
-  AdcRegs.ADCSOC0CTL.bit.CHSEL 	= 0;			// set SOC0 channel select to ADCINA0
-  AdcRegs.ADCSOC1CTL.bit.CHSEL 	= 1;			// set SOC1 channel select to ADCINA1
-  AdcRegs.ADCSOC2CTL.bit.CHSEL 	= 2;			// set SOC2 channel select to ADCINA2
-  AdcRegs.ADCSOC3CTL.bit.CHSEL 	= 3;			// set SOC3 channel select to ADCINA3
+	AdcRegs.INTSEL1N2.bit.INT1SEL 	= 1;  	// setup EOC1 to trigger ADCINT1 to fire
+	AdcRegs.ADCSOC0CTL.bit.CHSEL 	= 0;			// set SOC0 channel select to ADCINA0
+	AdcRegs.ADCSOC1CTL.bit.CHSEL 	= 1;			// set SOC1 channel select to ADCINA1
+	AdcRegs.ADCSOC2CTL.bit.CHSEL 	= 2;			// set SOC2 channel select to ADCINA2
+	AdcRegs.ADCSOC3CTL.bit.CHSEL 	= 3;			// set SOC3 channel select to ADCINA3
 
 // Set trigger  ePWM1, ADCSOCA
-  AdcRegs.ADCSOC0CTL.bit.TRIGSEL 	= 5;    // set SOC0 start trigger on EPWM1A, due to round-robin SOC0 converts first then SOC1
-  AdcRegs.ADCSOC1CTL.bit.TRIGSEL 	= 5;    // set SOC1 start trigger on EPWM1A, due to round-robin SOC0 converts first then SOC1
-  AdcRegs.ADCSOC2CTL.bit.TRIGSEL 	= 5;    // set SOC2 start trigger on EPWM1A, due to round-robin SOC0 converts first then SOC1
-  AdcRegs.ADCSOC3CTL.bit.TRIGSEL 	= 5;    // set SOC2 start trigger on EPWM1A, due to round-robin SOC0 converts first then SOC1
+	AdcRegs.ADCSOC0CTL.bit.TRIGSEL 	= 5;    // set SOC0 start trigger on EPWM1A, due to round-robin SOC0 converts first then SOC1
+	AdcRegs.ADCSOC1CTL.bit.TRIGSEL 	= 5;    // set SOC1 start trigger on EPWM1A, due to round-robin SOC0 converts first then SOC1
+	AdcRegs.ADCSOC2CTL.bit.TRIGSEL 	= 5;    // set SOC2 start trigger on EPWM1A, due to round-robin SOC0 converts first then SOC1
+	AdcRegs.ADCSOC3CTL.bit.TRIGSEL 	= 5;    // set SOC2 start trigger on EPWM1A, due to round-robin SOC0 converts first then SOC1
 
 	AdcRegs.ADCSOC0CTL.bit.ACQPS 	= 6;	// set SOC0 S/H Window to 7 ADC Clock Cycles, (6 ACQPS plus 1)
 	AdcRegs.ADCSOC1CTL.bit.ACQPS 	= 6;	// set SOC1 S/H Window to 7 ADC Clock Cycles, (6 ACQPS plus 1)
 	AdcRegs.ADCSOC2CTL.bit.ACQPS 	= 6;	// set SOC2 S/H Window to 7 ADC Clock Cycles, (6 ACQPS plus 1)
 	AdcRegs.ADCSOC3CTL.bit.ACQPS 	= 6;	// set SOC3 S/H Window to 7 ADC Clock Cycles, (6 ACQPS plus 1)
 
-  //pwm control
-  EPwm1Regs.TBPRD 				= 750;	// Set period for ePWM1 40kHz
-  EPwm1Regs.TBCTL.bit.CTRMODE 	= TB_COUNT_UPDOWN;		// count updown
-  EPwm1Regs.TBCTL.bit.PHSEN = TB_DISABLE; 						// Master module
-  EPwm1Regs.TBCTL.bit.PRDLD = TB_SHADOW;
-  EPwm1Regs.TBCTL.bit.SYNCOSEL = TB_CTR_ZERO; // Sync down-stream module
-  EPwm1Regs.TBCTL.bit.HSPCLKDIV = TB_DIV1;
+//pwm control
+	EPwm1Regs.TBPRD 				= 750;	// Set period for ePWM1 40kHz
+	EPwm1Regs.TBCTL.bit.CTRMODE 	= TB_COUNT_UPDOWN;		// count updown
+	EPwm1Regs.TBCTL.bit.PHSEN = TB_DISABLE; 						// Master module
+	EPwm1Regs.TBCTL.bit.PRDLD = TB_SHADOW;
+	EPwm1Regs.TBCTL.bit.SYNCOSEL = TB_CTR_ZERO; // Sync down-stream module
+	EPwm1Regs.TBCTL.bit.HSPCLKDIV = TB_DIV1;
 
 // Counter Compare
-  EPwm1Regs.CMPCTL.bit.SHDWAMODE = CC_SHADOW;
-  EPwm1Regs.CMPCTL.bit.SHDWBMODE = CC_SHADOW;
-  EPwm1Regs.CMPCTL.bit.LOADAMODE = CC_CTR_ZERO_PRD;
+	EPwm1Regs.CMPCTL.bit.SHDWAMODE = CC_SHADOW;
+	EPwm1Regs.CMPCTL.bit.SHDWBMODE = CC_SHADOW;
+	EPwm1Regs.CMPCTL.bit.LOADAMODE = CC_CTR_ZERO_PRD;
 
-  // Action Qualifier
-  EPwm1Regs.AQCTLA.bit.CAU = AQ_SET; // set actions for EPWM1A
-  EPwm1Regs.AQCTLA.bit.CAD = AQ_CLEAR;
-  EPwm1Regs.AQCTLB.bit.CAU = AQ_CLEAR; // set actions for EPWM1B
-  EPwm1Regs.AQCTLB.bit.CAD = AQ_SET;
-  EPwm1Regs.AQSFRC.bit.RLDCSF = 2 ; // Load AQCSFRC on event CTR = Zero or PRD
+// Action Qualifier
+	EPwm1Regs.AQCTLA.bit.CAU = AQ_SET; // set actions for EPWM1A
+	EPwm1Regs.AQCTLA.bit.CAD = AQ_CLEAR;
+	EPwm1Regs.AQCTLB.bit.CAU = AQ_CLEAR; // set actions for EPWM1B
+	EPwm1Regs.AQCTLB.bit.CAD = AQ_SET;
+	EPwm1Regs.AQSFRC.bit.RLDCSF = 2 ; // Load AQCSFRC on event CTR = Zero or PRD
 
-  // Dead-Band generator bypass
-  EPwm1Regs.DBCTL.bit.IN_MODE = 0;
-  EPwm1Regs.DBCTL.bit.OUT_MODE = 3; // Dead band fully enabled (rising and falling edge delay)
-  EPwm1Regs.DBCTL.bit.POLSEL = 1; // EPWMxA is inverted.
-  EPwm1Regs.DBRED = 100;
-  EPwm1Regs.DBFED = 100;
+// Dead-Band generator bypass
+	EPwm1Regs.DBCTL.bit.IN_MODE = 0;
+	EPwm1Regs.DBCTL.bit.OUT_MODE = 3; // Dead band fully enabled (rising and falling edge delay)
+	EPwm1Regs.DBCTL.bit.POLSEL = 2; // EPWMxA is inverted.
+	EPwm1Regs.DBRED = 70;
+	EPwm1Regs.DBFED = 70;
 
 	EPwm1Regs.TZSEL.bit.OSHT1 = TZ_ENABLE;
+	EPwm1Regs.TZSEL.bit.OSHT2 = TZ_ENABLE;
+	EPwm1Regs.TZSEL.bit.OSHT3 = TZ_ENABLE;
 	EPwm1Regs.TZCTL.bit.TZA = TZ_FORCE_LO; // TZ1 to TZ6 Trip Action On EPWMxA
 	EPwm1Regs.TZCTL.bit.TZB = TZ_FORCE_LO; // TZ1 to TZ6 Trip Action On EPWMxB
-  EPwm1Regs.TZFRC.bit.OST = 0; 					 // Trip Zones One Shot Int gyujtas tiltas
+	EPwm1Regs.TZFRC.bit.OST = 0; 		   // Trip Zones One Shot Int gyujtas tiltas
 
-  EPwm1Regs.ETSEL.bit.SOCAEN	= 1;		// Enable SOC on A group
-  EPwm1Regs.ETSEL.bit.SOCASEL	= 2;		// Select SOC from TBCTR=TBPRD
-  EPwm1Regs.ETPS.bit.SOCAPRD 	= 1;		// Generate pulse on 1st event
-EDIS;
+	EPwm1Regs.ETSEL.bit.SOCAEN	= 1;		// Enable SOC on A group
+	EPwm1Regs.ETSEL.bit.SOCASEL	= 2;		// Select SOC from TBCTR=TBPRD
+	EPwm1Regs.ETPS.bit.SOCAPRD 	= 1;		// Generate pulse on 1st event
+	EDIS;
 //--------------------------------------------------------------------------------------
 // GPIO (GENERAL PURPOSE I/O) CONFIG
 //--------------------------------------------------------------------------------------
@@ -228,7 +230,7 @@ EDIS;
 //	GpioDataRegs.GPASET.bit.GPIO29 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
 
-EALLOW;
+	EALLOW;
 //PWMA1
 //--------------------------------------------------------------------------------------
 //  GPIO-0 - PIN FUNCTION = --Spare--
@@ -237,8 +239,8 @@ EALLOW;
 //	GpioDataRegs.GPACLEAR.bit.GPIO0 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO0 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
-EDIS;
-EALLOW;
+	EDIS;
+	EALLOW;
 //PWMB1
 //--------------------------------------------------------------------------------------
 //  GPIO-1 - PIN FUNCTION = --Spare--
@@ -247,8 +249,8 @@ EALLOW;
 //	GpioDataRegs.GPACLEAR.bit.GPIO1 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO1 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
-EDIS;
-EALLOW;
+	EDIS;
+	EALLOW;
 //Switcher
 //--------------------------------------------------------------------------------------
 //  GPIO-2 - PIN FUNCTION = --Spare--
@@ -258,28 +260,37 @@ EALLOW;
 	GpioDataRegs.GPASET.bit.GPIO2 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
 
+//LED1
+//--------------------------------------------------------------------------------------
+//  GPIO-33 - PIN FUNCTION = --Spare--
+	GpioCtrlRegs.GPBMUX1.bit.GPIO33 = 0;	// 0=GPIO, 1=SCITXDA, 2=SCLA, 3=TZ3
+	GpioCtrlRegs.GPBDIR.bit.GPIO33 = 1;		// 1=OUTput,  0=INput
+	GpioDataRegs.GPBCLEAR.bit.GPIO33 = 1;	// uncomment if --> Set Low initially
+//	GpioDataRegs.GPBSET.bit.GPIO33 = 1;		// uncomment if --> Set High initially
+//--------------------------------------------------------------------------------------
+
 //--------------------------------------------------------------------------------------
 //  GPIO-12 - PIN FUNCTION = --Spare--
-//	GpioCtrlRegs.GPAMUX1.bit.GPIO12 = 3;	// 0=GPIO, 1=SCIRXA, 2=SDAA, 3=TZ2
+	GpioCtrlRegs.GPAMUX1.bit.GPIO12 = 1;	// 0=GPIO, 1=TZ1, 2=SCIRXA
 //	GpioCtrlRegs.GPADIR.bit.GPIO12 = 0;		// 1=OUTput,  0=INput
 //	GpioDataRegs.GPACLEAR.bit.GPIO12 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO12 = 1;		// uncomment if --> Set High initially
 
 //--------------------------------------------------------------------------------------
 //  GPIO-16 - PIN FUNCTION = --Spare--
-//	GpioCtrlRegs.GPAMUX2.bit.GPIO16 = 3;	// 0=GPIO, 1=SCIRXA, 2=SDAA, 3=TZ2
+	GpioCtrlRegs.GPAMUX2.bit.GPIO16 = 3;	// 0=GPIO, 1=SSPISIMOA, 3=TZ2
 //	GpioCtrlRegs.GPADIR.bit.GPIO16 = 0;		// 1=OUTput,  0=INput
 //	GpioDataRegs.GPACLEAR.bit.GPIO16 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO16 = 1;		// uncomment if --> Set High initially
 
 //--------------------------------------------------------------------------------------
 //  GPIO-17 - PIN FUNCTION = --Spare--
-//	GpioCtrlRegs.GPAMUX2.bit.GPIO17 = 3;	// 0=GPIO, 1=SCIRXA, 2=SDAA, 3=TZ2
+	GpioCtrlRegs.GPAMUX2.bit.GPIO17 = 3;	// 0=GPIO, 1=SPISOMIA, 3=TZ3
 //	GpioCtrlRegs.GPADIR.bit.GPIO17 = 0;		// 1=OUTput,  0=INput
 //	GpioDataRegs.GPACLEAR.bit.GPIO17 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO17 = 1;		// uncomment if --> Set High initially
 
-  SetSCITMSmon(&SciaRegs);	//Setup HiTerm communications port
+	SetSCITMSmon(&SciaRegs);	//Setup HiTerm communications port
 
 	EDIS;	// Disable register access
 }
@@ -290,7 +301,7 @@ void SetSCITMSmon(volatile struct SCI_REGS *ptr)
 {
 	sci_ptr_terminal = ptr;
 
-  sci_ptr_terminal->SCICCR.all = 7;  //1 stop bit,no parity, no test, idle–line protocol, 8bits
+	sci_ptr_terminal->SCICCR.all = 7;  //1 stop bit,no parity, no test, idle–line protocol, 8bits
 
 	sci_ptr_terminal->SCICTL2.bit.RXBKINTENA=0;
 	sci_ptr_terminal->SCICTL2.bit.TXINTENA=0;
@@ -306,8 +317,8 @@ void SetSCITMSmon(volatile struct SCI_REGS *ptr)
 	sci_ptr_terminal->SCICTL1.bit.TXENA=1;
 	sci_ptr_terminal->SCICTL1.bit.RXENA=1;
 
-  sci_ptr_terminal->SCILBAUD = (((30*1000000L)/57600-8)/8) & 0xff;
-  sci_ptr_terminal->SCIHBAUD = (((30*1000000L)/57600-8)/8) >> 8;
+	sci_ptr_terminal->SCILBAUD = (((30*1000000L)/57600-8)/8) & 0xff;
+	sci_ptr_terminal->SCIHBAUD = (((30*1000000L)/57600-8)/8) >> 8;
 
 	sci_ptr_terminal->SCICTL1.bit.RXERRINTENA=0;
 	sci_ptr_terminal->SCICTL1.bit.SWRESET=1;

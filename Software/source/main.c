@@ -5,6 +5,7 @@
 #include "IQmathLib.h"
 #include "adcMeasurements.h"
 #include "bbx.h"
+#include "PI_controller.h"
 
 extern MEASUREMENT_TYPE current_sample_cnt;
 
@@ -12,16 +13,18 @@ extern MEASUREMENT_TYPE current_sample_cnt;
 Uint16 sw_timer_1ms;
 Uint16 adc_int_cnt;
 
-Uint16 pwm_counter;
-Uint16 pwm_counter_max = 100;
-Uint16 down = 1;
-Uint16 pwm_duty = 0;
+Uint16 pwm_duty = 500;
 
 MEASUREMENT_TYPE batteryVoltage;
 MEASUREMENT_TYPE batteryCurrentOffset;
 MEASUREMENT_TYPE batteryCurrent;
 MEASUREMENT_TYPE inputVoltage;
 MEASUREMENT_TYPE outputVoltage;
+
+Uint16 outputVoltageResult = 0;
+Uint16 inputVoltageResult = 0;
+Uint16 batteryVoltageResult = 0;
+Uint16 batteryCurrentResult = 0;
 
 void ISR_ILLEGAL(void);
 
@@ -35,25 +38,7 @@ __interrupt void cpu_timer0_isr(void)
 
 __interrupt void  adc_isr(void)
 {
-//	if(pwm_counter >= pwm_counter_max){
-//		pwm_counter = 0;
-//		if (pwm_duty < 1500)
-//		{
-//			if(down == 1){
-//				pwm_duty -= 10;
-//			}
-//			else{
-//				pwm_duty += 10;
-//			}
-//		}
-//		if(pwm_duty <= 10){
-//			pwm_duty = 1;
-//			down = 0;
-//		}
-//		if(pwm_duty >= 1500 && pwm_duty < 2000){
-//			pwm_duty = 1499;
-//			down = 1;
-//		}
+
 	if(pwm_duty <= 750){
 		EPwm1Regs.CMPA.half.CMPA = pwm_duty;
 	}
@@ -67,25 +52,29 @@ __interrupt void  adc_isr(void)
 
 	switch(adc_int_cnt) {
 	   case 0:
-	   	outputVoltage = calculateOutputVoltage(AdcResult.ADCRESULT0);
-	      break;
+		   outputVoltageResult = AdcResult.ADCRESULT0;
+		   outputVoltage = calculateOutputVoltage(AdcResult.ADCRESULT0);
+		   break;
 	   case 1:
-		  inputVoltage = calculateInputVoltage(AdcResult.ADCRESULT1);
-	      break;
+		   inputVoltageResult = AdcResult.ADCRESULT1;
+		   inputVoltage = calculateInputVoltage(AdcResult.ADCRESULT1);
+		   break;
 	   case 2:
+		   batteryVoltageResult = AdcResult.ADCRESULT2;
 		   batteryVoltage = calculateBatteryVoltage(AdcResult.ADCRESULT2);
 		   break;
 	   case 3:
 		   calculateBatteryCurrentOffset(AdcResult.ADCRESULT3);
 		   if(current_sample_cnt > 99){
+			   batteryCurrentResult = AdcResult.ADCRESULT3;
 			   batteryCurrent = calculateBatteryCurrent(AdcResult.ADCRESULT3);
+			   currentController(batteryCurrent);
 		   }
 		   break;
 	   default:
 		   break;
 	}
 	adc_int_cnt++;
-//	pwm_counter++;
 
 	bbx_trigger();
   AdcRegs.ADCINTFLGCLR.bit.ADCINT1 = 1;		//Clear ADCINT1 flag reinitialize for next SOC
