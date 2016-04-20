@@ -188,7 +188,7 @@ void DeviceInit(void)
 // Dead-Band generator bypass
 	EPwm1Regs.DBCTL.bit.IN_MODE = 0;
 	EPwm1Regs.DBCTL.bit.OUT_MODE = 3; // Dead band fully enabled (rising and falling edge delay)
-	EPwm1Regs.DBCTL.bit.POLSEL = 2; // EPWMxA is inverted.
+	EPwm1Regs.DBCTL.bit.POLSEL = 2; // EPWMxB is inverted.
 	EPwm1Regs.DBRED = 70;
 	EPwm1Regs.DBFED = 70;
 
@@ -285,7 +285,7 @@ void DeviceInit(void)
 
 //--------------------------------------------------------------------------------------
 //  GPIO-17 - PIN FUNCTION = --Spare--
-	GpioCtrlRegs.GPAMUX2.bit.GPIO17 = 3;	// 0=GPIO, 1=SPISOMIA, 3=TZ3
+GpioCtrlRegs.GPAMUX2.bit.GPIO17 = 3;	// 0=GPIO, 1=SPISOMIA, 3=TZ3
 //	GpioCtrlRegs.GPADIR.bit.GPIO17 = 0;		// 1=OUTput,  0=INput
 //	GpioDataRegs.GPACLEAR.bit.GPIO17 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO17 = 1;		// uncomment if --> Set High initially

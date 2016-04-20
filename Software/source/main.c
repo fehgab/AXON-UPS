@@ -1,3 +1,4 @@
+#include <PIController.h>
 #include "DSP2802x_Device.h"
 #include "inic.h"
 #include "i2c.h"
@@ -5,7 +6,6 @@
 #include "IQmathLib.h"
 #include "adcMeasurements.h"
 #include "bbx.h"
-#include "PI_controller.h"
 
 extern MEASUREMENT_TYPE current_sample_cnt;
 

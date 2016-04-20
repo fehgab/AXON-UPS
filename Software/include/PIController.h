@@ -5,8 +5,8 @@
  *      Author: Fehér
  */
 
-#ifndef INCLUDE_PI_CONTROLLER_H_
-#define INCLUDE_PI_CONTROLLER_H_
+#ifndef INCLUDE_PICONTROLLER_H_
+#define INCLUDE_PICONTROLLER_H_
 #include "DSP2802x_Device.h"
 #include "IQmathLib.h"
 #include "adcMeasurements.h"
@@ -24,4 +24,4 @@ typedef struct {
 void currentController(MEASUREMENT_TYPE current);
 Uint16 PWMTest(Uint16 pwm_counter);
 
-#endif /* INCLUDE_PI_CONTROLLER_H_ */
+#endif /* INCLUDE_PICONTROLLER_H_ */
