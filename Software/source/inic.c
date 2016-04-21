@@ -199,6 +199,7 @@ void DeviceInit(void)
 	EPwm1Regs.TZCTL.bit.TZB = TZ_FORCE_LO; // TZ1 to TZ6 Trip Action On EPWMxB
 	EPwm1Regs.TZFRC.bit.OST = 0; 		   // Trip Zones One Shot Int gyujtas tiltas
 
+//AD start config
 	EPwm1Regs.ETSEL.bit.SOCAEN	= 1;		// Enable SOC on A group
 	EPwm1Regs.ETSEL.bit.SOCASEL	= 2;		// Select SOC from TBCTR=TBPRD
 	EPwm1Regs.ETPS.bit.SOCAPRD 	= 1;		// Generate pulse on 1st event
