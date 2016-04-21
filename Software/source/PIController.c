@@ -2,32 +2,49 @@
 
 PI_s batteryCurrentControlValues;
 
+Uint16 duty = 0;
+MEASUREMENT_TYPE Ireference = MEASUREMENT_CONVERSION(0.0);
+
+_iq20 multiple_1;
+_iq20 multiple_2;
+_iq20 sum;
+
 void initControlValueStructures(){
-	batteryCurrentControlValues.measured = 0;
-	batteryCurrentControlValues.measured_old = 0;
-	batteryCurrentControlValues.min_integrator = 0;
-	batteryCurrentControlValues.max_integrator = 1;
-	batteryCurrentControlValues.P = MEASUREMENT_CONVERSION(0);
-	batteryCurrentControlValues.I = MEASUREMENT_CONVERSION(0);
+	EPwm1Regs.CMPA.half.CMPA = 750;
+	batteryCurrentControlValues.output = 0;
+	batteryCurrentControlValues.IError = 0;
+	batteryCurrentControlValues.oldIError = 0;
+	batteryCurrentControlValues.IDiff = 0;
+	batteryCurrentControlValues.min_integrator = _IQ20(0.1);
+	batteryCurrentControlValues.max_integrator = _IQ20(0.9);
+	batteryCurrentControlValues.P = _IQ20(0.48031);
+	batteryCurrentControlValues.I = _IQ20(0.1231);
 }
 
 void currentController(MEASUREMENT_TYPE current){
-	MEASUREMENT_TYPE duty = 0;
 	MEASUREMENT_TYPE Ierror = 0;
-	MEASUREMENT_TYPE Ireference = MEASUREMENT_CONVERSION(1.0);
 
 	//Calculate error
 	Ierror = Ireference - current;
-	batteryCurrentControlValues.measured = Ierror;
+	batteryCurrentControlValues.IError = Ierror;
+	batteryCurrentControlValues.IDiff = batteryCurrentControlValues.IError -
+										batteryCurrentControlValues.oldIError;
+
+
+	multiple_1 = _IQ20mpyIQX(batteryCurrentControlValues.IError, 14,
+			  batteryCurrentControlValues.I, 20);
+
+	multiple_2 = _IQ20mpyIQX(batteryCurrentControlValues.IDiff, 14,
+			  batteryCurrentControlValues.P, 20);
+
+	sum = multiple_1 + multiple_2;
+
 
 	/*ÁRAMSZABÁLYZÓ KEZDETE*/
 	//Calculate sum(Ierror*I + dIerror * Ap)
-	batteryCurrentControlValues.output += batteryCurrentControlValues.measured *
-										  batteryCurrentControlValues.I +
-										  (batteryCurrentControlValues.measured - batteryCurrentControlValues.measured_old) *
-										  batteryCurrentControlValues.P;
+	batteryCurrentControlValues.output += sum;
 	//perform z^-1
-	batteryCurrentControlValues.measured_old = batteryCurrentControlValues.measured;
+	batteryCurrentControlValues.oldIError = batteryCurrentControlValues.IError;
 
 	//perform saturation on integrator output
 	if (batteryCurrentControlValues.output > batteryCurrentControlValues.max_integrator){
@@ -38,8 +55,8 @@ void currentController(MEASUREMENT_TYPE current){
 	}
 	/*ÁRAMSZABÁLYZÓ VÉGE*/
 
-	duty = batteryCurrentControlValues.output;
-	EPwm1Regs.CMPA.half.CMPA = (Uint16)(EPwm1Regs.TBPRD * duty);	//set PWM compare register
+	duty = _IQ1mpyIQX(batteryCurrentControlValues.output, 20, (long)EPwm1Regs.TBPRD, 0) >> 1;
+	EPwm1Regs.CMPA.half.CMPA = EPwm1Regs.TBPRD - duty;	//set PWM compare register
 }
 
 Uint16 PWMTest(Uint16 pwm_counter){

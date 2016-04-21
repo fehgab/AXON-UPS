@@ -13,7 +13,9 @@ extern MEASUREMENT_TYPE current_sample_cnt;
 Uint16 sw_timer_1ms;
 Uint16 adc_int_cnt;
 
-Uint16 pwm_duty = 500;
+Uint16 pwm_duty = 0;
+Uint16 TZclear = 0;
+Uint16 TZforce = 0;
 
 MEASUREMENT_TYPE batteryVoltage;
 MEASUREMENT_TYPE batteryCurrentOffset;
@@ -31,6 +33,18 @@ void ISR_ILLEGAL(void);
 __interrupt void cpu_timer0_isr(void)
 {
 	sw_timer_1ms++;
+	if(TZclear){
+		EALLOW;
+		EPwm1Regs.TZCLR.bit.OST = 1;
+		EDIS;
+		TZclear = 0;
+	}
+	if(TZforce){
+			EALLOW;
+			EPwm1Regs.TZFRC.bit.OST = 1;
+			EDIS;
+			TZforce = 0;
+	}
 
   // Acknowledge this interrupt to receive more interrupts from group 1
   PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
@@ -38,41 +52,22 @@ __interrupt void cpu_timer0_isr(void)
 
 __interrupt void  adc_isr(void)
 {
+	outputVoltageResult = AdcResult.ADCRESULT0;
+	outputVoltage = calculateOutputVoltage(AdcResult.ADCRESULT0);
 
-	if(pwm_duty <= 750){
-		EPwm1Regs.CMPA.half.CMPA = pwm_duty;
+		inputVoltageResult = AdcResult.ADCRESULT1;
+	inputVoltage = calculateInputVoltage(AdcResult.ADCRESULT1);
+
+		batteryVoltageResult = AdcResult.ADCRESULT2;
+	batteryVoltage = calculateBatteryVoltage(AdcResult.ADCRESULT2);
+
+	if(current_sample_cnt > 99){
+	   batteryCurrentResult = AdcResult.ADCRESULT3;
+	   batteryCurrent = calculateBatteryCurrent(AdcResult.ADCRESULT3);
+	   currentController(batteryCurrent);
 	}
 	else{
-		pwm_duty = 750;
-	}
-
-	if(adc_int_cnt >= 4){
-		adc_int_cnt = 0;
-	}
-
-	switch(adc_int_cnt) {
-	   case 0:
-		   outputVoltageResult = AdcResult.ADCRESULT0;
-		   outputVoltage = calculateOutputVoltage(AdcResult.ADCRESULT0);
-		   break;
-	   case 1:
-		   inputVoltageResult = AdcResult.ADCRESULT1;
-		   inputVoltage = calculateInputVoltage(AdcResult.ADCRESULT1);
-		   break;
-	   case 2:
-		   batteryVoltageResult = AdcResult.ADCRESULT2;
-		   batteryVoltage = calculateBatteryVoltage(AdcResult.ADCRESULT2);
-		   break;
-	   case 3:
-		   calculateBatteryCurrentOffset(AdcResult.ADCRESULT3);
-		   if(current_sample_cnt > 99){
-			   batteryCurrentResult = AdcResult.ADCRESULT3;
-			   batteryCurrent = calculateBatteryCurrent(AdcResult.ADCRESULT3);
-			   currentController(batteryCurrent);
-		   }
-		   break;
-	   default:
-		   break;
+		calculateBatteryCurrentOffset(AdcResult.ADCRESULT3);
 	}
 	adc_int_cnt++;
 
@@ -97,6 +92,7 @@ void main(void) {
 	EALLOW;
 
 	DeviceInit();	// Device Life support & GPIO mux settings
+	initControlValueStructures();
 
 	// Enable ADCINT1 in PIE
 	IER |= M_INT1; 						// Enable CPU Interrupt 1

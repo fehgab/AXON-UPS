@@ -83,7 +83,7 @@ void DeviceInit(void)
 // LOW SPEED CLOCKS prescale register settings
 
    SysCtrlRegs.LOSPCP.all = 0x0001;		// Sysclk / 2 (30 MHz)
-   SysCtrlRegs.XCLK.bit.XCLKOUTDIV=0; // Sysclk / 4 (15 MHz)
+   SysCtrlRegs.XCLK.bit.XCLKOUTDIV = 0; // Sysclk / 4 (15 MHz)
 
 // PERIPHERAL CLOCK ENABLES
 //---------------------------------------------------
@@ -148,7 +148,7 @@ void DeviceInit(void)
 	AdcRegs.ADCCTL1.bit.INTPULSEPOS	= 1;		// ADCINT1 trips after AdcResults latch
 	AdcRegs.INTSEL1N2.bit.INT1E     = 1;		// Enabled ADCINT1
 	AdcRegs.INTSEL1N2.bit.INT1CONT  = 0;		// Disable ADCINT1 Continuous mode
-	AdcRegs.INTSEL1N2.bit.INT1SEL 	= 1;  	// setup EOC1 to trigger ADCINT1 to fire
+	AdcRegs.INTSEL1N2.bit.INT1SEL 	= 3;  	// setup EOC3 to trigger ADCINT1 to fire
 	AdcRegs.ADCSOC0CTL.bit.CHSEL 	= 0;			// set SOC0 channel select to ADCINA0
 	AdcRegs.ADCSOC1CTL.bit.CHSEL 	= 1;			// set SOC1 channel select to ADCINA1
 	AdcRegs.ADCSOC2CTL.bit.CHSEL 	= 2;			// set SOC2 channel select to ADCINA2

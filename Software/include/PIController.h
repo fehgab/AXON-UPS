@@ -12,15 +12,17 @@
 #include "adcMeasurements.h"
 
 typedef struct {
-	MEASUREMENT_TYPE measured;
-	MEASUREMENT_TYPE measured_old;
-	MEASUREMENT_TYPE P;
-	MEASUREMENT_TYPE I;
-	MEASUREMENT_TYPE max_integrator;
-	MEASUREMENT_TYPE min_integrator;
-	MEASUREMENT_TYPE output;
+	MEASUREMENT_TYPE IError;
+	MEASUREMENT_TYPE oldIError;
+	_iq14 IDiff;
+	_iq20 P;
+	_iq20 I;
+	_iq20 max_integrator;
+	_iq20 min_integrator;
+	_iq20 output;
 } PI_s;
 
+void initControlValueStructures();
 void currentController(MEASUREMENT_TYPE current);
 Uint16 PWMTest(Uint16 pwm_counter);
 
