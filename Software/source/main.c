@@ -4,77 +4,37 @@
 #include "i2c.h"
 #include "HiMon.h"
 #include "IQmathLib.h"
-#include "adcMeasurements.h"
 #include "bbx.h"
+#include "StateMachine.h"
 
-extern MEASUREMENT_TYPE current_sample_cnt;
+extern Uint16 TZforce;
+extern Uint16 TZclear;
 
 /* Timer variables for 10ms 100ms and 1s tasks */
 Uint16 sw_timer_1ms;
 Uint16 adc_int_cnt;
 
 Uint16 pwm_duty = 0;
-Uint16 TZclear = 0;
-Uint16 TZforce = 0;
-
-MEASUREMENT_TYPE batteryVoltage;
-MEASUREMENT_TYPE batteryCurrentOffset;
-MEASUREMENT_TYPE batteryCurrent;
-MEASUREMENT_TYPE inputVoltage;
-MEASUREMENT_TYPE outputVoltage;
-
-Uint16 outputVoltageResult = 0;
-Uint16 inputVoltageResult = 0;
-Uint16 batteryVoltageResult = 0;
-Uint16 batteryCurrentResult = 0;
 
 void ISR_ILLEGAL(void);
 
 __interrupt void cpu_timer0_isr(void)
 {
 	sw_timer_1ms++;
-	if(TZclear){
-		EALLOW;
-		EPwm1Regs.TZCLR.bit.OST = 1;
-		EDIS;
-		TZclear = 0;
-	}
-	if(TZforce){
-			EALLOW;
-			EPwm1Regs.TZFRC.bit.OST = 1;
-			EDIS;
-			TZforce = 0;
-	}
-
+	forcePWMLock(TZforce);
+	forcePWMRelease(TZclear);
   // Acknowledge this interrupt to receive more interrupts from group 1
   PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
 }
 
 __interrupt void  adc_isr(void)
 {
-	outputVoltageResult = AdcResult.ADCRESULT0;
-	outputVoltage = calculateOutputVoltage(AdcResult.ADCRESULT0);
-
-		inputVoltageResult = AdcResult.ADCRESULT1;
-	inputVoltage = calculateInputVoltage(AdcResult.ADCRESULT1);
-
-		batteryVoltageResult = AdcResult.ADCRESULT2;
-	batteryVoltage = calculateBatteryVoltage(AdcResult.ADCRESULT2);
-
-	if(current_sample_cnt > 99){
-	   batteryCurrentResult = AdcResult.ADCRESULT3;
-	   batteryCurrent = calculateBatteryCurrent(AdcResult.ADCRESULT3);
-	   currentController(batteryCurrent);
-	}
-	else{
-		calculateBatteryCurrentOffset(AdcResult.ADCRESULT3);
-	}
+	stateMachine();
 	adc_int_cnt++;
-
 	bbx_trigger();
-  AdcRegs.ADCINTFLGCLR.bit.ADCINT1 = 1;		//Clear ADCINT1 flag reinitialize for next SOC
-  PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;   // Acknowledge interrupt to PIE
-  return;
+	AdcRegs.ADCINTFLGCLR.bit.ADCINT1 = 1;		//Clear ADCINT1 flag reinitialize for next SOC
+	PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;   // Acknowledge interrupt to PIE
+	return;
 }
 
 interrupt void ISR_ILLEGAL(void)   // Illegal operation TRAP

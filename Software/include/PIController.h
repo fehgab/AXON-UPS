@@ -23,7 +23,7 @@ typedef struct {
 } PI_s;
 
 void initControlValueStructures();
-void currentController(MEASUREMENT_TYPE current);
+void currentController(MEASUREMENT_TYPE current, MEASUREMENT_TYPE Ireference);
 Uint16 PWMTest(Uint16 pwm_counter);
 
 #endif /* INCLUDE_PICONTROLLER_H_ */

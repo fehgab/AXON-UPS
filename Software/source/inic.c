@@ -258,7 +258,7 @@ void DeviceInit(void)
 	GpioCtrlRegs.GPAMUX1.bit.GPIO2 = 0;	// 0=GPIO, 1=SCITXDA, 2=SCLA, 3=TZ3
 	GpioCtrlRegs.GPADIR.bit.GPIO2 = 1;		// 1=OUTput,  0=INput
 //	GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;	// uncomment if --> Set Low initially
-	GpioDataRegs.GPASET.bit.GPIO2 = 1;		// uncomment if --> Set High initially
+//	GpioDataRegs.GPASET.bit.GPIO2 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
 
 //LED1
@@ -268,6 +268,15 @@ void DeviceInit(void)
 	GpioCtrlRegs.GPBDIR.bit.GPIO33 = 1;		// 1=OUTput,  0=INput
 	GpioDataRegs.GPBCLEAR.bit.GPIO33 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPBSET.bit.GPIO33 = 1;		// uncomment if --> Set High initially
+//--------------------------------------------------------------------------------------
+
+//LED4
+//--------------------------------------------------------------------------------------
+//  GPIO-36 - PIN FUNCTION = --Spare--
+	GpioCtrlRegs.GPBMUX1.bit.GPIO36 = 0;	// 0=GPIO
+	GpioCtrlRegs.GPBDIR.bit.GPIO36 = 1;		// 1=OUTput,  0=INput
+	GpioDataRegs.GPBCLEAR.bit.GPIO36 = 1;	// uncomment if --> Set Low initially
+//	GpioDataRegs.GPBSET.bit.GPIO36 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------
