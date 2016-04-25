@@ -12,9 +12,9 @@
 #include "adcMeasurements.h"
 
 typedef struct {
-	MEASUREMENT_TYPE IError;
-	MEASUREMENT_TYPE oldIError;
-	_iq14 IDiff;
+	MEASUREMENT_TYPE Error;
+	MEASUREMENT_TYPE oldError;
+	_iq14 Diff;
 	_iq20 P;
 	_iq20 I;
 	_iq20 max_integrator;

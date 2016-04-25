@@ -1,6 +1,6 @@
 #include "adcMeasurements.h"
 
-Uint16 current_sample_cnt = MEASUREMENT_CONVERSION(0);
+Uint16 current_sample_cnt = 0;
 _iq3 iq3_current_offset = MEASUREMENT_CONVERSION(0);
 _iq3 iq3_current_meas;
 MEASUREMENT_TYPE iq14_devided;
@@ -19,15 +19,10 @@ MEASUREMENT_TYPE calculateOutputVoltage(Uint16 measurement){
 }
 
 void calculateBatteryCurrentOffset(Uint16 measurement){
-	//LED1 clear before current offset measurement
-	GpioDataRegs.GPBCLEAR.bit.GPIO33 = 1;
-	while(current_sample_cnt < CURRENT_SAMPLE){
+	if(current_sample_cnt < CURRENT_SAMPLE){
 		iq3_current_offset += _IQ3div(_IQ3(measurement), CURRENT_SAMPLE_DEVIDER);
 		current_sample_cnt++;
-		break;
 	}
-	//LED1 set after current offset measurement
-	GpioDataRegs.GPBSET.bit.GPIO33 = 1;
 }
 
 MEASUREMENT_TYPE calculateBatteryCurrent(Uint16 measurement){

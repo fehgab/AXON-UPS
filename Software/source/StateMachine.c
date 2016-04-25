@@ -11,7 +11,7 @@ MEASUREMENT_TYPE batteryCurrent;
 MEASUREMENT_TYPE inputVoltage;
 MEASUREMENT_TYPE outputVoltage;
 
-MEASUREMENT_TYPE Iref = 0;
+MEASUREMENT_TYPE Iref = MEASUREMENT_CONVERSION(-0.5);
 
 void stateMachine(){
 	outputVoltage = calculateOutputVoltage(AdcResult.ADCRESULT0);
@@ -19,35 +19,39 @@ void stateMachine(){
 	batteryVoltage = calculateBatteryVoltage(AdcResult.ADCRESULT2);
 	batteryCurrent = calculateBatteryCurrent(AdcResult.ADCRESULT3);
 
-	if(current_sample_cnt > CURRENT_SAMPLE - 1){
+	if(current_sample_cnt == CURRENT_SAMPLE){
 		currentController(batteryCurrent, Iref);
-//		if(inputVoltage >= inputVoltageLimit && batteryVoltage >= highBatteryVoltageLimit){
-//			EALLOW;
-//			GpioDataRegs.GPASET.bit.GPIO2 = 1;		//Set High initially
-//			EDIS;
-//			currentController(batteryCurrent, 0);
-//		}
-//		else if(inputVoltage >= inputVoltageLimit && batteryVoltage < highBatteryVoltageLimit){
-//			EALLOW;
-//			GpioDataRegs.GPASET.bit.GPIO2 = 1;		//Set High initially
-//			EDIS;
-//			currentController(batteryCurrent, batteryCurrentLimit);
-//		}
-//		else if(inputVoltage <= inputVoltageLimit && batteryVoltage >= highBatteryVoltageLimit){
-//			EALLOW;
-//			GpioDataRegs.GPACLEAR.bit.GPIO2 = 1; //Set Low initially
-//			EDIS;
-//			currentController(batteryCurrent, outputCurrentLimit);
-//		}
-//		else if(inputVoltage <= inputVoltageLimit && batteryVoltage >= lowBatteryVoltageLimit){
-//			EALLOW;
-//			GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;	//Set Low initially
-//			EDIS;
-//			forcePWMLock(1);
-//		}
+		if(inputVoltage >= inputVoltageLimit && batteryVoltage >= highBatteryVoltageLimit){
+			EALLOW;
+			GpioDataRegs.GPASET.bit.GPIO2 = 1;		//Set High initially
+			EDIS;
+			currentController(batteryCurrent, 0);
+		}
+		else if(inputVoltage >= inputVoltageLimit && batteryVoltage < highBatteryVoltageLimit){
+			EALLOW;
+			GpioDataRegs.GPASET.bit.GPIO2 = 1;		//Set High initially
+			EDIS;
+			currentController(batteryCurrent, batteryCurrentLimit);
+		}
+		else if(inputVoltage <= inputVoltageLimit && batteryVoltage >= highBatteryVoltageLimit){
+			EALLOW;
+			GpioDataRegs.GPACLEAR.bit.GPIO2 = 1; //Set Low initially
+			EDIS;
+			currentController(batteryCurrent, outputCurrentLimit);
+		}
+		else if(inputVoltage <= inputVoltageLimit && batteryVoltage >= lowBatteryVoltageLimit){
+			EALLOW;
+			GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;	//Set Low initially
+			EDIS;
+			forcePWMLock(1);
+		}
 	}
 	else{
 		calculateBatteryCurrentOffset(batteryCurrent);
+		if(current_sample_cnt == CURRENT_SAMPLE){
+			//LED1 set after current offset measurement
+			GpioDataRegs.GPBSET.bit.GPIO33 = 1;
+		}
 	}
 }
 
@@ -55,6 +59,8 @@ void forcePWMLock(Uint16 TZforce){
 	if(TZforce){
 		EALLOW;
 		GpioDataRegs.GPBSET.bit.GPIO36 = 1;
+		EDIS;
+		EALLOW;
 		EPwm1Regs.TZFRC.bit.OST = 1;
 		EDIS;
 		TZforce = 0;
@@ -65,6 +71,8 @@ void forcePWMRelease(Uint16 TZclear){
 	if(TZclear){
 		EALLOW;
 		GpioDataRegs.GPBCLEAR.bit.GPIO36 = 1;
+		EDIS;
+		EALLOW;
 		EPwm1Regs.TZCLR.bit.OST = 1;
 		EDIS;
 		TZclear = 0;

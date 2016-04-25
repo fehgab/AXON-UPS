@@ -13,8 +13,8 @@
 
 #define highBatteryVoltageLimit			MEASUREMENT_CONVERSION(4.2)
 #define lowBatteryVoltageLimit			MEASUREMENT_CONVERSION(3.4)
-#define inputVoltageLimit			MEASUREMENT_CONVERSION(5.0)
-#define batteryCurrentLimit			MEASUREMENT_CONVERSION(-1.0)
+#define inputVoltageLimit			MEASUREMENT_CONVERSION(4.5)
+#define batteryCurrentLimit			MEASUREMENT_CONVERSION(-0.5)
 #define outputCurrentLimit			MEASUREMENT_CONVERSION(3.0)
 
 void stateMachine();
