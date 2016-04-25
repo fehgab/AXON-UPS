@@ -21,33 +21,33 @@ void stateMachine(){
 
 	if(current_sample_cnt == CURRENT_SAMPLE){
 		currentController(batteryCurrent, Iref);
-		if(inputVoltage >= inputVoltageLimit && batteryVoltage >= highBatteryVoltageLimit){
-			EALLOW;
-			GpioDataRegs.GPASET.bit.GPIO2 = 1;		//Set High initially
-			EDIS;
-			currentController(batteryCurrent, 0);
-		}
-		else if(inputVoltage >= inputVoltageLimit && batteryVoltage < highBatteryVoltageLimit){
-			EALLOW;
-			GpioDataRegs.GPASET.bit.GPIO2 = 1;		//Set High initially
-			EDIS;
-			currentController(batteryCurrent, batteryCurrentLimit);
-		}
-		else if(inputVoltage <= inputVoltageLimit && batteryVoltage >= highBatteryVoltageLimit){
-			EALLOW;
-			GpioDataRegs.GPACLEAR.bit.GPIO2 = 1; //Set Low initially
-			EDIS;
-			currentController(batteryCurrent, outputCurrentLimit);
-		}
-		else if(inputVoltage <= inputVoltageLimit && batteryVoltage >= lowBatteryVoltageLimit){
-			EALLOW;
-			GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;	//Set Low initially
-			EDIS;
-			forcePWMLock(1);
-		}
+//		if(inputVoltage >= inputVoltageLimit && batteryVoltage >= highBatteryVoltageLimit){
+//			EALLOW;
+//			GpioDataRegs.GPASET.bit.GPIO2 = 1;		//Set High initially
+//			EDIS;
+//			currentController(batteryCurrent, 0);
+//		}
+//		else if(inputVoltage >= inputVoltageLimit && batteryVoltage < highBatteryVoltageLimit){
+//			EALLOW;
+//			GpioDataRegs.GPASET.bit.GPIO2 = 1;		//Set High initially
+//			EDIS;
+//			currentController(batteryCurrent, batteryCurrentLimit);
+//		}
+//		else if(inputVoltage <= inputVoltageLimit && batteryVoltage >= highBatteryVoltageLimit){
+//			EALLOW;
+//			GpioDataRegs.GPACLEAR.bit.GPIO2 = 1; //Set Low initially
+//			EDIS;
+//			currentController(batteryCurrent, outputCurrentLimit);
+//		}
+//		else if(inputVoltage <= inputVoltageLimit && batteryVoltage >= lowBatteryVoltageLimit){
+//			EALLOW;
+//			GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;	//Set Low initially
+//			EDIS;
+//			forcePWMLock(1);
+//		}
 	}
 	else{
-		calculateBatteryCurrentOffset(batteryCurrent);
+		calculateBatteryCurrentOffset(AdcResult.ADCRESULT3);
 		if(current_sample_cnt == CURRENT_SAMPLE){
 			//LED1 set after current offset measurement
 			GpioDataRegs.GPBSET.bit.GPIO33 = 1;

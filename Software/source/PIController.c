@@ -17,8 +17,8 @@ void initControlValueStructures(){
 	batteryCurVls.Diff = 0;
 	batteryCurVls.min_integrator = _IQ20(0.1);
 	batteryCurVls.max_integrator = _IQ20(0.9);
-	batteryCurVls.P = _IQ20(0.24);
-	batteryCurVls.I = _IQ20(0.1231);
+	batteryCurVls.P = _IQ20(0.048);
+	batteryCurVls.I = _IQ20(0.01231);
 
 	outputVoltVls.output = 0;
 	outputVoltVls.Error = 0;
