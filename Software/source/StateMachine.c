@@ -55,11 +55,8 @@ void stateMachine(){
 	}
 }
 
-void forcePWMLock(Uint16 TZforce){
-	if(TZforce){
-		EALLOW;
-		GpioDataRegs.GPBSET.bit.GPIO36 = 1;
-		EDIS;
+void forcePWMLock(Uint16 forceBit){
+	if(forceBit){
 		EALLOW;
 		EPwm1Regs.TZFRC.bit.OST = 1;
 		EDIS;
@@ -67,11 +64,8 @@ void forcePWMLock(Uint16 TZforce){
 	}
 }
 
-void forcePWMRelease(Uint16 TZclear){
-	if(TZclear){
-		EALLOW;
-		GpioDataRegs.GPBCLEAR.bit.GPIO36 = 1;
-		EDIS;
+void forcePWMRelease(Uint16 clearBit){
+	if(clearBit){
 		EALLOW;
 		EPwm1Regs.TZCLR.bit.OST = 1;
 		EDIS;

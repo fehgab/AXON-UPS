@@ -21,8 +21,20 @@ void ISR_ILLEGAL(void);
 __interrupt void cpu_timer0_isr(void)
 {
 	sw_timer_1ms++;
+
 	forcePWMLock(TZforce);
 	forcePWMRelease(TZclear);
+
+	if(EPwm1Regs.TZFLG.all > 0){
+		EALLOW;
+		GpioDataRegs.GPBSET.bit.GPIO36 = 1;
+		EDIS;
+	}
+	else{
+		EALLOW;
+		GpioDataRegs.GPBCLEAR.bit.GPIO36 = 1;
+		EDIS;
+	}
   // Acknowledge this interrupt to receive more interrupts from group 1
   PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
 }
