@@ -1,4 +1,5 @@
 #include "PIController.h"
+#include "StateMachine.h"
 
 PI_s batteryCurVls;
 PI_s outputVoltVls;
@@ -10,6 +11,8 @@ _iq20 multiple_2;
 _iq20 sum;
 
 void initControlValueStructures(){
+
+	forcePWMLock(1);
 	EPwm1Regs.CMPA.half.CMPA = 750;
 	batteryCurVls.output = 0;
 	batteryCurVls.Error = 0;
@@ -25,9 +28,9 @@ void initControlValueStructures(){
 	outputVoltVls.oldError = 0;
 	outputVoltVls.Diff = 0;
 	outputVoltVls.min_integrator = _IQ20(0.1);
-	outputVoltVls.max_integrator = _IQ20(0.9);
-	outputVoltVls.P = _IQ20(0.48031);
-	outputVoltVls.I = _IQ20(0.1231);
+	outputVoltVls.max_integrator = _IQ20(3.0);
+	outputVoltVls.P = _IQ20(0.048031);
+	outputVoltVls.I = _IQ20(0.01231);
 }
 
 void currentController(MEASUREMENT_TYPE current, MEASUREMENT_TYPE Ireference){
@@ -72,7 +75,7 @@ void voltageController(MEASUREMENT_TYPE voltage, MEASUREMENT_TYPE Ureference){
 	sum = multiple_1 + multiple_2;
 
 
-	/*FESZÜLTSÉG KEZDETE*/
+	/*FESZÜLTSÉG szabályzó KEZDETE*/
 	//Calculate sum(Ierror*I + dIerror * Ap)
 	outputVoltVls.output += sum;
 	//perform z^-1
@@ -84,7 +87,7 @@ void voltageController(MEASUREMENT_TYPE voltage, MEASUREMENT_TYPE Ureference){
 	if (outputVoltVls.output < outputVoltVls.min_integrator){
 		outputVoltVls.output = outputVoltVls.min_integrator;
 	}
-	/*FESZÜLTSÉG VÉGE*/
+	/*FESZÜLTSÉG szabályzó VÉGE*/
 	duty = _IQ1mpyIQX(outputVoltVls.output, 20, (long)EPwm1Regs.TBPRD, 0) >> 1;
 	EPwm1Regs.CMPA.half.CMPA = EPwm1Regs.TBPRD - duty;	//set PWM compare register
 }

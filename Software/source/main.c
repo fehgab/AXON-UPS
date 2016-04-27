@@ -35,6 +35,11 @@ __interrupt void cpu_timer0_isr(void)
 		GpioDataRegs.GPBCLEAR.bit.GPIO36 = 1;
 		EDIS;
 	}
+
+	if (sw_timer_1ms == 1000){
+		//LED1 set after current offset measurement
+		GpioDataRegs.GPBSET.bit.GPIO33 = 1;
+	}
   // Acknowledge this interrupt to receive more interrupts from group 1
   PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
 }

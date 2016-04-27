@@ -258,7 +258,7 @@ void DeviceInit(void)
 	GpioCtrlRegs.GPAMUX1.bit.GPIO2 = 0;	// 0=GPIO, 1=SCITXDA, 2=SCLA, 3=TZ3
 	GpioCtrlRegs.GPADIR.bit.GPIO2 = 1;		// 1=OUTput,  0=INput
 //	GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;	// uncomment if --> Set Low initially
-//	GpioDataRegs.GPASET.bit.GPIO2 = 1;		// uncomment if --> Set High initially
+	GpioDataRegs.GPASET.bit.GPIO2 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
 
 //LED1
