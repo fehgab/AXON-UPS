@@ -13,7 +13,7 @@ MEASUREMENT_TYPE batteryCurrent;
 MEASUREMENT_TYPE inputVoltage;
 MEASUREMENT_TYPE outputVoltage;
 
-MEASUREMENT_TYPE Iref = MEASUREMENT_CONVERSION(-0.5);
+_iq20 Iref = 0;
 MEASUREMENT_TYPE Uref = MEASUREMENT_CONVERSION(5.0);
 
 void stateMachine(){
@@ -23,53 +23,59 @@ void stateMachine(){
 	batteryCurrent = calculateBatteryCurrent(AdcResult.ADCRESULT3);
 
 	if(current_sample_cnt == CURRENT_SAMPLE){
-		switch(state){
-			//BUCK starting state, calculate starting duty
-			case 1:
-				if(sw_timer_1ms >= 1000){
-					//Go to Buck
-					if(inputVoltage >= inputVoltageLimit){
-						EPwm1Regs.CMPA.half.CMPA = _IQ1mpyIQX(MEASUREMENT_DEVIDE(batteryVoltage, outputVoltage), 14, (long)EPwm1Regs.TBPRD, 0) >> 1;
-						state = 3;
-					}
-					//Go to Boost
-					if(inputVoltage < lowBatteryVoltageLimit && batteryVoltage >= lowBatteryVoltageLimit){
-						GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;
-						state = 2;
-					}
-				}
-				break;
-			//Boost state
-			case 2:
-				voltageController(outputVoltage, Uref);
-				//Go to Buck
-				if(inputVoltage >= inputVoltageLimit){
-					GpioDataRegs.GPASET.bit.GPIO2 = 1;
-					state = 1;
-					state = 3; // Itt tudunk egybol BUCK uzembe menni?
-				}
-				//Go to depleted
-				if(batteryVoltage < lowBatteryVoltageLimit){
-					state = 4;
-				}
-				break;
-			//BUCK state
-			case 3:
-				//currentController(batteryCurrent, Iref);
-				//Go to Boost
-				if(inputVoltage < lowBatteryVoltageLimit && batteryVoltage >= lowBatteryVoltageLimit){
-					state = 2;
-				}
-				break;
-			//Akkumulator depleted
-			case 4:
-				//Turn of PWM, go to empty state
-				forcePWMLock(1);
-				state = 5;
-				break;
-			default:
-				break;
-		}
+		Iref = outputVoltageController(outputVoltage, Uref);
+		currentController(batteryCurrent, Iref);
+//		switch(state){
+//			//BUCK starting state, calculate starting duty
+//			case 1:
+//				if(sw_timer_1ms >= 1000){
+//					//Go to Buck
+//					if(inputVoltage >= inputVoltageLimit){
+//						EPwm1Regs.CMPA.half.CMPA = EPwm1Regs.TBPRD - _IQ1mpyIQX(MEASUREMENT_DEVIDE(batteryVoltage, outputVoltage), 14, (long)EPwm1Regs.TBPRD, 0) >> 1;
+//						state = 3;
+//					}
+//					//Go to Boost
+//					else if(batteryVoltage >= lowBatteryVoltageLimit){
+//						GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;
+//						state = 2;
+//					}
+//					else{
+//						//Battery voltage low
+//						state = 5;
+//					}
+//				}
+//				break;
+//			//Boost state, battery operation
+//			case 2:
+//				voltageController(outputVoltage, Uref);
+//				//Go to Buck
+//				if(inputVoltage >= inputVoltageLimit){
+//					GpioDataRegs.GPASET.bit.GPIO2 = 1;
+//					state = 1;
+//					state = 3; // Itt tudunk egybol BUCK uzembe menni?
+//				}
+//				//Go to depleted
+//				if(batteryVoltage < lowBatteryVoltageLimit){
+//					state = 4;
+//				}
+//				break;
+//			//BUCK state, grid operation
+//			case 3:
+//				//currentController(batteryCurrent, Iref);
+//				//Go to Boost
+//				if(inputVoltage < lowBatteryVoltageLimit && batteryVoltage >= lowBatteryVoltageLimit){
+//					state = 2;
+//				}
+//				break;
+//			//Akkumulator depleted
+//			case 4:
+//				//Turn of PWM, go to empty state
+//				forcePWMLock(1);
+//				state = 5;
+//				break;
+//			default:
+//				break;
+//		}
 	}
 	//Collect current samples and calculate offset
 	else{

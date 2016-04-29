@@ -6,10 +6,6 @@ PI_s outputVoltVls;
 
 Uint16 duty = 0;
 
-_iq20 multiple_1;
-_iq20 multiple_2;
-_iq20 sum;
-
 void initControlValueStructures(){
 
 	forcePWMLock(1);
@@ -27,20 +23,24 @@ void initControlValueStructures(){
 	outputVoltVls.Error = 0;
 	outputVoltVls.oldError = 0;
 	outputVoltVls.Diff = 0;
-	outputVoltVls.min_integrator = _IQ20(0.1);
-	outputVoltVls.max_integrator = _IQ20(3.0);
-	outputVoltVls.P = _IQ20(0.048031);
-	outputVoltVls.I = _IQ20(0.01231);
+	outputVoltVls.min_integrator = _IQ14(0.1);
+	outputVoltVls.max_integrator = _IQ14(3.0);
+	outputVoltVls.P = _IQ14(0.048031);
+	outputVoltVls.I = _IQ14(0.01231);
 }
 
 void currentController(MEASUREMENT_TYPE current, MEASUREMENT_TYPE Ireference){
+	_iq20 multiple_1 = 0;
+	_iq20 multiple_2 = 0;
+	_iq20 sum = 0;
+
 	//Calculate error
-	if (Ireference > 0){
-		batteryCurVls.Error = Ireference - current;
-	}
-	else{
+//	if (Ireference > 0){
+//		batteryCurVls.Error = Ireference - current;
+//	}
+//	else{
 		batteryCurVls.Error = current - Ireference;
-	}
+//	}
 	batteryCurVls.Diff = batteryCurVls.Error - batteryCurVls.oldError;
 
 	multiple_1 = _IQ20mpyIQX(batteryCurVls.Error, 14, batteryCurVls.I, 20);
@@ -65,13 +65,17 @@ void currentController(MEASUREMENT_TYPE current, MEASUREMENT_TYPE Ireference){
 }
 
 
-void voltageController(MEASUREMENT_TYPE voltage, MEASUREMENT_TYPE Ureference){
+MEASUREMENT_TYPE outputVoltageController(MEASUREMENT_TYPE voltage, MEASUREMENT_TYPE Ureference){
+	_iq14 multiple_1 = 0;
+	_iq14 multiple_2 = 0;
+	_iq14 sum = 0;
+
 	//Calculate error
-	outputVoltVls.Error = voltage - Ureference;
+	outputVoltVls.Error = Ureference - voltage;
 	outputVoltVls.Diff = outputVoltVls.Error - outputVoltVls.oldError;
 
-	multiple_1 = _IQ20mpyIQX(outputVoltVls.Error, 14, outputVoltVls.I, 20);
-	multiple_2 = _IQ20mpyIQX(outputVoltVls.Diff, 14, outputVoltVls.P, 20);
+	multiple_1 = _IQ14mpyIQX(outputVoltVls.Error, 14, outputVoltVls.I, 14);
+	multiple_2 = _IQ14mpyIQX(outputVoltVls.Diff, 14, outputVoltVls.P, 14);
 	sum = multiple_1 + multiple_2;
 
 
@@ -84,14 +88,14 @@ void voltageController(MEASUREMENT_TYPE voltage, MEASUREMENT_TYPE Ureference){
 	if (outputVoltVls.output > outputVoltVls.max_integrator){
 		outputVoltVls.output = outputVoltVls.max_integrator;
 	}
-	if (outputVoltVls.output < outputVoltVls.min_integrator){
-		outputVoltVls.output = outputVoltVls.min_integrator;
-	}
 	/*FESZÜLTSÉG szabályzó VÉGE*/
-	duty = _IQ1mpyIQX(outputVoltVls.output, 20, (long)EPwm1Regs.TBPRD, 0) >> 1;
-	EPwm1Regs.CMPA.half.CMPA = EPwm1Regs.TBPRD - duty;	//set PWM compare register
+	return outputVoltVls.output;
 }
 
+
+batteryVoltageController(MEASUREMENT_TYPE batteryVoltage, MEASUREMENT_TYPE Ureference){
+
+}
 
 Uint16 PWMTest(Uint16 pwm_counter){
 

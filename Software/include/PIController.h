@@ -17,14 +17,14 @@ typedef struct {
 	_iq14 Diff;
 	_iq20 P;
 	_iq20 I;
-	_iq20 max_integrator;
-	_iq20 min_integrator;
-	_iq20 output;
+	_iq14 max_integrator;
+	_iq14 min_integrator;
+	_iq14 output;
 } PI_s;
 
 void initControlValueStructures();
 void currentController(MEASUREMENT_TYPE current, MEASUREMENT_TYPE Ireference);
-void voltageController(MEASUREMENT_TYPE voltage, MEASUREMENT_TYPE Ureference);
+_iq14 outputVoltageController(MEASUREMENT_TYPE voltage, MEASUREMENT_TYPE Ureference);
 Uint16 PWMTest(Uint16 pwm_counter);
 
 #endif /* INCLUDE_PICONTROLLER_H_ */
