@@ -35,12 +35,7 @@ void currentController(MEASUREMENT_TYPE current, MEASUREMENT_TYPE Ireference){
 	_iq20 sum = 0;
 
 	//Calculate error
-//	if (Ireference > 0){
-//		batteryCurVls.Error = Ireference - current;
-//	}
-//	else{
-		batteryCurVls.Error = current - Ireference;
-//	}
+	batteryCurVls.Error = current - Ireference;
 	batteryCurVls.Diff = batteryCurVls.Error - batteryCurVls.oldError;
 
 	multiple_1 = _IQ20mpyIQX(batteryCurVls.Error, 14, batteryCurVls.I, 20);
